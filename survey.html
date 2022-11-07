@@ -5,6 +5,17 @@
 	  <meta charset="utf-8"></meta>
 	  <link rel="stylesheet" href="styles.css" />
   </head>
+
+<button type="button" class="dmode botao" onclick="myFunction()">☼</button>
+
+<script>
+function myFunction() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+   
+}
+</script>
+
   <h1 id="title">Citizen Research Form</h1>
   <body>
     <p class="subtitle" id="description">Would you like to share your thoughts about the city you live? Don't worry, it's not going to take long.</p>
@@ -59,7 +70,7 @@
     </fieldset>
     <p class="subtitle">Thank you very much</p>
    
-    <input type="submit" id="submit" value="Submit"/>
+    <input type="submit" id="submit" class="botao" value="Submit"/>
     </form>
     </body>
     <footer class="subtitle"> 
