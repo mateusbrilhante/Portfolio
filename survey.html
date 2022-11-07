@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Citizen Research Form</title>
+	  <meta charset="utf-8"></meta>
+	  <link rel="stylesheet" href="styles.css" />
+  </head>
+  <h1 id="title">Citizen Research Form</h1>
+  <body>
+    <p class="subtitle" id="description">Would you like to share your thoughts about the city you live? Don't worry, it's not going to take long.</p>
+    <form id="survey-form">
+     
+    <fieldset class="id"><p class="pd1" >Identification</p><img class="idimg" src="https://uploaddeimagens.com.br/images/004/063/369/full/idicon.png?1665977675" alt="identification icon"/>
+    </fieldset>
+
+    <fieldset class="ident">
+    <label id="name-label" for="name" >Enter Your Full Name<input class="pinfo" id="name" type="text" placeholder="Type A if you wish to be anonymous" required /></label>
+    <label id="email-label" for="email">Enter Your Email<input class="pinfo" id="email" type="email" placeholder="a@gmail.com" required /></label>
+    <label id="number-label" for="number">Enter Your Age<input class="pinfo" id="number" type="number" placeholder="Come on.. at least this one" required min="4" max="120" /></label>
+    </fieldset>
+
+<fieldset class="id"><p class="pd1" >Questions</p><img class="questimg" src="https://uploaddeimagens.com.br/images/004/064/036/full/questionsicon.png?1666028903" alt="questions icon"/>
+    </fieldset>
+
+    <fieldset class="ident">
+    <label for="select" id="select"  >How long have you been in your city?
+    <select class="pinfo" id="dropdown">
+     <option value="">(select one)</option>
+     <option value="1">Recently moved</option>
+     <option value="2">For a few months</option>
+    <option value="3">For a few years</options>
+    <option value="4">Most of my life</option>
+    </select>
+  
+    </label>
+    <p class="quest">Do you like it?</p>
+    <label for="yes" ><input value="yes" type="radio" id="yes" name="like"  />Yes</label>
+    <label for="no"><input value="no" type="radio" id="no" name="like" />No</label>
+
+    <p class="quest">Are you sure about that? Memes aside, there is no need to hold back. Feel free!</p>
+    <label for="sure"><input type="checkbox" id="sure" value="imsure" required>Ok, got it.</label>
+
+    <p class="quest">Then.. which aspects of the city (and your life) made you think that way?</p>
+    <label for="beauty"><input type="checkbox" id="beauty" value="beauty" name="beauty"/>Beauty</label>
+    <label for="Environment"><input id="environment" name="environment" value="environment" type="checkbox"/>Environment</label>
+    <label for="size"><input id="size" type="checkbox" name="size" value="size"/>Size</label>
+    <label for="traffic"><input type="checkbox" id="traffic" name="traffic" value="traffic"/>Traffic</label>
+    <label for="features"><input type="checkbox" id="features" name="features" value="features" />Features</label>
+    <label for="safety"><input type="checkbox" id="safety" name="safety" value="safety" />Safety</label>
+    <label for="relationships"><input type="checkbox" id="relationships" name="relationships" value="relationships"/>Relationships</label>
+    </fieldset>
+
+<fieldset class="id"><p class="pd1" >Thougths</p><img class="textimg" src="https://uploaddeimagens.com.br/images/004/064/079/full/texticon.png?1666030123" alt="book icon"/>
+    </fieldset>
+    <fieldset class="ident">
+    <label for="favs">Is there anything else you would like to say? Favorites and dislikes?<textarea id="thoughts" name="thoughts" placeholder="I like the food, I miss locations with open internet, parks.."></textarea></label>
+
+    
+    </fieldset>
+    <p class="subtitle">Thank you very much</p>
+   
+    <input type="submit" id="submit" value="Submit"/>
+    </form>
+    </body>
+    <footer class="subtitle"> 
+      <p>For a better future</p>
+      </footer>
+</html>
