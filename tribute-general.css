@@ -1,0 +1,116 @@
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  background: hsl(0,0%,25%);
+  color: white;
+  font-family: Helvetica;
+  margin: 0;
+}
+
+header {
+  width: 100%;
+  height: 50px;
+  background-color: hsl(0,0%,10%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+}
+
+
+h1 {
+  color: white;
+  width: 100%;
+  font-size: min(5vw, 1.2em);
+  text-align: center;
+  display: flex;
+  margin: auto;
+  font-family: Verdana;
+  padding-left: 10px;
+}
+
+nav {
+  width: 50%;
+  max-width: 300px;
+  height: 50px;
+}
+
+nav > ul {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-inline-start: 0;
+  margin-block: 0;
+  height: 100%;
+}
+
+nav > ul > li {
+  color: white;
+  margin: 0 0.2rem;
+  padding: 0.2rem;
+  display: block;
+  font-size: 
+}
+
+nav > ul > li:hover {
+  color: white;
+  cursor: pointer;
+}
+
+li > a {
+  color: inherit;
+  text-decoration: none;
+}
+
+figcaption > a{
+  color: white;
+  
+
+}
+
+main {
+  padding-top: 50px;
+}
+
+section {
+  width: 80%;
+  margin: 0 auto 10px auto;
+  max-width: 600px;
+}
+
+h2 {
+  border-bottom: 4px solid #dfdfe2;
+  margin-top: 0px;
+  padding-top: 60px;
+  text-align: center;
+}
+
+p {
+  margin-top: 5px;
+  padding-left: 15px;
+  font-size: 20px;
+}
+
+#img-div, #image {
+  display: block;
+  max-width: 100%;
+  text-align: center;
+  margin: auto;
+}
+
+footer {
+  text-align: center;
+  width: 90%;
+  margin: 0 auto 10px auto;
+  max-width: 600px;
+}
+
+footer > p {
+  font-size: 10px;
+}
