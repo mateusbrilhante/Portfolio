@@ -21,7 +21,7 @@ header {
  align-items: center;
  justify-items: space-between;
 overflow: hidden;
-border-bottom: var(--cinza) solid;
+border-bottom: white solid;
 }
 
 nav {
@@ -70,26 +70,29 @@ h1, h2 {
   display: block;
   text-align: center;
   padding-top: 3vh;
+  font-family: Trebuchet MS;
 }
 
 h1 {
   padding-top: 45vh;
     font-size: 9vh;
-  font-family: Trebuchet MS;
 }
+
 .aboutme {
-  font-family: Trebuchet MS;
   font-size: 4vh;
 }
 
-#welcome-section {
-  padding-bottom: 40vh;
-}
 
-#coding-projects {
+
+.titulin {
   padding-top: 15vh;
+  padding-bottom: 10vh;
   font-size: 9vh;
   font-family: Trebuchet MS;
+  
+}
+
+#titulin-codigin {
   color: white;
 }
 
@@ -119,17 +122,42 @@ h1 {
 }
 
 img {
-  padding-top: 10vh;
   height: auto;
 }
+
+.change-page {
+  padding-bottom: 40vh;
+}
+
+
+
+.logo {
+  width: 10vw !important;
+  height: auto !important;
+  border-radius: 0 !important;
+}
+
+.big-logo {
+  width: 4vw !important;
+}
+
 
 @media (max-width: 1024px){
   h1 {
     font-size: 8vw;
   }
-  #coding-projects {
+  .titulin {
     font-size: 5vw;
-    margin-bottom: -10vh;
   }
 
+  .logo {
+    width: 20vw !important;
+    height: auto;
+  }
+
+  .big-logo {
+    width: 6vw !important;
+  }
+
+  
 }
