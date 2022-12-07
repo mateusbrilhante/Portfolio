@@ -92,9 +92,7 @@ h1 {
   
 }
 
-.projects-title {
-  color: white !important;
-}
+
 
 #projects-page {
   background: black;
@@ -141,6 +139,10 @@ img {
   width: 4vw !important;
 }
 
+
+.projects-title {
+  color: white !important;
+}
 
 @media (max-width: 1024px){
   h1 {
