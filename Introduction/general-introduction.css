@@ -93,7 +93,7 @@ h1 {
 }
 
 .projects-title {
-  color: white;
+  color: white !important;
 }
 
 #projects-page {
