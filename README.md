@@ -2,7 +2,7 @@
 
 Greetings!
 
-Welcome to my portifolio repository!
+Welcome to my portfolio repository!
 
 It's a basic HTML/CSS responsive web page. It ain't much but it's honest work.
 
