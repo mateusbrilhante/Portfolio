@@ -154,6 +154,8 @@ img {
 .project-item p {
     margin-top: 10px;
     color: white;
+    font-family: Trebuchet MS;
+    font-size: 125%;
     
   }
 
