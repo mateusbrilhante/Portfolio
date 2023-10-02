@@ -1,14 +1,11 @@
 # Portfolio
-Repository made to show my projects.
 
-Introduction: https://mateusbrilhante.github.io/Portfolio/Introduction.
+Greetings!
 
-System-level Watermark:
+Welcome to my portifolio repository!
 
-Mini Industrial Treadmil connected through Wi-Fi: 
+It's a basic HTML/CSS responsive web page. It ain't much but it's honest work.
 
-Madman Tribute: https://mateusbrilhante.github.io/Portfolio/Tribute.
+The content includes Android Modifications, Electronic Projects, Java APPs and some Responsive Web Pages.
 
-Survey: https://mateusbrilhante.github.io/PVH-CHICS/Pesquisa.
-
-Simple page: https://mateusbrilhante.github.io/PVH-CHICS/Sistemas.
+Curious? Check it out: https://mateusbrilhante.github.io/Portfolio/Introduction.
