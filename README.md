@@ -4,7 +4,7 @@ Greetings!
 
 Welcome to my portfolio repository!
 
-It's a basic HTML/CSS responsive web page. It ain't much but it's honest work.
+It ain't much but it's honest work.
 
 The content includes Android Modifications, Electronic Projects, Java Apps and some Responsive Web Pages.
 
