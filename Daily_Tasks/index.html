@@ -1,8 +1,7 @@
-<!--Base code created through AI for personal use--> 
+<!--Base code created through AI for personal use--> <link rel="stylesheet" href="style.css"/>
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="style.css"/>
     <title>Task Tracker</title>
     <style>
         /* Add some basic CSS for styling */
@@ -20,13 +19,11 @@
     <input type="text" id="new-daily-task" placeholder="Add a new daily task">
     <button onclick="addDailyTask()">Add Daily Task</button>
     <ul id="daily-tasks" class="task-list"></ul>
+
     <h2>Weekly Tasks</h2>
     <input type="text" id="new-weekly-task" placeholder="Add a new weekly task">
     <button onclick="addWeeklyTask()">Add Weekly Task</button>
     <ul id="weekly-tasks" class="task-list"></ul>
-
-    <h2>Permanent Tasks</h2>
-    <ul id="permanent-tasks" class="task-list"></ul>
 
     <script>
         // JavaScript code to handle task tracking
@@ -34,15 +31,13 @@
         const weeklyTasks = document.getElementById('weekly-tasks');
         const newDailyTaskInput = document.getElementById('new-daily-task');
         const newWeeklyTaskInput = document.getElementById('new-weekly-task');
-        const permanentTasks = document.getElementById('permanent-tasks');
 
         // Load tasks from storage (you can use localStorage or a server for this)
-        const savedTasks = JSON.parse(localStorage.getItem('tasks')) || { daily: [], weekly: [], permanent: ["Permanent Task 1", "Permanent Task 2"] };
+        const savedTasks = JSON.parse(localStorage.getItem('tasks')) || { daily: ["Zombi Doragon"], weekly: ["Black Lion Key"], permanent: [] };
 
         function updateTaskList() {
             dailyTasks.innerHTML = savedTasks.daily.map((task, index) => `<li><input type="checkbox" id="daily-${index}">${task}<button onclick="removeTask('daily', ${index})">Remove</button></li>`).join('');
             weeklyTasks.innerHTML = savedTasks.weekly.map((task, index) => `<li><input type="checkbox" id="weekly-${index}">${task}<button onclick="removeTask('weekly', ${index})">Remove</button></li>`).join('');
-            permanentTasks.innerHTML = savedTasks.permanent.map((task, index) => `<li>${task}</li>`).join('');
         }
 
         function addDailyTask() {
