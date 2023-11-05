@@ -26,44 +26,45 @@
     <ul id="weekly-tasks" class="task-list"></ul>
 
     <script>
-        // JavaScript code to handle task tracking
-        const dailyTasks = document.getElementById('daily-tasks');
-        const weeklyTasks = document.getElementById('weekly-tasks');
-        const newDailyTaskInput = document.getElementById('new-daily-task');
-        const newWeeklyTaskInput = document.getElementById('new-weekly-task');
+       // JavaScript code to handle task tracking
+const dailyTasks = document.getElementById('daily-tasks');
+const weeklyTasks = document.getElementById('weekly-tasks');
+const newDailyTaskInput = document.getElementById('new-daily-task');
+const newWeeklyTaskInput = document.getElementById('new-weekly-task');
 
-        // Load tasks from storage (you can use localStorage or a server for this)
-        const savedTasks = JSON.parse(localStorage.getItem('tasks')) || { 
-            daily: ["Zombi Doragon"],
-            weekly: ["Black Lion Key"]
-        };
+// Load tasks from storage (you can use localStorage or a server for this)
+const savedTasks = JSON.parse(localStorage.getItem('tasks')) || { 
+    daily: ["Zombi Doragon"],
+    weekly: ["Black Lion Key"]
+};
 
-        function updateTaskList() {
-            dailyTasks.innerHTML = savedTasks.daily.map((task, index) => `<li><input type="checkbox" id="daily-${index}">${task}<button onclick="removeTask('daily', ${index})">Remove</button></li>`).join('');
-            weeklyTasks.innerHTML = savedTasks.weekly.map((task, index) => `<li><input type="checkbox" id="weekly-${index}">${task}<button onclick="removeTask('weekly', ${index})">Remove</button></li>`).join('');
-        }
+function updateTaskList() {
+    dailyTasks.innerHTML = savedTasks.daily.map((task, index) => `<li><input type="checkbox" id="daily-${index}">${task}<button onclick="removeTask('daily', ${index})">Remove</button></li>`).join('');
+    weeklyTasks.innerHTML = savedTasks.weekly.map((task, index) => `<li><input type="checkbox" id="weekly-${index}">${task}<button onclick="removeTask('weekly', ${index})">Remove</button></li>`).join('');
+}
 
-        function addTask(category) {
-            const taskText = category === 'daily' ? newDailyTaskInput.value : newWeeklyTaskInput.value;
-            if (taskText.trim() !== '') {
-                savedTasks[category].push(taskText);
-                category === 'daily' ? newDailyTaskInput.value = '' : newWeeklyTaskInput.value = '';
-                updateTaskList();
-                saveTasks();
-            }
-        }
-
-        function removeTask(category, index) {
-            savedTasks[category].splice(index, 1);
-            updateTaskList();
-            saveTasks();
-        }
-
-        function saveTasks() {
-            localStorage.setItem('tasks', JSON.stringify(savedTasks));
-        }
-
+function addTask(category) {
+    const taskText = category === 'daily' ? newDailyTaskInput.value : newWeeklyTaskInput.value;
+    if (taskText.trim() !== '') {
+        savedTasks[category].push(taskText);
+        category === 'daily' ? newDailyTaskInput.value = '' : newWeeklyTaskInput.value = '';
         updateTaskList();
+        saveTasks();
+    }
+}
+
+function removeTask(category, index) {
+    savedTasks[category].splice(index, 1);
+    updateTaskList();
+    saveTasks();
+}
+
+function saveTasks() {
+    localStorage.setItem('tasks', JSON.stringify(savedTasks));
+}
+
+updateTaskList();
+
     </script>
 </body>
 </html>
