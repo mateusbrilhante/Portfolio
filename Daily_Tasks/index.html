@@ -36,12 +36,20 @@ const newWeeklyTaskInput = document.getElementById('new-weekly-task');
 const savedTasks = JSON.parse(localStorage.getItem('tasks')) || { 
     daily: [],
     weekly: [],
-    permanent: ["Zombi Doragon"], // Add permanent daily tasks here
+    permanent: [],
 };
+
+// Add permanent daily and weekly tasks
+savedTasks.permanent.push("Zombi Doragon"); // Permanent daily task
+savedTasks.permanent.push("Black Lion Key"); // Permanent weekly task
 
 function updateTaskList() {
     dailyTasks.innerHTML = savedTasks.daily.map((task, index) => `<li><input type="checkbox" id="daily-${index}">${task}<button onclick="removeTask('daily', ${index})">Remove</button></li>`).join('');
     weeklyTasks.innerHTML = savedTasks.weekly.map((task, index) => `<li><input type="checkbox" id="weekly-${index}">${task}<button onclick="removeTask('weekly', ${index})">Remove</button></li>`).join('');
+    savedTasks.permanent.forEach((task, index) => {
+        dailyTasks.innerHTML += `<li>${task} (Permanent Daily)<button onclick="removePermanentTask(${index}, 'daily')">Remove</button></li>`;
+        weeklyTasks.innerHTML += `<li>${task} (Permanent Weekly)<button onclick="removePermanentTask(${index}, 'weekly')">Remove</button></li>`;
+    });
 }
 
 function addTask(category) {
@@ -56,6 +64,12 @@ function addTask(category) {
 
 function removeTask(category, index) {
     savedTasks[category].splice(index, 1);
+    updateTaskList();
+    saveTasks();
+}
+
+function removePermanentTask(index, category) {
+    savedTasks.permanent.splice(index, 1);
     updateTaskList();
     saveTasks();
 }
