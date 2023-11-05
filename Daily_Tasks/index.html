@@ -90,7 +90,28 @@
             localStorage.setItem('tasks', JSON.stringify(savedTasks));
         }
 
+        // Add event listeners to update the checked state when checkboxes are clicked
+        dailyTasks.addEventListener('click', updateCheckedState);
+        weeklyTasks.addEventListener('click', updateCheckedState);
+
+        function updateCheckedState(event) {
+            if (event.target.type === 'checkbox') {
+                const taskId = event.target.id;
+                const category = taskId.split('-')[0];
+                const index = parseInt(taskId.split('-')[1]);
+
+                if (category === 'daily') {
+                    savedTasks.dailyChecked[index] = event.target.checked;
+                } else if (category === 'weekly') {
+                    savedTasks.weeklyChecked[index] = event.target.checked;
+                }
+
+                saveTasks();
+            }
+        }
+
         updateTaskList();
     </script>
 </body>
 </html>
+
