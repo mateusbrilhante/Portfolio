@@ -25,26 +25,23 @@
     <button onclick="addWeeklyTask()">Add Weekly Task</button>
     <ul id="weekly-tasks" class="task-list"></ul>
 
-    <h2>Permanent Tasks</h2>
-    <ul id="permanent-tasks" class="task-list"></ul>
-
     <script>
         // JavaScript code to handle task tracking
         const dailyTasks = document.getElementById('daily-tasks');
         const weeklyTasks = document.getElementById('weekly-tasks');
         const newDailyTaskInput = document.getElementById('new-daily-task');
         const newWeeklyTaskInput = document.getElementById('new-weekly-task');
-        const permanentTasks = document.getElementById('permanent-tasks');
 
-        // Load tasks from storage (you can use localStorage or a server for this)
+        // Load tasks and checked states from storage (you can use localStorage or a server for this)
         let savedTasks = JSON.parse(localStorage.getItem('tasks'));
 
         if (!savedTasks) {
             // If savedTasks is not in local storage, initialize it
             savedTasks = {
-                daily: [],
-                weekly: [],
-                permanent: ["Permanent Task 1", "Permanent Task 2"]
+                daily: ["Zombi Doragon"],
+                weekly: ["Black Lion Chest"],
+                dailyChecked: [],
+                weeklyChecked: []
             };
         }
 
@@ -58,8 +55,6 @@
                 const checked = savedTasks.weeklyChecked[index] ? 'checked' : '';
                 return `<li><input type="checkbox" id="weekly-${index}" ${checked}>${task}<button onclick="removeTask('weekly', ${index})">Remove</button></li>`;
             }).join('');
-
-            permanentTasks.innerHTML = savedTasks.permanent.map((task, index) => `<li>${task}</li>`).join('');
         }
 
         function addDailyTask() {
@@ -96,26 +91,6 @@
         }
 
         updateTaskList();
-
-        // Add event listeners to update the checked state when checkboxes are clicked
-        dailyTasks.addEventListener('click', updateCheckedState);
-        weeklyTasks.addEventListener('click', updateCheckedState);
-
-        function updateCheckedState(event) {
-            if (event.target.type === 'checkbox') {
-                const taskId = event.target.id;
-                const category = taskId.split('-')[0];
-                const index = parseInt(taskId.split('-')[1]);
-
-                if (category === 'daily') {
-                    savedTasks.dailyChecked[index] = event.target.checked;
-                } else if (category === 'weekly') {
-                    savedTasks.weeklyChecked[index] = event.target.checked;
-                }
-
-                saveTasks();
-            }
-        }
     </script>
 </body>
 </html>
