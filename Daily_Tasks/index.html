@@ -17,12 +17,15 @@
     <h1>Task Tracker</h1>
     <h2>Daily Tasks</h2>
     <input type="text" id="new-daily-task" placeholder="Add a new daily task">
-    <button onclick="addTask('daily')">Add Daily Task</button>
+    <button onclick="addDailyTask()">Add Daily Task</button>
     <ul id="daily-tasks" class="task-list"></ul>
     <h2>Weekly Tasks</h2>
     <input type="text" id="new-weekly-task" placeholder="Add a new weekly task">
-    <button onclick="addTask('weekly')">Add Weekly Task</button>
+    <button onclick="addWeeklyTask()">Add Weekly Task</button>
     <ul id="weekly-tasks" class="task-list"></ul>
+
+    <h2>Permanent Tasks</h2>
+    <ul id="permanent-tasks" class="task-list"></ul>
 
     <script>
         // JavaScript code to handle task tracking
@@ -30,28 +33,32 @@
         const weeklyTasks = document.getElementById('weekly-tasks');
         const newDailyTaskInput = document.getElementById('new-daily-task');
         const newWeeklyTaskInput = document.getElementById('new-weekly-task');
+        const permanentTasks = document.getElementById('permanent-tasks');
 
         // Load tasks from storage (you can use localStorage or a server for this)
-        let savedTasks = JSON.parse(localStorage.getItem('tasks'));
-
-        if (!savedTasks) {
-            savedTasks = {
-                daily: ["Zombi Doragon"],
-                weekly: ["Black Lion Key"],
-                permanent: ["Permanent Task 1", "Permanent Task 2"],
-            };
-        }
+        const savedTasks = JSON.parse(localStorage.getItem('tasks')) || { daily: [], weekly: [], permanent: ["Permanent Task 1", "Permanent Task 2"] };
 
         function updateTaskList() {
-            dailyTasks.innerHTML = savedTasks.daily.map((task, index) => `<li><input type="checkbox" id="daily-${index}" ${task.completed ? 'checked' : ''}>${task.text}<button onclick="removeTask('daily', ${index})">Remove</button></li>`).join('');
-            weeklyTasks.innerHTML = savedTasks.weekly.map((task, index) => `<li><input type="checkbox" id="weekly-${index}" ${task.completed ? 'checked' : ''}>${task.text}<button onclick="removeTask('weekly', ${index})">Remove</button></li>`).join('');
+            dailyTasks.innerHTML = savedTasks.daily.map((task, index) => `<li><input type="checkbox" id="daily-${index}">${task}<button onclick="removeTask('daily', ${index})">Remove</button></li>`).join('');
+            weeklyTasks.innerHTML = savedTasks.weekly.map((task, index) => `<li><input type="checkbox" id="weekly-${index}">${task}<button onclick="removeTask('weekly', ${index})">Remove</button></li>`).join('');
+            permanentTasks.innerHTML = savedTasks.permanent.map((task, index) => `<li>${task}</li>`).join('');
         }
 
-        function addTask(category) {
-            const taskText = category === 'daily' ? newDailyTaskInput.value : newWeeklyTaskInput.value;
+        function addDailyTask() {
+            const taskText = newDailyTaskInput.value;
             if (taskText.trim() !== '') {
-                savedTasks[category].push({ text: taskText, completed: false });
-                category === 'daily' ? newDailyTaskInput.value = '' : newWeeklyTaskInput.value = '';
+                savedTasks.daily.push(taskText);
+                newDailyTaskInput.value = '';
+                updateTaskList();
+                saveTasks();
+            }
+        }
+
+        function addWeeklyTask() {
+            const taskText = newWeeklyTaskInput.value;
+            if (taskText.trim() !== '') {
+                savedTasks.weekly.push(taskText);
+                newWeeklyTaskInput.value = '';
                 updateTaskList();
                 saveTasks();
             }
@@ -71,3 +78,4 @@
     </script>
 </body>
 </html>
+
