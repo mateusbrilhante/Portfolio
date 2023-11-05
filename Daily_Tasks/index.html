@@ -35,12 +35,20 @@
         const newWeeklyTaskInput = document.getElementById('new-weekly-task');
         const permanentTasks = document.getElementById('permanent-tasks');
 
-        // Load tasks from storage (you can use localStorage or a server for this)
+        // Load tasks and checked states from storage (you can use localStorage or a server for this)
         const savedTasks = JSON.parse(localStorage.getItem('tasks')) || { daily: [], weekly: [], permanent: ["Permanent Task 1", "Permanent Task 2"] };
 
         function updateTaskList() {
-            dailyTasks.innerHTML = savedTasks.daily.map((task, index) => `<li><input type="checkbox" id="daily-${index}">${task}<button onclick="removeTask('daily', ${index})">Remove</button></li>`).join('');
-            weeklyTasks.innerHTML = savedTasks.weekly.map((task, index) => `<li><input type="checkbox" id="weekly-${index}">${task}<button onclick="removeTask('weekly', ${index})">Remove</button></li>`).join('');
+            dailyTasks.innerHTML = savedTasks.daily.map((task, index) => {
+                const checked = savedTasks.dailyChecked[index] ? 'checked' : '';
+                return `<li><input type="checkbox" id="daily-${index}" ${checked}>${task}<button onclick="removeTask('daily', ${index})">Remove</button></li>`;
+            }).join('');
+
+            weeklyTasks.innerHTML = savedTasks.weekly.map((task, index) => {
+                const checked = savedTasks.weeklyChecked[index] ? 'checked' : '';
+                return `<li><input type="checkbox" id="weekly-${index}" ${checked}>${task}<button onclick="removeTask('weekly', ${index})">Remove</button></li>`;
+            }).join('');
+
             permanentTasks.innerHTML = savedTasks.permanent.map((task, index) => `<li>${task}</li>`).join('');
         }
 
@@ -48,6 +56,7 @@
             const taskText = newDailyTaskInput.value;
             if (taskText.trim() !== '') {
                 savedTasks.daily.push(taskText);
+                savedTasks.dailyChecked.push(false); // Initialize checked state as false
                 newDailyTaskInput.value = '';
                 updateTaskList();
                 saveTasks();
@@ -58,6 +67,7 @@
             const taskText = newWeeklyTaskInput.value;
             if (taskText.trim() !== '') {
                 savedTasks.weekly.push(taskText);
+                savedTasks.weeklyChecked.push(false); // Initialize checked state as false
                 newWeeklyTaskInput.value = '';
                 updateTaskList();
                 saveTasks();
@@ -66,6 +76,7 @@
 
         function removeTask(category, index) {
             savedTasks[category].splice(index, 1);
+            savedTasks[category + 'Checked'].splice(index, 1); // Remove corresponding checked state
             updateTaskList();
             saveTasks();
         }
