@@ -1,0 +1,69 @@
+<!--Base code created through AI for personal use-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Tracker</title>
+    <style>
+        /* Add some basic CSS for styling */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .task-list {
+            list-style-type: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Task Tracker</h1>
+    <h2>Daily Tasks</h2>
+    <ul id="daily-tasks" class="task-list"></ul>
+    <h2>Weekly Tasks</h2>
+    <ul id="weekly-tasks" class="task-list"></ul>
+    <input type="text" id="new-task" placeholder="Add a new task">
+    <button onclick="addTask()">Add Task</button>
+
+    <script>
+        // JavaScript code to handle task tracking
+        const dailyTasks = document.getElementById('daily-tasks');
+        const weeklyTasks = document.getElementById('weekly-tasks');
+        const newTaskInput = document.getElementById('new-task');
+
+        // Load tasks from storage (you can use localStorage or a server for this)
+        const savedTasks = JSON.parse(localStorage.getItem('tasks')) || { daily: [], weekly: [] };
+        const now = new Date();
+        const currentDay = now.getUTCDay(); // 0 (Sunday) to 6 (Saturday)
+
+        // Check and reset tasks for the current day and week
+        if (currentDay === 1 && now.getUTCHours() >= 7) {
+            savedTasks.weekly = [];
+        }
+        if (now.getUTCHours() >= 20) {
+            savedTasks.daily = [];
+        }
+
+        function updateTaskList() {
+            dailyTasks.innerHTML = savedTasks.daily.map(task => `<li>${task}</li>`).join('');
+            weeklyTasks.innerHTML = savedTasks.weekly.map(task => `<li>${task}</li>`).join('');
+        }
+
+        function addTask() {
+            const taskText = newTaskInput.value;
+            if (taskText.trim() !== '') {
+                if (currentDay === 1) {
+                    savedTasks.weekly.push(taskText);
+                }
+                savedTasks.daily.push(taskText);
+                newTaskInput.value = '';
+                updateTaskList();
+                saveTasks();
+            }
+        }
+
+        function saveTasks() {
+            localStorage.setItem('tasks', JSON.stringify(savedTasks));
+        }
+
+        updateTaskList();
+    </script>
+</body>
+</html>
