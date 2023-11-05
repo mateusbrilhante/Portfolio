@@ -34,8 +34,9 @@ const newWeeklyTaskInput = document.getElementById('new-weekly-task');
 
 // Load tasks from storage (you can use localStorage or a server for this)
 const savedTasks = JSON.parse(localStorage.getItem('tasks')) || { 
-    daily: ["Zombi Doragon"],
-    weekly: ["Black Lion Key"]
+    daily: [],
+    weekly: [],
+    permanent: ["Zombi Doragon"], // Add permanent daily tasks here
 };
 
 function updateTaskList() {
@@ -64,6 +65,7 @@ function saveTasks() {
 }
 
 updateTaskList();
+
 
     </script>
 </body>
