@@ -21,7 +21,8 @@
     <h2>Weekly Tasks</h2>
     <ul id="weekly-tasks" class="task-list"></ul>
     <input type="text" id="new-task" placeholder="Add a new task">
-    <button onclick="addTask()">Add Task</button>
+    <button onclick="addDailyTask()">Add Daily Task</button>
+    <button onclick="addWeeklyTask()">Add Weekly Task</button>
 
     <script>
         // JavaScript code to handle task tracking
@@ -43,17 +44,24 @@
         }
 
         function updateTaskList() {
-            dailyTasks.innerHTML = savedTasks.daily.map(task => `<li>${task}</li>`).join('');
-            weeklyTasks.innerHTML = savedTasks.weekly.map(task => `<li>${task}</li>`).join('');
+            dailyTasks.innerHTML = savedTasks.daily.map((task, index) => `<li><input type="checkbox" id="daily-${index}">${task}</li>`).join('');
+            weeklyTasks.innerHTML = savedTasks.weekly.map((task, index) => `<li><input type="checkbox" id="weekly-${index}">${task}</li>`).join('');
         }
 
-        function addTask() {
+        function addDailyTask() {
             const taskText = newTaskInput.value;
             if (taskText.trim() !== '') {
-                if (currentDay === 1) {
-                    savedTasks.weekly.push(taskText);
-                }
                 savedTasks.daily.push(taskText);
+                newTaskInput.value = '';
+                updateTaskList();
+                saveTasks();
+            }
+        }
+
+        function addWeeklyTask() {
+            const taskText = newTaskInput.value;
+            if (taskText.trim() !== '') {
+                savedTasks.weekly.push(taskText);
                 newTaskInput.value = '';
                 updateTaskList();
                 saveTasks();
