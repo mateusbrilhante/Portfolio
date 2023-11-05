@@ -36,7 +36,18 @@
         const permanentTasks = document.getElementById('permanent-tasks');
 
         // Load tasks and checked states from storage (you can use localStorage or a server for this)
-        const savedTasks = JSON.parse(localStorage.getItem('tasks')) || { daily: [], weekly: [], permanent: ["Permanent Task 1", "Permanent Task 2"] };
+        let savedTasks = JSON.parse(localStorage.getItem('tasks'));
+
+        if (!savedTasks) {
+            // If savedTasks is not in local storage, initialize it
+            savedTasks = {
+                daily: [],
+                weekly: [],
+                permanent: ["Permanent Task 1", "Permanent Task 2"],
+                dailyChecked: [],
+                weeklyChecked: []
+            };
+        }
 
         function updateTaskList() {
             dailyTasks.innerHTML = savedTasks.daily.map((task, index) => {
