@@ -33,7 +33,10 @@
         const newWeeklyTaskInput = document.getElementById('new-weekly-task');
 
         // Load tasks from storage (you can use localStorage or a server for this)
-        const savedTasks = JSON.parse(localStorage.getItem('tasks')) || { daily: [], weekly: ["Permanent Task 1", "Permanent Task 2"] };
+        const savedTasks = JSON.parse(localStorage.getItem('tasks')) || { 
+            daily: ["Zombi Doragon"],
+            weekly: ["Black Lion Key"]
+        };
 
         function updateTaskList() {
             dailyTasks.innerHTML = savedTasks.daily.map((task, index) => `<li><input type="checkbox" id="daily-${index}">${task}<button onclick="removeTask('daily', ${index})">Remove</button></li>`).join('');
