@@ -45,6 +45,26 @@
             };
         }
 
+        // Function to reset tasks daily at 20:00 UTC-4 and weekly on Mondays at 07:00 UTC-4
+        function resetTasks() {
+            const now = new Date();
+            const currentDay = now.getUTCDay(); // 0 (Sunday) to 6 (Saturday)
+            const currentHour = now.getUTCHours() - 4; // UTC-4
+
+            if (currentHour === 20) {
+                savedTasks.daily = [];
+                savedTasks.dailyChecked = [];
+            }
+
+            if (currentDay === 1 && currentHour === 7) {
+                savedTasks.weekly = [];
+                savedTasks.weeklyChecked = [];
+            }
+        }
+
+        // Call the resetTasks function when the page loads
+        resetTasks();
+
         function updateTaskList() {
             dailyTasks.innerHTML = savedTasks.daily.map((task, index) => {
                 const checked = savedTasks.dailyChecked[index] ? 'checked' : '';
