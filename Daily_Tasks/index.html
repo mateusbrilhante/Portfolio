@@ -21,7 +21,7 @@
     <button onclick="addDailyTask()">Add Daily Task</button>
     <ul id="daily-tasks" class="task-list"></ul>
     <h2>Weekly Tasks</h2>
-    <input type text" id="new-weekly-task" placeholder="Add a new weekly task">
+    <input type="text" id="new-weekly-task" placeholder="Add a new weekly task">
     <button onclick="addWeeklyTask()">Add Weekly Task</button>
     <ul id="weekly-tasks" class="task-list"></ul>
 
@@ -93,16 +93,18 @@
         function resetTasks() {
             const now = new Date();
             const currentDay = now.getUTCDay(); // 0 (Sunday) to 6 (Saturday)
-            const currentHour = now.getUTCHours() - 4; // UTC-4
+            const currentHourUTCMinus4 = now.getUTCHours() - 4;
 
-            if (currentHour === 20) {
+            // Reset daily tasks at 20:00 UTC-4
+            if (currentHourUTCMinus4 === 20) {
                 savedTasks.daily = [];
                 savedTasks.dailyChecked = [];
                 updateTaskList();
                 saveTasks();
             }
 
-            if (currentDay === 1 && currentHour === 7) {
+            // Reset weekly tasks on Monday at 07:00 UTC-4
+            if (currentDay === 1 && currentHourUTCMinus4 === 7) {
                 savedTasks.weekly = [];
                 savedTasks.weeklyChecked = [];
                 updateTaskList();
@@ -140,3 +142,4 @@
     </script>
 </body>
 </html>
+
