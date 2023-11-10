@@ -92,11 +92,12 @@
 
         function resetTasks() {
             const now = new Date();
-            const currentDay = now.getUTCDay(); // 0 (Sunday) to 6 (Saturday)
-            const currentHourUTCMinus4 = now.getUTCHours() - 4;
+            const options = { timeZone: 'America/New_York', hour12: false };
+            const currentHour = now.toLocaleString('en-US', options).split(',')[1].split(':')[0];
+            const currentDay = now.getDay();
 
             // Reset daily tasks at 20:00 UTC-4
-            if (currentHourUTCMinus4 === 20) {
+            if (currentHour === '20') {
                 savedTasks.daily = [];
                 savedTasks.dailyChecked = [];
                 updateTaskList();
@@ -104,7 +105,7 @@
             }
 
             // Reset weekly tasks on Monday at 07:00 UTC-4
-            if (currentDay === 1 && currentHourUTCMinus4 === 7) {
+            if (currentDay === 1 && currentHour === '07') {
                 savedTasks.weekly = [];
                 savedTasks.weeklyChecked = [];
                 updateTaskList();
@@ -142,4 +143,3 @@
     </script>
 </body>
 </html>
-
