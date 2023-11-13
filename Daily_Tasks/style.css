@@ -1,3 +1,4 @@
+
 @media (prefers-reduced-motion: no-preference) {
   * {
     scroll-behavior: smooth;
@@ -10,4 +11,9 @@
 body {
   background: var(--cinza);
   margin: 0;
+}
+
+body.night-mode {
+  background: black;
+  color: white;
 }
