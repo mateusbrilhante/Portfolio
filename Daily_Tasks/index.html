@@ -300,19 +300,24 @@
         }
 
         function addWeeklyTask(subgroup) {
-            const newTaskInput = getInputElement(subgroup);
-            const newTask = newTaskInput.value.trim();
+    const newTaskInput = getInputElement(subgroup);
+    const newTask = newTaskInput.value.trim();
 
-            if (newTask !== '') {
-                savedTasks.weekly[subgroup].push(newTask);
-                savedTasks.weeklyChecked[subgroup].push(false);
-                updateTaskList();
-                saveTasksToStorage();
-                newTaskInput.value = '';
-            }
-
-            return false; // Prevent the form from submitting
+    if (newTask !== '') {
+        // Check if the subgroup exists in the savedTasks.weekly object
+        if (!savedTasks.weekly.hasOwnProperty(subgroup)) {
+            savedTasks.weekly[subgroup] = [];
+            savedTasks.weeklyChecked[subgroup] = [];
         }
+        savedTasks.weekly[subgroup].push(newTask);
+        savedTasks.weeklyChecked[subgroup].push(false);
+        updateTaskList();
+        saveTasksToStorage();
+        newTaskInput.value = '';
+    }
+
+    return false; // Prevent the form from submitting
+}
 
         function addSingleGoal() {
             const newGoalInput = newSingleGoalInput;
@@ -352,48 +357,38 @@
         }
 
         function resetDailyTasks() {
-            savedTasks.daily = {
-                events: [],
-                flax: [],
-                fractals: [],
-                nodes: [],
-                strikes: []
-            };
-            savedTasks.dailyChecked = {
-                events: [],
-                flax: [],
-                fractals: [],
-                nodes: [],
-                strikes: []
-            };
-            updateTaskList();
-            saveTasksToStorage();
-        }
+    // Reset only the checked states for daily tasks
+    savedTasks.dailyChecked = {
+        events: Array(savedTasks.daily.events.length).fill(false),
+        flax: Array(savedTasks.daily.flax.length).fill(false),
+        fractals: Array(savedTasks.daily.fractals.length).fill(false),
+        nodes: Array(savedTasks.daily.nodes.length).fill(false),
+        strikes: Array(savedTasks.daily.strikes.length).fill(false),
+    };
+    updateTaskList();
+    saveTasksToStorage();
+}
 
-        function resetWeeklyTasks() {
-            savedTasks.weekly = {
-                blackLionChest: [],
-                convergences: [],
-                raids: [],
-                rifts: [],
-                wizardsVault: []
-            };
-            savedTasks.weeklyChecked = {
-                blackLionChest: [],
-                convergences: [],
-                raids: [],
-                rifts: [],
-                wizardsVault: []
-            };
-            updateTaskList();
-            saveTasksToStorage();
-        }
+function resetWeeklyTasks() {
+    // Reset only the checked states for weekly tasks
+    savedTasks.weeklyChecked = {
+        blackLionChest: Array(savedTasks.weekly.blackLionChest.length).fill(false),
+        convergences: Array(savedTasks.weekly.convergences.length).fill(false),
+        raids: Array(savedTasks.weekly.raids.length).fill(false),
+        rifts: Array(savedTasks.weekly.rifts.length).fill(false),
+        wizardsVault: Array(savedTasks.weekly.wizardsVault.length).fill(false),
+    };
+    updateTaskList();
+    saveTasksToStorage();
+}
+
 
         function toggleNightMode() {
-            document.body.classList.toggle('night-mode');
-            const nightModeState = document.body.classList.contains('night-mode');
-            localStorage.setItem('nightModeState', nightModeState);
-        }
+    document.body.classList.toggle('night-mode');
+    const nightModeState = document.body.classList.contains('night-mode');
+    localStorage.setItem('nightModeState', nightModeState);
+}
+
 
         function saveTasksToStorage() {
             localStorage.setItem('tasks', JSON.stringify(savedTasks));
