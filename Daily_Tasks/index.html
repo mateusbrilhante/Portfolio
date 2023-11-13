@@ -8,6 +8,7 @@
         /* Add some basic CSS for styling */
         body {
             font-family: Arial, sans-serif;
+            transition: background 0.5s;
         }
         .task-list {
             list-style-type: none;
@@ -17,6 +18,14 @@
             font-size: 14px;
             color: blue;
             margin-left: 10px;
+        }
+        .night-mode-button {
+            cursor: pointer;
+            font-size: 14px;
+            color: blue;
+            position: fixed;
+            top: 10px;
+            right: 10px;
         }
     </style>
 </head>
@@ -30,6 +39,9 @@
     <input type="text" id="new-weekly-task" placeholder="Add a new weekly task">
     <button onclick="addWeeklyTask()">Add Weekly Task</button>
     <ul id="weekly-tasks" class="task-list"></ul>
+
+    <!-- Night Mode Button -->
+    <div class="night-mode-button" onclick="toggleNightMode()">🌙 Night Mode</div>
 
     <script>
         // JavaScript code to handle task tracking
@@ -108,6 +120,10 @@
             saveTasks();
         }
 
+        function toggleNightMode() {
+            document.body.classList.toggle('night-mode');
+        }
+
         // Add event listeners to update the checked state when checkboxes are clicked
         dailyTasks.addEventListener('click', updateCheckedState);
         weeklyTasks.addEventListener('click', updateCheckedState);
@@ -132,3 +148,4 @@
     </script>
 </body>
 </html>
+
