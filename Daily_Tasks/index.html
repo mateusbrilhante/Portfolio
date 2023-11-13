@@ -50,6 +50,12 @@
         const newDailyTaskInput = document.getElementById('new-daily-task');
         const newWeeklyTaskInput = document.getElementById('new-weekly-task');
 
+        // Load night mode state from local storage
+        const nightModeState = localStorage.getItem('nightModeState');
+        if (nightModeState === 'true') {
+            document.body.classList.add('night-mode');
+        }
+
         // Load tasks and checked states from storage (you can use localStorage or a server for this)
         let savedTasks = JSON.parse(localStorage.getItem('tasks'));
 
@@ -122,6 +128,8 @@
 
         function toggleNightMode() {
             document.body.classList.toggle('night-mode');
+            const isNightModeActive = document.body.classList.contains('night-mode');
+            localStorage.setItem('nightModeState', isNightModeActive);
         }
 
         // Add event listeners to update the checked state when checkboxes are clicked
@@ -148,4 +156,3 @@
     </script>
 </body>
 </html>
-
