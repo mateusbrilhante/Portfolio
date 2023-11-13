@@ -35,8 +35,11 @@
         }
         .task-subgroup {
             display: flex;
-            flex-direction: column; /* Divide subgroups vertically */
             margin-bottom: 10px;
+        }
+        .task-subgroup > div {
+            flex: 1;
+            margin-right: 10px;
         }
     </style>
 </head>
@@ -49,53 +52,55 @@
         
         <!-- Daily Subgroups -->
         <div class="task-subgroup">
-            <h3>Events</h3>
-            <form onsubmit="return addDailyTask('events')">
-                <input type="text" id="new-daily-events" placeholder="Add a new event task">
-                <button type="submit">Add Event</button>
-            </form>
-            <!-- Default tasks for Events subgroup -->
-            <ul id="daily-tasks-events" class="task-list"></ul>
-        </div>
+            <div>
+                <h3>Events</h3>
+                <form onsubmit="return addDailyTask('events')">
+                    <input type="text" id="new-daily-events" placeholder="Add a new event task">
+                    <button type="submit">Add Event</button>
+                </form>
+                <!-- Default tasks for Events subgroup -->
+                <ul id="daily-tasks-events" class="task-list"></ul>
+            </div>
 
-        <div class="task-subgroup">
-            <h3>Flax</h3>
-            <form onsubmit="return addDailyTask('flax')">
-                <input type="text" id="new-daily-flax" placeholder="Add a new flax task">
-                <button type="submit">Add Flax Task</button>
-            </form>
-            <!-- Default tasks for Flax subgroup -->
-            <ul id="daily-tasks-flax" class="task-list"></ul>
-        </div>
+            <div>
+                <h3>Flax</h3>
+                <form onsubmit="return addDailyTask('flax')">
+                    <input type="text" id="new-daily-flax" placeholder="Add a new flax task">
+                    <button type="submit">Add Flax Task</button>
+                </form>
+                <!-- Default tasks for Flax subgroup -->
+                <ul id="daily-tasks-flax" class="task-list"></ul>
+            </div>
 
-        <div class="task-subgroup">
-            <h3>Fractals</h3>
-            <form onsubmit="return addDailyTask('fractals')">
-                <input type="text" id="new-daily-fractals" placeholder="Add a new fractals task">
-                <button type="submit">Add Fractals Task</button>
-            </form>
-            <!-- Default tasks for Fractals subgroup -->
-            <ul id="daily-tasks-fractals" class="task-list"></ul>
-        </div>
+            <div>
+                <h3>Fractals</h3>
+                <form onsubmit="return addDailyTask('fractals')">
+                    <input type="text" id="new-daily-fractals" placeholder="Add a new fractals task">
+                    <button type="submit">Add Fractals Task</button>
+                </form>
+                <!-- Default tasks for Fractals subgroup -->
+                <ul id="daily-tasks-fractals" class="task-list"></ul>
+            </div>
 
-        <div class="task-subgroup">
-            <h3>Nodes</h3>
-            <form onsubmit="return addDailyTask('nodes')">
-                <input type="text" id="new-daily-nodes" placeholder="Add a new nodes task">
-                <button type="submit">Add Nodes Task</button>
-            </form>
-            <!-- Default tasks for Nodes subgroup -->
-            <ul id="daily-tasks-nodes" class="task-list"></ul>
-        </div>
+            <div>
+                <h3>Nodes</h3>
+                <form onsubmit="return addDailyTask('nodes')">
+                    <input type="text" id="new-daily-nodes" placeholder="Add a new nodes task">
+                    <button type="submit">Add Nodes Task</button>
+                </form>
+                <!-- Default tasks for Nodes subgroup -->
+                <ul id="daily-tasks-nodes" class="task-list"></ul>
+            </div>
 
-        <div class="task-subgroup">
-            <h3>Strikes</h3>
-            <form onsubmit="return addDailyTask('strikes')">
-                <input type="text" id="new-daily-strikes" placeholder="Add a new strikes task">
-                <button type="submit">Add Strikes Task</button>
-            </form>
-            <!-- Default tasks for Strikes subgroup -->
-            <ul id="daily-tasks-strikes" class="task-list"></ul>
+            <div>
+                <h3>Strikes</h3>
+                <form onsubmit="return addDailyTask('strikes')">
+                    <input type="text" id="new-daily-strikes" placeholder="Add a new strikes task">
+                    <button type="submit">Add Strikes Task</button>
+                </form>
+                <!-- Default tasks for Strikes subgroup -->
+                <ul id="daily-tasks-strikes" class="task-list"></ul>
+            </div>
         </div>
 
         <!-- Daily Task List -->
@@ -108,53 +113,55 @@
         
         <!-- Weekly Subgroups -->
         <div class="task-subgroup">
-            <h3>Black Lion Chest</h3>
-            <form onsubmit="return addWeeklyTask('black-lion-chest')">
-                <input type="text" id="new-weekly-black-lion-chest" placeholder="Add a new Black Lion Chest task">
-                <button type="submit">Add Black Lion Chest Task</button>
-            </form>
-            <!-- Default tasks for Black Lion Chest subgroup -->
-            <ul id="weekly-tasks-black-lion-chest" class="task-list"></ul>
-        </div>
+            <div>
+                <h3>Black Lion Chest</h3>
+                <form onsubmit="return addWeeklyTask('black-lion-chest')">
+                    <input type="text" id="new-weekly-black-lion-chest" placeholder="Add a new Black Lion Chest task">
+                    <button type="submit">Add Black Lion Chest Task</button>
+                </form>
+                <!-- Default tasks for Black Lion Chest subgroup -->
+                <ul id="weekly-tasks-black-lion-chest" class="task-list"></ul>
+            </div>
 
-        <div class="task-subgroup">
-            <h3>Convergences</h3>
-            <form onsubmit="return addWeeklyTask('convergences')">
-                <input type="text" id="new-weekly-convergences" placeholder="Add a new convergences task">
-                <button type="submit">Add Convergences Task</button>
-            </form>
-            <!-- Default tasks for Convergences subgroup -->
-            <ul id="weekly-tasks-convergences" class="task-list"></ul>
-        </div>
+            <div>
+                <h3>Convergences</h3>
+                <form onsubmit="return addWeeklyTask('convergences')">
+                    <input type="text" id="new-weekly-convergences" placeholder="Add a new convergences task">
+                    <button type="submit">Add Convergences Task</button>
+                </form>
+                <!-- Default tasks for Convergences subgroup -->
+                <ul id="weekly-tasks-convergences" class="task-list"></ul>
+            </div>
 
-        <div class="task-subgroup">
-            <h3>Raids</h3>
-            <form onsubmit="return addWeeklyTask('raids')">
-                <input type="text" id="new-weekly-raids" placeholder="Add a new raids task">
-                <button type="submit">Add Raids Task</button>
-            </form>
-            <!-- Default tasks for Raids subgroup -->
-            <ul id="weekly-tasks-raids" class="task-list"></ul>
-        </div>
+            <div>
+                <h3>Raids</h3>
+                <form onsubmit="return addWeeklyTask('raids')">
+                    <input type="text" id="new-weekly-raids" placeholder="Add a new raids task">
+                    <button type="submit">Add Raids Task</button>
+                </form>
+                <!-- Default tasks for Raids subgroup -->
+                <ul id="weekly-tasks-raids" class="task-list"></ul>
+            </div>
 
-        <div class="task-subgroup">
-            <h3>Rifts</h3>
-            <form onsubmit="return addWeeklyTask('rifts')">
-                <input type="text" id="new-weekly-rifts" placeholder="Add a new rifts task">
-                <button type="submit">Add Rifts Task</button>
-            </form>
-            <!-- Default tasks for Rifts subgroup -->
-            <ul id="weekly-tasks-rifts" class="task-list"></ul>
-        </div>
+            <div>
+                <h3>Rifts</h3>
+                <form onsubmit="return addWeeklyTask('rifts')">
+                    <input type="text" id="new-weekly-rifts" placeholder="Add a new rifts task">
+                    <button type="submit">Add Rifts Task</button>
+                </form>
+                <!-- Default tasks for Rifts subgroup -->
+                <ul id="weekly-tasks-rifts" class="task-list"></ul>
+            </div>
 
-        <div class="task-subgroup">
-            <h3>Wizard's Vault</h3>
-            <form onsubmit="return addWeeklyTask('wizards-vault')">
-                <input type="text" id="new-weekly-wizards-vault" placeholder="Add a new wizard's vault task">
-                <button type="submit">Add Wizard's Vault Task</button>
-            </form>
-            <!-- Default tasks for Wizard's Vault subgroup -->
-            <ul id="weekly-tasks-wizards-vault" class="task-list"></ul>
+            <div>
+                <h3>Wizard's Vault</h3>
+                <form onsubmit="return addWeeklyTask('wizards-vault')">
+                    <input type="text" id="new-weekly-wizards-vault" placeholder="Add a new wizard's vault task">
+                    <button type="submit">Add Wizard's Vault Task</button>
+                </form>
+                <!-- Default tasks for Wizard's Vault subgroup -->
+                <ul id="weekly-tasks-wizards-vault" class="task-list"></ul>
+            </div>
         </div>
 
         <!-- Weekly Task List -->
@@ -256,102 +263,130 @@
             const newTaskInput = inputElement;
 
             taskList.innerHTML = savedTasks[category][subgroup].map((task, index) => {
-                const checked = savedTasks[category + 'Checked'][subgroup][index] ? 'checked' : '';
-                return `<li><input type="checkbox" id="${category}-${subgroup}-${index}" ${checked}>${task}<button onclick="removeTask('${category}', '${subgroup}', ${index})">Remove</button></li>`;
-                        }).join('');
+                              const checked = savedTasks[category + 'Checked'][subgroup][index] ? 'checked' : '';
+                return `
+                    <li>
+                        <input type="checkbox" id="${category}-${subgroup}-${index}" ${checked} onchange="toggleTask('${category}', '${subgroup}', ${index})">
+                        <label for="${category}-${subgroup}-${index}">${task}</label>
+                        <span class="delete-button" onclick="deleteTask('${category}', '${subgroup}', ${index})">❌</span>
+                    </li>`;
+            }).join('');
+        }
+
+        function updateSingleGoals() {
+            const singleGoalsList = document.getElementById('single-goals');
+            singleGoalsList.innerHTML = savedTasks.singleGoals.map((goal, index) => `
+                <li>
+                    <input type="checkbox" id="single-goal-${index}" onchange="toggleSingleGoal(${index})">
+                    <label for="single-goal-${index}">${goal}</label>
+                    <span class="delete-button" onclick="deleteSingleGoal(${index})">❌</span>
+                </li>`
+            ).join('');
         }
 
         function addDailyTask(subgroup) {
-            const taskText = document.getElementById(`new-daily-${subgroup}`).value;
-            if (taskText.trim() !== '') {
-                savedTasks.daily[subgroup].push(taskText);
-                savedTasks.dailyChecked[subgroup].push(false); // Initialize checked state as false
-                document.getElementById(`new-daily-${subgroup}`).value = '';
+            const newTaskInput = getInputElement(subgroup);
+            const newTask = newTaskInput.value.trim();
+
+            if (newTask !== '') {
+                savedTasks.daily[subgroup].push(newTask);
+                savedTasks.dailyChecked[subgroup].push(false);
                 updateTaskList();
-                saveTasks();
+                saveTasksToStorage();
+                newTaskInput.value = '';
             }
-            return false; // Prevent form submission
+
+            return false; // Prevent the form from submitting
         }
 
         function addWeeklyTask(subgroup) {
-            const taskText = document.getElementById(`new-weekly-${subgroup}`).value;
-            if (taskText.trim() !== '') {
-                savedTasks.weekly[subgroup].push(taskText);
-                savedTasks.weeklyChecked[subgroup].push(false); // Initialize checked state as false
-                document.getElementById(`new-weekly-${subgroup}`).value = '';
+            const newTaskInput = getInputElement(subgroup);
+            const newTask = newTaskInput.value.trim();
+
+            if (newTask !== '') {
+                savedTasks.weekly[subgroup].push(newTask);
+                savedTasks.weeklyChecked[subgroup].push(false);
                 updateTaskList();
-                saveTasks();
+                saveTasksToStorage();
+                newTaskInput.value = '';
             }
-            return false; // Prevent form submission
+
+            return false; // Prevent the form from submitting
         }
 
-        function removeTask(category, subgroup, index) {
+        function addSingleGoal() {
+            const newGoalInput = newSingleGoalInput;
+            const newGoal = newGoalInput.value.trim();
+
+            if (newGoal !== '') {
+                savedTasks.singleGoals.push(newGoal);
+                updateTaskList();
+                saveTasksToStorage();
+                newGoalInput.value = '';
+            }
+
+            return false; // Prevent the form from submitting
+        }
+
+        function deleteTask(category, subgroup, index) {
             savedTasks[category][subgroup].splice(index, 1);
             savedTasks[category + 'Checked'][subgroup].splice(index, 1);
             updateTaskList();
-            saveTasks();
+            saveTasksToStorage();
+        }
+
+        function deleteSingleGoal(index) {
+            savedTasks.singleGoals.splice(index, 1);
+            updateTaskList();
+            saveTasksToStorage();
+        }
+
+        function toggleTask(category, subgroup, index) {
+            savedTasks[category + 'Checked'][subgroup][index] = !savedTasks[category + 'Checked'][subgroup][index];
+            saveTasksToStorage();
+        }
+
+        function toggleSingleGoal(index) {
+            savedTasks.singleGoalsChecked[index] = !savedTasks.singleGoalsChecked[index];
+            saveTasksToStorage();
         }
 
         function resetDailyTasks() {
             savedTasks.daily = {
-                events: ["Zombi Doragon", "Naked Man", "Chak Gerent", "Octovine"],
-                flax: ["Revenant", "Guardian", "Warrior", "Ranger", "Engineer", "Mesmer"],
-                fractals: ["Tier 4", "Recs", "CMs"],
-                nodes: ["Guild", "Hidden Garden", "Home"],
-                strikes: ["Cosmic Observatory", "Temple of Febe"]
+                events: [],
+                flax: [],
+                fractals: [],
+                nodes: [],
+                strikes: []
             };
             savedTasks.dailyChecked = {
-                events: [false, false, false, false],
-                flax: [false, false, false, false, false, false],
-                fractals: [false, false, false],
-                nodes: [false, false, false],
-                strikes: [false, false],
+                events: [],
+                flax: [],
+                fractals: [],
+                nodes: [],
+                strikes: []
             };
             updateTaskList();
-            saveTasks();
+            saveTasksToStorage();
         }
 
         function resetWeeklyTasks() {
             savedTasks.weekly = {
-                blackLionChest: ["Key"],
-                convergences: ["Once", "Twice", "Completed"],
-                raids: ["Forsaken Thicket: Spirit Vale", "Forsaken Thicket: Salvation Pass", "Forsaken Thicket: Stronghold of the Faithful", "Bastion of the Penitent", "Hall of Chains", "Mythwright Gambit", "The Key of Ahdashim"],
-                rifts: ["1 Map", "2 Maps", "3 Maps", "4 Maps", "5 Maps", "Completed"],
-                wizardsVault: ["1/6", "2/6", "3/6", "4/6", "5/6", "Completed"]
+                blackLionChest: [],
+                convergences: [],
+                raids: [],
+                rifts: [],
+                wizardsVault: []
             };
             savedTasks.weeklyChecked = {
-                blackLionChest: [false],
-                convergences: [false, false, false],
-                raids: [false, false, false, false, false, false, false],
-                rifts: [false, false, false, false, false, false],
-                wizardsVault: [false, false, false, false, false, false, false]
+                blackLionChest: [],
+                convergences: [],
+                raids: [],
+                rifts: [],
+                wizardsVault: []
             };
             updateTaskList();
-            saveTasks();
-        }
-
-        function addSingleGoal() {
-            const goalText = newSingleGoalInput.value;
-            if (goalText.trim() !== '') {
-                savedTasks.singleGoals.push(goalText);
-                newSingleGoalInput.value = '';
-                updateTaskList();
-                saveTasks();
-            }
-            return false; // Prevent form submission
-        }
-
-        function removeSingleGoal(index) {
-            savedTasks.singleGoals.splice(index, 1);
-            updateTaskList();
-            saveTasks();
-        }
-
-        function updateSingleGoals() {
-            const singleGoalList = document.getElementById('single-goals');
-            singleGoalList.innerHTML = savedTasks.singleGoals.map((goal, index) => {
-                return `<li>${goal}<button onclick="removeSingleGoal(${index})">Remove</button></li>`;
-            }).join('');
+            saveTasksToStorage();
         }
 
         function toggleNightMode() {
@@ -360,11 +395,27 @@
             localStorage.setItem('nightModeState', nightModeState);
         }
 
-        function saveTasks() {
+        function saveTasksToStorage() {
             localStorage.setItem('tasks', JSON.stringify(savedTasks));
         }
 
-        // Initial update of the task list
+        function getInputElement(subgroup) {
+            switch (subgroup) {
+                case 'events': return newDailyEventInput;
+                case 'flax': return newDailyFlaxInput;
+                case 'fractals': return newDailyFractalsInput;
+                case 'nodes': return newDailyNodesInput;
+                case 'strikes': return newDailyStrikesInput;
+                case 'black-lion-chest': return newWeeklyBlackLionChestInput;
+                case 'convergences': return newWeeklyConvergencesInput;
+                case 'raids': return newWeeklyRaidsInput;
+                case 'rifts': return newWeeklyRiftsInput;
+                case 'wizards-vault': return newWeeklyWizardsVaultInput;
+                default: return null;
+            }
+        }
+
+        // Initial update when the page loads
         updateTaskList();
     </script>
 </body>
