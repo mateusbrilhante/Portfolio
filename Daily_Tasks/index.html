@@ -27,18 +27,91 @@
             top: 10px;
             right: 10px;
         }
+        .task-group {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .task-subgroup {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
     <h1>Task Tracker</h1>
-    <h2>Daily Tasks <span class="reset-button" onclick="resetDailyTasks()">⟳</span></h2>
-    <input type="text" id="new-daily-task" placeholder="Add a new daily task">
-    <button onclick="addDailyTask()">Add Daily Task</button>
-    <ul id="daily-tasks" class="task-list"></ul>
-    <h2>Weekly Tasks <span class="reset-button" onclick="resetWeeklyTasks()">⟳</span></h2>
-    <input type="text" id="new-weekly-task" placeholder="Add a new weekly task">
-    <button onclick="addWeeklyTask()">Add Weekly Task</button>
-    <ul id="weekly-tasks" class="task-list"></ul>
+
+    <!-- Daily Tasks -->
+    <div class="task-group">
+        <h2>Daily Tasks <span class="reset-button" onclick="resetDailyTasks()">⟳</span></h2>
+        
+        <!-- Daily Subgroups -->
+        <div class="task-subgroup">
+            <h3>Events</h3>
+            <input type="text" id="new-daily-event" placeholder="Add a new event task">
+            <button onclick="addDailyTask('events')">Add Event</button>
+        </div>
+
+        <div class="task-subgroup">
+            <h3>Flax</h3>
+            <input type="text" id="new-daily-flax" placeholder="Add a new flax task">
+            <button onclick="addDailyTask('flax')">Add Flax Task</button>
+        </div>
+
+        <div class="task-subgroup">
+            <h3>Fractals</h3>
+            <input type="text" id="new-daily-fractals" placeholder="Add a new fractals task">
+            <button onclick="addDailyTask('fractals')">Add Fractals Task</button>
+        </div>
+
+        <div class="task-subgroup">
+            <h3>Nodes</h3>
+            <input type="text" id="new-daily-nodes" placeholder="Add a new nodes task">
+            <button onclick="addDailyTask('nodes')">Add Nodes Task</button>
+        </div>
+
+        <div class="task-subgroup">
+            <h3>Strikes</h3>
+            <input type="text" id="new-daily-strikes" placeholder="Add a new strikes task">
+            <button onclick="addDailyTask('strikes')">Add Strikes Task</button>
+        </div>
+
+        <!-- Daily Task List -->
+        <ul id="daily-tasks" class="task-list"></ul>
+    </div>
+
+    <!-- Weekly Tasks -->
+    <div class="task-group">
+        <h2>Weekly Tasks <span class="reset-button" onclick="resetWeeklyTasks()">⟳</span></h2>
+        
+        <!-- Weekly Subgroups -->
+        <div class="task-subgroup">
+            <h3>Convergences</h3>
+            <input type="text" id="new-weekly-convergences" placeholder="Add a new convergences task">
+            <button onclick="addWeeklyTask('convergences')">Add Convergences Task</button>
+        </div>
+
+        <div class="task-subgroup">
+            <h3>Raids</h3>
+            <input type="text" id="new-weekly-raids" placeholder="Add a new raids task">
+            <button onclick="addWeeklyTask('raids')">Add Raids Task</button>
+        </div>
+
+        <div class="task-subgroup">
+            <h3>Rifts</h3>
+            <input type="text" id="new-weekly-rifts" placeholder="Add a new rifts task">
+            <button onclick="addWeeklyTask('rifts')">Add Rifts Task</button>
+        </div>
+
+        <div class="task-subgroup">
+            <h3>Wizard's Vault</h3>
+            <input type="text" id="new-weekly-wizards-vault" placeholder="Add a new wizard's vault task">
+            <button onclick="addWeeklyTask('wizards-vault')">Add Wizard's Vault Task</button>
+        </div>
+
+        <!-- Weekly Task List -->
+        <ul id="weekly-tasks" class="task-list"></ul>
+    </div>
 
     <!-- Night Mode Button -->
     <div class="night-mode-button" onclick="toggleNightMode()">🌙 Night Mode</div>
@@ -47,8 +120,15 @@
         // JavaScript code to handle task tracking
         const dailyTasks = document.getElementById('daily-tasks');
         const weeklyTasks = document.getElementById('weekly-tasks');
-        const newDailyTaskInput = document.getElementById('new-daily-task');
-        const newWeeklyTaskInput = document.getElementById('new-weekly-task');
+        const newDailyEventInput = document.getElementById('new-daily-event');
+        const newDailyFlaxInput = document.getElementById('new-daily-flax');
+        const newDailyFractalsInput = document.getElementById('new-daily-fractals');
+        const newDailyNodesInput = document.getElementById('new-daily-nodes');
+        const newDailyStrikesInput = document.getElementById('new-daily-strikes');
+        const newWeeklyConvergencesInput = document.getElementById('new-weekly-convergences');
+        const newWeeklyRaidsInput = document.getElementById('new-weekly-raids');
+        const newWeeklyRiftsInput = document.getElementById('new-weekly-rifts');
+        const newWeeklyWizardsVaultInput = document.getElementById('new-weekly-wizards-vault');
 
         // Load night mode state from local storage
         const nightModeState = localStorage.getItem('nightModeState');
@@ -62,50 +142,83 @@
         if (!savedTasks) {
             // If savedTasks is not in local storage, initialize it
             savedTasks = {
-                daily: ["Zombi Doragon", "Naked Man"],
-                weekly: ["Black Lion Chest"],
-                dailyChecked: [false, false],
-                weeklyChecked: [false]
+                daily: {
+                    events: ["Zombi Doragon", "Naked Man", "Chak Gerent", "Octovine"],
+                    flax: ["Revenant", "Guardian", "Warrior", "Ranger", "Engineer", "Mesmer"],
+                    fractals: ["Tier 4", "Recs", "CMs"],
+                    nodes: ["Guild", "Hidden Garden", "Home"],
+                    strikes: ["Cosmic Observatory", "Temple of Febe"]
+                },
+                weekly: {
+                    convergences: ["Once", "Twice", "Completed"],
+                    raids: ["Forsaken Thicket: Spirit Vale", "Forsaken Thicket: Salvation Pass", "Forsaken Thicket: Stronghold of the Faithful", "Bastion of the Penitent", "Hall of Chains", "Mythwright Gambit", "The Key of Ahdashim"],
+                    rifts: ["1 Map", "2 Maps", "3 Maps", "4 Maps", "5 Maps", "Completed"],
+                    wizardsVault: ["1/6", "2/6", "3/6", "4/6", "5/6", "Completed"]
+                },
+                dailyChecked: {
+                    events: [false, false, false, false],
+                    flax: [false, false, false, false, false, false],
+                    fractals: [false, false, false],
+                    nodes: [false, false, false],
+                    strikes: [false, false],
+                },
+                weeklyChecked: {
+                    convergences: [false, false, false],
+                    raids: [false, false, false, false, false, false, false],
+                    rifts: [false, false, false, false, false, false],
+                    wizardsVault: [false, false, false, false, false, false, false]
+                }
             };
         }
 
         function updateTaskList() {
-            dailyTasks.innerHTML = savedTasks.daily.map((task, index) => {
-                const checked = savedTasks.dailyChecked[index] ? 'checked' : '';
-                return `<li><input type="checkbox" id="daily-${index}" ${checked}>${task}<button onclick="removeTask('daily', ${index})">Remove</button></li>`;
-            }).join('');
+            updateTaskGroup('daily', 'events', newDailyEventInput, 'daily-tasks-events');
+            updateTaskGroup('daily', 'flax', newDailyFlaxInput, 'daily-tasks-flax');
+            updateTaskGroup('daily', 'fractals', newDailyFractalsInput, 'daily-tasks-fractals');
+            updateTaskGroup('daily', 'nodes', newDailyNodesInput, 'daily-tasks-nodes');
+            updateTaskGroup('daily', 'strikes', newDailyStrikesInput, 'daily-tasks-strikes');
 
-            weeklyTasks.innerHTML = savedTasks.weekly.map((task, index) => {
-                const checked = savedTasks.weeklyChecked[index] ? 'checked' : '';
-                return `<li><input type="checkbox" id="weekly-${index}" ${checked}>${task}<button onclick="removeTask('weekly', ${index})">Remove</button></li>`;
+            updateTaskGroup('weekly', 'convergences', newWeeklyConvergencesInput, 'weekly-tasks-convergences');
+            updateTaskGroup('weekly', 'raids', newWeeklyRaidsInput, 'weekly-tasks-raids');
+            updateTaskGroup('weekly', 'rifts', newWeeklyRiftsInput, 'weekly-tasks-rifts');
+            updateTaskGroup('weekly', 'wizardsVault', newWeeklyWizardsVaultInput, 'weekly-tasks-wizards-vault');
+        }
+
+        function updateTaskGroup(category, subgroup, inputElement, taskListId) {
+            const taskList = document.getElementById(taskListId);
+            const newTaskInput = inputElement;
+
+            taskList.innerHTML = savedTasks[category][subgroup].map((task, index) => {
+                const checked = savedTasks[category + 'Checked'][subgroup][index] ? 'checked' : '';
+                return `<li><input type="checkbox" id="${category}-${subgroup}-${index}" ${checked}>${task}<button onclick="removeTask('${category}', '${subgroup}', ${index})">Remove</button></li>`;
             }).join('');
         }
 
-        function addDailyTask() {
-            const taskText = newDailyTaskInput.value;
+        function addDailyTask(subgroup) {
+            const taskText = newDailyEventInput.value;
             if (taskText.trim() !== '') {
-                savedTasks.daily.push(taskText);
-                savedTasks.dailyChecked.push(false); // Initialize checked state as false
-                newDailyTaskInput.value = '';
+                savedTasks.daily[subgroup].push(taskText);
+                savedTasks.dailyChecked[subgroup].push(false); // Initialize checked state as false
+                newDailyEventInput.value = '';
                 updateTaskList();
                 saveTasks();
             }
         }
 
-        function addWeeklyTask() {
-            const taskText = newWeeklyTaskInput.value;
+        function addWeeklyTask(subgroup) {
+            const taskText = newWeeklyConvergencesInput.value;
             if (taskText.trim() !== '') {
-                savedTasks.weekly.push(taskText);
-                savedTasks.weeklyChecked.push(false); // Initialize checked state as false
-                newWeeklyTaskInput.value = '';
+                savedTasks.weekly[subgroup].push(taskText);
+                savedTasks.weeklyChecked[subgroup].push(false); // Initialize checked state as false
+                newWeeklyConvergencesInput.value = '';
                 updateTaskList();
                 saveTasks();
             }
         }
 
-        function removeTask(category, index) {
-            savedTasks[category].splice(index, 1);
-            savedTasks[category + 'Checked'].splice(index, 1); // Remove corresponding checked state
+        function removeTask(category, subgroup, index) {
+            savedTasks[category][subgroup].splice(index, 1);
+            savedTasks[category + 'Checked'][subgroup].splice(index, 1); // Remove corresponding checked state
             updateTaskList();
             saveTasks();
         }
@@ -115,13 +228,22 @@
         }
 
         function resetDailyTasks() {
-            savedTasks.dailyChecked = savedTasks.daily.map(() => false); // Reset all daily task checkboxes
-            updateTaskList();
-            saveTasks();
+            resetTaskGroup('daily', 'events');
+            resetTaskGroup('daily', 'flax');
+            resetTaskGroup('daily', 'fractals');
+            resetTaskGroup('daily', 'nodes');
+            resetTaskGroup('daily', 'strikes');
         }
 
         function resetWeeklyTasks() {
-            savedTasks.weeklyChecked = savedTasks.weekly.map(() => false); // Reset all weekly task checkboxes
+            resetTaskGroup('weekly', 'convergences');
+            resetTaskGroup('weekly', 'raids');
+            resetTaskGroup('weekly', 'rifts');
+            resetTaskGroup('weekly', 'wizardsVault');
+        }
+
+        function resetTaskGroup(category, subgroup) {
+            savedTasks[category + 'Checked'][subgroup] = savedTasks[category][subgroup].map(() => false); // Reset all task checkboxes in the subgroup
             updateTaskList();
             saveTasks();
         }
@@ -139,16 +261,12 @@
         function updateCheckedState(event) {
             if (event.target.type === 'checkbox') {
                 const taskId = event.target.id;
-                const category = taskId.split('-')[0];
-                const index = parseInt(taskId.split('-')[1]);
+                const [category, subgroup, index] = taskId.split('-');
 
-                if (category === 'daily') {
-                    savedTasks.dailyChecked[index] = event.target.checked;
-                } else if (category === 'weekly') {
-                    savedTasks.weeklyChecked[index] = event.target.checked;
+                if (category === 'daily' || category === 'weekly') {
+                    savedTasks[category + 'Checked'][subgroup][index] = event.target.checked;
+                    saveTasks();
                 }
-
-                saveTasks();
             }
         }
 
