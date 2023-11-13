@@ -62,10 +62,10 @@
         if (!savedTasks) {
             // If savedTasks is not in local storage, initialize it
             savedTasks = {
-                daily: ["Zombi Doragon"],
+                daily: ["Zombi Doragon", "Naked Man"],
                 weekly: ["Black Lion Chest"],
-                dailyChecked: [],
-                weeklyChecked: []
+                dailyChecked: [false, false],
+                weeklyChecked: [false]
             };
         }
 
