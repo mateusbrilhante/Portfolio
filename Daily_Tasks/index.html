@@ -33,7 +33,7 @@
         }
         .task-subgroup {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column; /* Divide subgroups vertically */
             margin-bottom: 10px;
         }
     </style>
@@ -50,30 +50,40 @@
             <h3>Events</h3>
             <input type="text" id="new-daily-event" placeholder="Add a new event task">
             <button onclick="addDailyTask('events')">Add Event</button>
+            <!-- Default tasks for Events subgroup -->
+            <ul id="daily-tasks-events" class="task-list"></ul>
         </div>
 
         <div class="task-subgroup">
             <h3>Flax</h3>
             <input type="text" id="new-daily-flax" placeholder="Add a new flax task">
             <button onclick="addDailyTask('flax')">Add Flax Task</button>
+            <!-- Default tasks for Flax subgroup -->
+            <ul id="daily-tasks-flax" class="task-list"></ul>
         </div>
 
         <div class="task-subgroup">
             <h3>Fractals</h3>
             <input type="text" id="new-daily-fractals" placeholder="Add a new fractals task">
             <button onclick="addDailyTask('fractals')">Add Fractals Task</button>
+            <!-- Default tasks for Fractals subgroup -->
+            <ul id="daily-tasks-fractals" class="task-list"></ul>
         </div>
 
         <div class="task-subgroup">
             <h3>Nodes</h3>
             <input type="text" id="new-daily-nodes" placeholder="Add a new nodes task">
             <button onclick="addDailyTask('nodes')">Add Nodes Task</button>
+            <!-- Default tasks for Nodes subgroup -->
+            <ul id="daily-tasks-nodes" class="task-list"></ul>
         </div>
 
         <div class="task-subgroup">
             <h3>Strikes</h3>
             <input type="text" id="new-daily-strikes" placeholder="Add a new strikes task">
             <button onclick="addDailyTask('strikes')">Add Strikes Task</button>
+            <!-- Default tasks for Strikes subgroup -->
+            <ul id="daily-tasks-strikes" class="task-list"></ul>
         </div>
 
         <!-- Daily Task List -->
@@ -86,31 +96,58 @@
         
         <!-- Weekly Subgroups -->
         <div class="task-subgroup">
+            <h3>Black Lion Chest</h3>
+            <input type="text" id="new-weekly-black-lion-chest" placeholder="Add a new Black Lion Chest task">
+            <button onclick="addWeeklyTask('black-lion-chest')">Add Black Lion Chest Task</button>
+            <!-- Default tasks for Black Lion Chest subgroup -->
+            <ul id="weekly-tasks-black-lion-chest" class="task-list"></ul>
+        </div>
+
+        <div class="task-subgroup">
             <h3>Convergences</h3>
             <input type="text" id="new-weekly-convergences" placeholder="Add a new convergences task">
             <button onclick="addWeeklyTask('convergences')">Add Convergences Task</button>
+            <!-- Default tasks for Convergences subgroup -->
+            <ul id="weekly-tasks-convergences" class="task-list"></ul>
         </div>
 
         <div class="task-subgroup">
             <h3>Raids</h3>
             <input type="text" id="new-weekly-raids" placeholder="Add a new raids task">
             <button onclick="addWeeklyTask('raids')">Add Raids Task</button>
+            <!-- Default tasks for Raids subgroup -->
+            <ul id="weekly-tasks-raids" class="task-list"></ul>
         </div>
 
         <div class="task-subgroup">
             <h3>Rifts</h3>
             <input type="text" id="new-weekly-rifts" placeholder="Add a new rifts task">
             <button onclick="addWeeklyTask('rifts')">Add Rifts Task</button>
+            <!-- Default tasks for Rifts subgroup -->
+            <ul id="weekly-tasks-rifts" class="task-list"></ul>
         </div>
 
         <div class="task-subgroup">
             <h3>Wizard's Vault</h3>
             <input type="text" id="new-weekly-wizards-vault" placeholder="Add a new wizard's vault task">
             <button onclick="addWeeklyTask('wizards-vault')">Add Wizard's Vault Task</button>
+            <!-- Default tasks for Wizard's Vault subgroup -->
+            <ul id="weekly-tasks-wizards-vault" class="task-list"></ul>
         </div>
 
         <!-- Weekly Task List -->
         <ul id="weekly-tasks" class="task-list"></ul>
+    </div>
+
+    <!-- Single Goals -->
+    <div class="task-group">
+        <h2>Single Goals</h2>
+        <div class="task-subgroup">
+            <input type="text" id="new-single-goal" placeholder="Add a new single goal">
+            <button onclick="addSingleGoal()">Add Goal</button>
+            <!-- Custom tasks for Single Goals -->
+            <ul id="single-goals" class="task-list"></ul>
+        </div>
     </div>
 
     <!-- Night Mode Button -->
@@ -125,10 +162,12 @@
         const newDailyFractalsInput = document.getElementById('new-daily-fractals');
         const newDailyNodesInput = document.getElementById('new-daily-nodes');
         const newDailyStrikesInput = document.getElementById('new-daily-strikes');
+        const newWeeklyBlackLionChestInput = document.getElementById('new-weekly-black-lion-chest');
         const newWeeklyConvergencesInput = document.getElementById('new-weekly-convergences');
         const newWeeklyRaidsInput = document.getElementById('new-weekly-raids');
         const newWeeklyRiftsInput = document.getElementById('new-weekly-rifts');
         const newWeeklyWizardsVaultInput = document.getElementById('new-weekly-wizards-vault');
+        const newSingleGoalInput = document.getElementById('new-single-goal');
 
         // Load night mode state from local storage
         const nightModeState = localStorage.getItem('nightModeState');
@@ -150,11 +189,13 @@
                     strikes: ["Cosmic Observatory", "Temple of Febe"]
                 },
                 weekly: {
+                    blackLionChest: ["Key"],
                     convergences: ["Once", "Twice", "Completed"],
                     raids: ["Forsaken Thicket: Spirit Vale", "Forsaken Thicket: Salvation Pass", "Forsaken Thicket: Stronghold of the Faithful", "Bastion of the Penitent", "Hall of Chains", "Mythwright Gambit", "The Key of Ahdashim"],
                     rifts: ["1 Map", "2 Maps", "3 Maps", "4 Maps", "5 Maps", "Completed"],
                     wizardsVault: ["1/6", "2/6", "3/6", "4/6", "5/6", "Completed"]
                 },
+                singleGoals: [],
                 dailyChecked: {
                     events: [false, false, false, false],
                     flax: [false, false, false, false, false, false],
@@ -163,6 +204,7 @@
                     strikes: [false, false],
                 },
                 weeklyChecked: {
+                    blackLionChest: [false],
                     convergences: [false, false, false],
                     raids: [false, false, false, false, false, false, false],
                     rifts: [false, false, false, false, false, false],
@@ -178,10 +220,13 @@
             updateTaskGroup('daily', 'nodes', newDailyNodesInput, 'daily-tasks-nodes');
             updateTaskGroup('daily', 'strikes', newDailyStrikesInput, 'daily-tasks-strikes');
 
+            updateTaskGroup('weekly', 'blackLionChest', newWeeklyBlackLionChestInput, 'weekly-tasks-black-lion-chest');
             updateTaskGroup('weekly', 'convergences', newWeeklyConvergencesInput, 'weekly-tasks-convergences');
             updateTaskGroup('weekly', 'raids', newWeeklyRaidsInput, 'weekly-tasks-raids');
             updateTaskGroup('weekly', 'rifts', newWeeklyRiftsInput, 'weekly-tasks-rifts');
             updateTaskGroup('weekly', 'wizardsVault', newWeeklyWizardsVaultInput, 'weekly-tasks-wizards-vault');
+
+            updateSingleGoals();
         }
 
         function updateTaskGroup(category, subgroup, inputElement, taskListId) {
@@ -236,6 +281,7 @@
         }
 
         function resetWeeklyTasks() {
+            resetTaskGroup('weekly', 'blackLionChest');
             resetTaskGroup('weekly', 'convergences');
             resetTaskGroup('weekly', 'raids');
             resetTaskGroup('weekly', 'rifts');
@@ -243,34 +289,43 @@
         }
 
         function resetTaskGroup(category, subgroup) {
-            savedTasks[category + 'Checked'][subgroup] = savedTasks[category][subgroup].map(() => false); // Reset all task checkboxes in the subgroup
+            // Reset tasks to default
+            savedTasks[category][subgroup] = getDefaultTasks(category, subgroup);
+            // Reset checked states
+            savedTasks[category + 'Checked'][subgroup] = Array(savedTasks[category][subgroup].length).fill(false);
+            updateTaskList();
+            saveTasks();
+        }
+
+        function addSingleGoal() {
+            const goalText = newSingleGoalInput.value;
+            if (goalText.trim() !== '') {
+                savedTasks.singleGoals.push(goalText);
+                newSingleGoalInput.value = '';
+                updateTaskList();
+                saveTasks();
+            }
+        }
+
+        function updateSingleGoals() {
+            const singleGoalsList = document.getElementById('single-goals');
+            singleGoalsList.innerHTML = savedTasks.singleGoals.map((goal, index) => {
+                return `<li>${goal}<button onclick="removeSingleGoal(${index})">Remove</button></li>`;
+            }).join('');
+        }
+
+        function removeSingleGoal(index) {
+            savedTasks.singleGoals.splice(index, 1);
             updateTaskList();
             saveTasks();
         }
 
         function toggleNightMode() {
             document.body.classList.toggle('night-mode');
-            const isNightModeActive = document.body.classList.contains('night-mode');
-            localStorage.setItem('nightModeState', isNightModeActive);
+            // Save night mode state to local storage
+            const nightModeState = document.body.classList.contains('night-mode');
+            localStorage.setItem('nightModeState', nightModeState);
         }
-
-        // Add event listeners to update the checked state when checkboxes are clicked
-        dailyTasks.addEventListener('click', updateCheckedState);
-        weeklyTasks.addEventListener('click', updateCheckedState);
-
-        function updateCheckedState(event) {
-            if (event.target.type === 'checkbox') {
-                const taskId = event.target.id;
-                const [category, subgroup, index] = taskId.split('-');
-
-                if (category === 'daily' || category === 'weekly') {
-                    savedTasks[category + 'Checked'][subgroup][index] = event.target.checked;
-                    saveTasks();
-                }
-            }
-        }
-
-        updateTaskList();
     </script>
 </body>
 </html>
