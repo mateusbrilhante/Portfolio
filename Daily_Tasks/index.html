@@ -72,7 +72,7 @@
             <div>
                 <h3>Events</h3>
                 <form onsubmit="return addDailyTask('events')">
-                    <input type="text" id="new-daily-events" placeholder="Add a new event task">
+                    <input type="text" id="new-daily-events" placeholder="Add things">
                     <button type="submit">Add Event</button>
                 </form>
                 <!-- Default tasks for Events subgroup -->
@@ -82,7 +82,7 @@
             <div>
                 <h3>Flax</h3>
                 <form onsubmit="return addDailyTask('flax')">
-                    <input type="text" id="new-daily-flax" placeholder="Add a new flax task">
+                    <input type="text" id="new-daily-flax" placeholder="Add overtime workers">
                     <button type="submit">Add Flax Task</button>
                 </form>
                 <!-- Default tasks for Flax subgroup -->
@@ -92,7 +92,7 @@
             <div>
                 <h3>Fractals</h3>
                 <form onsubmit="return addDailyTask('fractals')">
-                    <input type="text" id="new-daily-fractals" placeholder="Add a new fractals task">
+                    <input type="text" id="new-daily-fractals" placeholder="Add fraggles">
                     <button type="submit">Add Fractals Task</button>
                 </form>
                 <!-- Default tasks for Fractals subgroup -->
@@ -100,10 +100,10 @@
             </div>
 
             <div>
-                <h3>Nodes</h3>
+                <h3>Nodes and Stuff</h3>
                 <form onsubmit="return addDailyTask('nodes')">
-                    <input type="text" id="new-daily-nodes" placeholder="Add a new nodes task">
-                    <button type="submit">Add Nodes Task</button>
+                    <input type="text" id="new-daily-nodes" placeholder="Add stuff">
+                    <button type="submit">Add Stuff Task</button>
                 </form>
                 <!-- Default tasks for Nodes subgroup -->
                 <ul id="daily-tasks-nodes" class="task-list"></ul>
@@ -112,7 +112,7 @@
             <div>
                 <h3>Strikes</h3>
                 <form onsubmit="return addDailyTask('strikes')">
-                    <input type="text" id="new-daily-strikes" placeholder="Add a new strikes task">
+                    <input type="text" id="new-daily-strikes" placeholder="Add add">
                     <button type="submit">Add Strikes Task</button>
                 </form>
                 <!-- Default tasks for Strikes subgroup -->
@@ -133,7 +133,7 @@
             <div>
                 <h3>Black Lion Chest</h3>
                 <form onsubmit="return addWeeklyTask('black-lion-chest')">
-                    <input type="text" id="new-weekly-black-lion-chest" placeholder="Add a new Black Lion Chest task">
+                    <input type="text" id="new-weekly-black-lion-chest" placeholder="Add hmm">
                     <button type="submit">Add Black Lion Chest Task</button>
                 </form>
                 <!-- Default tasks for Black Lion Chest subgroup -->
@@ -143,7 +143,7 @@
             <div>
                 <h3>Convergences</h3>
                 <form onsubmit="return addWeeklyTask('convergences')">
-                    <input type="text" id="new-weekly-convergences" placeholder="Add a new convergences task">
+                    <input type="text" id="new-weekly-convergences" placeholder="Add twoo">
                     <button type="submit">Add Convergences Task</button>
                 </form>
                 <!-- Default tasks for Convergences subgroup -->
@@ -153,7 +153,7 @@
             <div>
                 <h3>Raids</h3>
                 <form onsubmit="return addWeeklyTask('raids')">
-                    <input type="text" id="new-weekly-raids" placeholder="Add a new raids task">
+                    <input type="text" id="new-weekly-raids" placeholder="Add pain">
                     <button type="submit">Add Raids Task</button>
                 </form>
                 <!-- Default tasks for Raids subgroup -->
@@ -163,7 +163,7 @@
             <div>
                 <h3>Rifts</h3>
                 <form onsubmit="return addWeeklyTask('rifts')">
-                    <input type="text" id="new-weekly-rifts" placeholder="Add a new rifts task">
+                    <input type="text" id="new-weekly-rifts" placeholder="Add three">
                     <button type="submit">Add Rifts Task</button>
                 </form>
                 <!-- Default tasks for Rifts subgroup -->
@@ -173,7 +173,7 @@
             <div>
                 <h3>Wizard's Vault</h3>
                 <form onsubmit="return addWeeklyTask('wizards-vault')">
-                    <input type="text" id="new-weekly-wizards-vault" placeholder="Add a new wizard's vault task">
+                    <input type="text" id="new-weekly-wizards-vault" placeholder="Add magic">
                     <button type="submit">Add Wizard's Vault Task</button>
                 </form>
                 <!-- Default tasks for Wizard's Vault subgroup -->
@@ -190,7 +190,7 @@
         <h2>Single Goals</h2>
         <div class="task-subgroup">
             <form onsubmit="return addSingleGoal()">
-                <input type="text" id="new-single-goal" placeholder="Add a new single goal">
+                <input type="text" id="new-single-goal" placeholder="Add that Kudzu III you never did">
                 <button type="submit">Add Goal</button>
             </form>
             <!-- Custom tasks for Single Goals -->
@@ -232,7 +232,7 @@
                 events: ["Zombi Doragon", "Naked Man", "Chak Gerent", "Octovine"],
                 flax: ["Revenant", "Guardian", "Warrior", "Ranger", "Engineer", "Mesmer"],
                 fractals: ["Tier 4", "Recs", "CMs"],
-                nodes: ["Guild", "Home", "Hidden Garden"],
+                nodes: ["Guild", "Home", "Wizard's Daily", "Prov. Tokens", "Hidden Garden"],
                 strikes: ["Cosmic Observatory", "Temple of Febe"]
             },
             weekly: {
@@ -247,7 +247,7 @@
                 events: [false, false, false, false],
                 flax: [false, false, false, false, false, false],
                 fractals: [false, false, false],
-                nodes: [false, false, false],
+                nodes: [false, false, false, false, false],
                 strikes: [false, false],
             },
             weeklyChecked: {
