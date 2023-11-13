@@ -1,12 +1,64 @@
-<!--Base code created through AI for personal use -->
-<link rel="stylesheet" href="style.css"/>
+<!--Base code created through AI for personal use <link rel="stylesheet" href="style.css"/> -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Tracker</title>
-    
+    <style>
+            @media (prefers-reduced-motion: no-preference) {
+        * {
+            scroll-behavior: smooth;
+        }
+    }
+
+    :root {
+        --cinza: linear-gradient(90deg, rgb(120, 120, 120, 0.2), rgb(120, 120, 120, 0.4), rgb(120, 120, 120, 0.6), rgb(120, 120, 120, 0.8))
+    }
+
+    body {
+        background: var(--cinza);
+        margin: 0;
+        font-family: Arial, sans-serif;
+        transition: background 0.5s;
+    }
+
+    body.night-mode {
+        background: black;
+        color: white;
+    }
+
+    .task-list {
+            list-style-type: none;
+        }
+    .reset-button {
+            cursor: pointer;
+            font-size: 14px;
+            color: blue;
+            margin-left: 10px;
+        }
+    .night-mode-button {
+            cursor: pointer;
+            font-size: 14px;
+            color: blue;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+        }
+    .task-group {
+            width: 100%;
+            box-sizing: border-box;
+        }
+    .task-subgroup {
+            display: flex;
+            margin-bottom: 10px;
+        }
+    .task-subgroup > div {
+            flex: 1;
+            margin-right: 10px;
+        }
+    </style>
 </head>
 <body>
     <h1>Task Tracker</h1>
