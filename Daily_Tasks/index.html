@@ -97,15 +97,13 @@
         }
 
         function resetDailyTasks() {
-            savedTasks.daily = [];
-            savedTasks.dailyChecked = [];
+            savedTasks.dailyChecked = savedTasks.daily.map(() => false); // Reset all daily task checkboxes
             updateTaskList();
             saveTasks();
         }
 
         function resetWeeklyTasks() {
-            savedTasks.weekly = [];
-            savedTasks.weeklyChecked = [];
+            savedTasks.weeklyChecked = savedTasks.weekly.map(() => false); // Reset all weekly task checkboxes
             updateTaskList();
             saveTasks();
         }
