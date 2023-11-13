@@ -17,3 +17,10 @@
         background: black;
         color: white;
     }
+
+.task-subgroup {
+    display: flex;
+    flex-direction: row; /* Change to "column" */
+    margin-bottom: 10px;
+}
+
