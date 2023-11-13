@@ -12,15 +12,21 @@
         .task-list {
             list-style-type: none;
         }
+        .reset-button {
+            cursor: pointer;
+            font-size: 14px;
+            color: blue;
+            margin-left: 10px;
+        }
     </style>
 </head>
 <body>
     <h1>Task Tracker</h1>
-    <h2>Daily Tasks</h2>
+    <h2>Daily Tasks <span class="reset-button" onclick="resetDailyTasks()">⟳</span></h2>
     <input type="text" id="new-daily-task" placeholder="Add a new daily task">
     <button onclick="addDailyTask()">Add Daily Task</button>
     <ul id="daily-tasks" class="task-list"></ul>
-    <h2>Weekly Tasks</h2>
+    <h2>Weekly Tasks <span class="reset-button" onclick="resetWeeklyTasks()">⟳</span></h2>
     <input type="text" id="new-weekly-task" placeholder="Add a new weekly task">
     <button onclick="addWeeklyTask()">Add Weekly Task</button>
     <ul id="weekly-tasks" class="task-list"></ul>
@@ -90,34 +96,19 @@
             localStorage.setItem('tasks', JSON.stringify(savedTasks));
         }
 
-        function resetTasks() {
-            const now = new Date();
-            const options = { timeZone: 'America/New_York', hour12: false };
-            const currentHour = now.toLocaleString('en-US', options).split(',')[1].split(':')[0];
-            const currentDay = now.getDay();
-
-            // Reset daily tasks at 20:00 UTC-4
-            if (currentHour === '20') {
-                savedTasks.daily = [];
-                savedTasks.dailyChecked = [];
-                updateTaskList();
-                saveTasks();
-            }
-
-            // Reset weekly tasks on Monday at 07:00 UTC-4
-            if (currentDay === 1 && currentHour === '07') {
-                savedTasks.weekly = [];
-                savedTasks.weeklyChecked = [];
-                updateTaskList();
-                saveTasks();
-            }
+        function resetDailyTasks() {
+            savedTasks.daily = [];
+            savedTasks.dailyChecked = [];
+            updateTaskList();
+            saveTasks();
         }
 
-        // Call the resetTasks function when the page loads
-        resetTasks();
-
-        // Set up a timer to check and reset tasks at the specified intervals
-        setInterval(resetTasks, 1000 * 60); // Check every minute
+        function resetWeeklyTasks() {
+            savedTasks.weekly = [];
+            savedTasks.weeklyChecked = [];
+            updateTaskList();
+            saveTasks();
+        }
 
         // Add event listeners to update the checked state when checkboxes are clicked
         dailyTasks.addEventListener('click', updateCheckedState);
