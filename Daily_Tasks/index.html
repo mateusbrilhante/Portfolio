@@ -69,6 +69,17 @@
         
         <!-- Daily Subgroups -->
         <div class="task-subgroup">
+
+            <div>
+                <h3>Core Stuff</h3>
+                <form onsubmit="return addDailyTask('nodes')">
+                    <input type="text" id="new-daily-nodes" placeholder="Add stuff">
+                    <button type="submit">+</button>
+                </form>
+                <!-- Default tasks for Nodes subgroup -->
+                <ul id="daily-tasks-nodes" class="task-list"></ul>
+            </div>
+            
             <div>
                 <h3>Events</h3>
                 <form onsubmit="return addDailyTask('events')">
@@ -80,6 +91,17 @@
             </div>
 
             <div>
+                <h3>Fractals</h3>
+                <form onsubmit="return addDailyTask('fractals')">
+                    <input type="text" id="new-daily-fractals" placeholder="Add fraggles">
+                    <button type="submit">+</button>
+                </form>
+                <!-- Default tasks for Fractals subgroup -->
+                <ul id="daily-tasks-fractals" class="task-list"></ul>
+            </div>
+            
+            
+            <div>
                 <h3>Flax</h3>
                 <form onsubmit="return addDailyTask('flax')">
                     <input type="text" id="new-daily-flax" placeholder="Add overtime workers">
@@ -89,25 +111,7 @@
                 <ul id="daily-tasks-flax" class="task-list"></ul>
             </div>
 
-            <div>
-                <h3>Fractals</h3>
-                <form onsubmit="return addDailyTask('fractals')">
-                    <input type="text" id="new-daily-fractals" placeholder="Add fraggles">
-                    <button type="submit">+</button>
-                </form>
-                <!-- Default tasks for Fractals subgroup -->
-                <ul id="daily-tasks-fractals" class="task-list"></ul>
-            </div>
-
-            <div>
-                <h3>Nodes and Stuff</h3>
-                <form onsubmit="return addDailyTask('nodes')">
-                    <input type="text" id="new-daily-nodes" placeholder="Add stuff">
-                    <button type="submit">+</button>
-                </form>
-                <!-- Default tasks for Nodes subgroup -->
-                <ul id="daily-tasks-nodes" class="task-list"></ul>
-            </div>
+            
 
             <div>
                 <h3>Strikes</h3>
@@ -131,7 +135,7 @@
         <!-- Weekly Subgroups -->
         <div class="task-subgroup">
             <div>
-                <h3>Core</h3>
+                <h3>Also Core Stuff</h3>
                 <form onsubmit="return addWeeklyTask('black-lion-chest')">
                     <input type="text" id="new-weekly-black-lion-chest" placeholder="Add hmm">
                     <button type="submit">+</button>
