@@ -131,7 +131,7 @@
         <!-- Weekly Subgroups -->
         <div class="task-subgroup">
             <div>
-                <h3>Black Lion Chest</h3>
+                <h3>Core</h3>
                 <form onsubmit="return addWeeklyTask('black-lion-chest')">
                     <input type="text" id="new-weekly-black-lion-chest" placeholder="Add hmm">
                     <button type="submit">+</button>
@@ -171,7 +171,7 @@
             </div>
 
             <div>
-                <h3>Wizard's Vault</h3>
+                <h3>Strikes</h3>
                 <form onsubmit="return addWeeklyTask('wizards-vault')">
                     <input type="text" id="new-weekly-wizards-vault" placeholder="Add magic">
                     <button type="submit">+</button>
@@ -236,11 +236,11 @@
                 strikes: ["Cosmic Observatory", "Temple of Febe"]
             },
             weekly: {
-                blackLionChest: ["Key"],
+                blackLionChest: ["Key", "Wizard's Vault"],
                 convergences: ["Once", "Twice", "Completed"],
                 raids: ["Spirit Vale", "Salvation Pass", "Stronghold of the Faithful", "Bastion of the Penitent", "Hall of Chains", "Mythwright Gambit", "The Key of Ahdashim"],
                 rifts: ["1 Map", "2 Maps", "3 Maps", "4 Maps", "5 Maps", "Completed"],
-                wizardsVault: ["1/6", "2/6", "3/6", "4/6", "5/6", "Completed"]
+                wizardsVault: ["SotO", "EoD"]
             },
             singleGoals: [],
             dailyChecked: {
@@ -251,11 +251,11 @@
                 strikes: [false, false],
             },
             weeklyChecked: {
-                blackLionChest: [false],
+                blackLionChest: [false, false],
                 convergences: [false, false, false],
                 raids: [false, false, false, false, false, false, false],
                 rifts: [false, false, false, false, false, false],
-                wizardsVault: [false, false, false, false, false, false, false]
+                wizardsVault: [false, false]
             }
         };
 
