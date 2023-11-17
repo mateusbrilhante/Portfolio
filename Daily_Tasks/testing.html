@@ -19,14 +19,10 @@
 
     body {
         background: var(--cinza);
-        
+        margin: 0;
         font-family: Arial, sans-serif;
         transition: background 0.5s;
-        
-        justify-content: center;
-        display: flex;
-        flex-direction: column;
-        
+        padding: 20px;
     }
 
     body.night-mode {
@@ -36,7 +32,6 @@
 
     .task-list {
             list-style-type: none;
-            margin-bottom: 5px;
         }
     .reset-button {
             cursor: pointer;
@@ -44,7 +39,14 @@
             color: blue;
             margin-left: 10px;
         }
-    
+    .night-mode-button {
+            cursor: pointer;
+            font-size: 14px;
+            color: blue;
+            position: fixed;
+            top: 10px;
+            right: 10px;
+        }
     .task-group {
             width: 100%;
             box-sizing: border-box;
@@ -56,73 +58,10 @@
     .task-subgroup > div {
             flex: 1;
             margin-right: 10px;
-/* last changes*/
-         max-width: 800px; /* Adjust the maximum width as needed */
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
         }
-/* last changes*/
-   
-
-/* Header Styling */
-h1, h2 {
-    color: #333;
-    margin-bottom: 10px;
-}
-        h1, h2, h3 {
-            padding: 20px;
-         /*   box-sizing: border-box;*/
-        }
-
-/* Button Styling */
-button {
-    padding: 8px 12px;
-    background-color: #4CAF50;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
-
-/* Form Input Styling */
-form input[type="text"], form button {
-    padding: 8px;
-    margin-right: 5px;
-}
-
-
-
-/* Night Mode Button Styling */
-.night-mode-button {
-    cursor: pointer;
-    position: fixed;
-    font-size: 14px;
-    color: #fff;
-    background-color: #333;
-    padding: 8px;
-    border-radius: 5px;
-    top: 10px;
-            right: 10px;
-}
-
-        .container {
-    max-width: 800px; /* Adjust the maximum width as needed */
-    width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-    text-align: center; /* Center text within the container */
-}
-
-/* Responsive Design */
-@media screen and (max-width: 600px) {
-    /* Adjust styles for smaller screens */
-}
-
     </style>
 </head>
 <body>
-    <div class="container">
-        
     <h1>Task Tracker</h1>
 
     <!-- Daily Tasks -->
@@ -496,6 +435,5 @@ function resetWeeklyTasks() {
         // Initial update when the page loads
         updateTaskList();
     </script>
-    </div>
 </body>
 </html>
