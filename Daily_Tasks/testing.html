@@ -107,7 +107,13 @@ form input[type="text"], form button {
             right: 10px;
 }
 
-        
+        .container {
+    max-width: 800px; /* Adjust the maximum width as needed */
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center; /* Center text within the container */
+}
 
 /* Responsive Design */
 @media screen and (max-width: 600px) {
@@ -117,6 +123,8 @@ form input[type="text"], form button {
     </style>
 </head>
 <body>
+    <div class="container">
+        
     <h1>Task Tracker</h1>
 
     <!-- Daily Tasks -->
@@ -490,5 +498,6 @@ function resetWeeklyTasks() {
         // Initial update when the page loads
         updateTaskList();
     </script>
+    </div>
 </body>
 </html>
