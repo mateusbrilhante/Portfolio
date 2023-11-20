@@ -99,6 +99,11 @@
             flex: 1;
             margin-right: 10px;
         }
+
+    #single-goals-subgroup{
+        padding: 0;
+    }
+        
     </style>
 </head>
 <body>
@@ -233,7 +238,7 @@
     <!-- Single Goals -->
     <div class="task-group">
         <h2>Single Goals</h2>
-        <div class="task-subgroup">
+        <div id="single-goals-subgroup" class="task-subgroup">
             <form onsubmit="return addSingleGoal()">
                 <input type="text" id="new-single-goal" placeholder="Add that Kudzu III you never did">
                 <button type="submit">+</button>
