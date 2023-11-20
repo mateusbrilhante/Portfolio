@@ -65,15 +65,12 @@
             color: black;
             margin-left: 10px;
         }
-    /*.delete-button {
+    .delete-button {
         cursor: pointer;
-        }*/
+        color: gray;
+        }
 
-        .delete-button::before {
-    content: '\2718'; /* Unicode character for "heavy ballot x" */
-    cursor: pointer;
-    color: gray;
-}
+        
 
         
 
@@ -333,7 +330,7 @@
                     <li>
                         <input type="checkbox" id="${category}-${subgroup}-${index}" ${checked} onchange="toggleTask('${category}', '${subgroup}', ${index})">
                         <label for="${category}-${subgroup}-${index}">${task}</label>
-                        <span class="delete-button" onclick="deleteTask('${category}', '${subgroup}', ${index})">❌</span>
+                        <span class="delete-button" onclick="deleteTask('${category}', '${subgroup}', ${index})">✘</span>
                     </li>`;
             }).join('');
         }
@@ -344,7 +341,7 @@
                 <li>
                     <input type="checkbox" id="single-goal-${index}" onchange="toggleSingleGoal(${index})">
                     <label for="single-goal-${index}">${goal}</label>
-                    <span class="delete-button" onclick="deleteSingleGoal(${index})">❌</span>
+                    <span class="delete-button" onclick="deleteSingleGoal(${index})">✘</span>
                 </li>`
             ).join('');
         }
