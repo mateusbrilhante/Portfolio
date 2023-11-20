@@ -70,10 +70,6 @@
         color: gray;
         }
 
-        
-
-        
-
     .task-list {
             list-style-type: none;
             padding: 0;
@@ -99,10 +95,6 @@
             flex: 1;
             margin-right: 10px;
         }
-
-    #single-goals-subgroup{
-        padding: 0;
-    }
         
     </style>
 </head>
@@ -235,18 +227,21 @@
         <ul id="weekly-tasks" class="task-list"></ul>
     </div>
 
-    <!-- Single Goals -->
+        <!-- Single Goals -->
     <div class="task-group">
         <h2>Single Goals</h2>
-        <div id="single-goals-subgroup" class="task-subgroup">
-            <form onsubmit="return addSingleGoal()">
-                <input type="text" id="new-single-goal" placeholder="Add that Kudzu III you never did">
-                <button type="submit">+</button>
-            </form>
-            <!-- Custom tasks for Single Goals -->
-            <ul id="single-goals" class="task-list"></ul>
+        <div class="task-subgroup">
+            <div>
+                <form onsubmit="return addSingleGoal()">
+                    <input type="text" id="new-single-goal" placeholder="Add that Kudzu III you never did">
+                    <button type="submit">+</button>
+                </form>
+                <!-- Custom tasks for Single Goals -->
+                <ul id="single-goals" class="task-list"></ul>
+            </div>
         </div>
     </div>
+    
 
     <!-- Night Mode Button -->
     <div class="night-mode-button" onclick="toggleNightMode()">
