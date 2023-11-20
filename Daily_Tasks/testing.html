@@ -374,19 +374,21 @@
     return false; // Prevent the form from submitting
 }
 
-        function addSingleGoal() {
-            const newGoalInput = newSingleGoalInput;
-            const newGoal = newGoalInput.value.trim();
+       function addSingleGoal() {
+    const newGoalInput = newSingleGoalInput;
+    const newGoal = newGoalInput.value.trim();
 
-            if (newGoal !== '') {
-                savedTasks.singleGoals.push(newGoal);
-                updateTaskList();
-                saveTasksToStorage();
-                newGoalInput.value = '';
-            }
+    if (newGoal !== '') {
+        savedTasks.singleGoals.push(newGoal);
+        savedTasks.singleGoalsChecked.push(false);  // Add this line to initialize the checked state
+        updateTaskList();
+        saveTasksToStorage();
+        newGoalInput.value = '';
+    }
 
-            return false; // Prevent the form from submitting
-        }
+    return false; // Prevent the form from submitting
+}
+
 
         function deleteTask(category, subgroup, index) {
             savedTasks[category][subgroup].splice(index, 1);
