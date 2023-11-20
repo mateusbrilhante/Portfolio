@@ -244,7 +244,9 @@
     </div>
 
     <!-- Night Mode Button -->
-    <div class="night-mode-button" onclick="toggleNightMode()">🌙</div>
+    <div class="night-mode-button" onclick="toggleNightMode()">
+        <span id="night-mode-icon">☀️</span>
+    </div>
 
     <script>
         // JavaScript code to handle task tracking
@@ -449,6 +451,10 @@ function resetWeeklyTasks() {
     document.body.classList.toggle('night-mode');
     const nightModeState = document.body.classList.contains('night-mode');
     localStorage.setItem('nightModeState', nightModeState);
+            
+    const nightModeIcon = document.getElementById('night-mode-icon');
+    nightModeIcon.innerText = nightModeState ? '🌙' : '☀️';
+            
 }
 
 
