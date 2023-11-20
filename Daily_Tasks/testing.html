@@ -99,9 +99,33 @@
             flex: 1;
             margin-right: 10px;
         }
-        .task-subgroup ul {
+        .task-subgroup form {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.task-subgroup form input {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.task-subgroup form button {
+    cursor: pointer;
+}
+
+.task-subgroup ul {
     list-style-type: none;
     padding: 0;
+}
+
+.task-subgroup li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.task-subgroup li input {
+    margin-right: 5px;
 }
 
     #single-goals-subgroup{
@@ -240,17 +264,18 @@
     </div>
 
     <!-- Single Goals -->
-    <div class="task-group">
-        <h2>Single Goals</h2>
-        <div id="single-goals-subgroup" class="task-subgroup">
-            <form onsubmit="return addSingleGoal()">
-                <input type="text" id="new-single-goal" placeholder="Add that Kudzu III you never did">
-                <button type="submit">+</button>
-            </form>
-            <!-- Custom tasks for Single Goals -->
-            <ul id="single-goals" class="task-list"></ul>
-        </div>
+<div class="task-group">
+    <h2>Single Goals</h2>
+    <div class="task-subgroup">
+        <form onsubmit="return addSingleGoal()">
+            <input type="text" id="new-single-goal" placeholder="Add that Kudzu III you never did">
+            <button type="submit">+</button>
+        </form>
+        <!-- Custom tasks for Single Goals -->
+        <ul id="single-goals" class="task-list"></ul>
     </div>
+</div>
+
 
     <!-- Night Mode Button -->
     <div class="night-mode-button" onclick="toggleNightMode()">
