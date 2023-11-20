@@ -448,16 +448,30 @@ function resetWeeklyTasks() {
 
 
         function toggleNightMode() {
-    document.body.classList.toggle('night-mode');
-    const nightModeState = document.body.classList.contains('night-mode');
-    localStorage.setItem('nightModeState', nightModeState);
+            document.body.classList.toggle('night-mode');
+            const nightModeState = document.body.classList.contains('night-mode');
+            localStorage.setItem('nightModeState', nightModeState);
             
-    const nightModeIcon = document.getElementById('night-mode-icon');
-    nightModeIcon.innerText = nightModeState ? '🌙' : '☀️';
+            const nightModeIcon = document.getElementById('night-mode-icon');
+            nightModeIcon.innerText = nightModeState ? '🌙' : '☀️';
             
 }
+        // Initial update when the page loads
+        updateNightModeIcon(); // Add this line
 
+        function updateNightModeIcon() {
+            const nightModeState = localStorage.getItem('nightModeState') === 'true';
+            const nightModeIcon = document.getElementById('night-mode-icon');
+            nightModeIcon.innerText = nightModeState ? '🌙' : '☀️';
 
+            if (nightModeState) {
+                document.body.classList.add('night-mode');
+            }
+    }
+
+        // Call the function to update the night mode icon when the page loads
+        window.addEventListener('load', updateNightModeIcon);
+        
         function saveTasksToStorage() {
             localStorage.setItem('tasks', JSON.stringify(savedTasks));
         }
