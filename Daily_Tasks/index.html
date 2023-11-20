@@ -67,9 +67,14 @@
         }
     .delete-button {
         cursor: pointer;
-        color: gray;
-    }
-        
+        }
+
+        /* Adjust specificity */
+ul.task-list .delete-button {
+    cursor: pointer;
+    color: gray;
+}
+
     .task-list {
             list-style-type: none;
             padding: 0;
