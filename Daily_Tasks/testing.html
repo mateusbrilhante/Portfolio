@@ -331,12 +331,13 @@
             const singleGoalsList = document.getElementById('single-goals');
             singleGoalsList.innerHTML = savedTasks.singleGoals.map((goal, index) => `
                 <li>
-                    <input type="checkbox" id="single-goal-${index}" onchange="toggleSingleGoal(${index})">
+                    <input type="checkbox" id="single-goal-${index}" ${savedTasks.singleGoalsChecked[index] ? 'checked' : ''} onchange="toggleSingleGoal(${index})">
                     <label for="single-goal-${index}">${goal}</label>
-                    <span class="delete-button" onclick="deleteSingleGoal(${index})">❌</span>
+                    <span class="delete-button" onclick="deleteSingleGoal(${index})">✘</span>
                 </li>`
             ).join('');
         }
+
 
         function addDailyTask(subgroup) {
             const newTaskInput = getInputElement(subgroup);
