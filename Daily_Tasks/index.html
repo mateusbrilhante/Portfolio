@@ -65,15 +65,17 @@
             color: black;
             margin-left: 10px;
         }
-    .delete-button {
+    /*.delete-button {
         cursor: pointer;
-        }
+        }*/
 
-        /* Adjust specificity */
-ul.task-list .delete-button {
+        .delete-button::before {
+    content: '\2718'; /* Unicode character for "heavy ballot x" */
     cursor: pointer;
     color: gray;
 }
+
+        
 
     .task-list {
             list-style-type: none;
