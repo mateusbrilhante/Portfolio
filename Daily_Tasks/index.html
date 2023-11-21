@@ -7,23 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Tracker</title>
     <style>
-            @media (prefers-reduced-motion: no-preference) {
-        * {
+        @media (prefers-reduced-motion: no-preference) {
+            * {
             scroll-behavior: smooth;
+            }
         }
-    }
+    
+        :root {
+            --cinza: linear-gradient(90deg, rgb(120, 120, 120, 0.2), rgb(120, 120, 120, 0.4), rgb(120, 120, 120, 0.6), rgb(120, 120, 120, 0.8))
+        }
 
-    :root {
-        --cinza: linear-gradient(90deg, rgb(120, 120, 120, 0.2), rgb(120, 120, 120, 0.4), rgb(120, 120, 120, 0.6), rgb(120, 120, 120, 0.8))
-    }
-
-    body {
-        background: var(--cinza);
-        margin: 0;
-        font-family: Arial, sans-serif;
-        transition: background 0.5s;
-        padding: 2vw 4vw 2vw 4vw;
-    }
+        body {
+            background: var(--cinza);
+            margin: 0;
+            font-family: Arial, sans-serif;
+            transition: background 0.5s;
+            padding: 2vw 4vw 2vw 4vw;
+        }
 
         h1 {
             text-align: center;
@@ -34,40 +34,46 @@
             cursor: pointer;
         }
         
-    body.night-mode {
-        background: black;
-        color: white;
-    }
-
-     body.night-mode input {
-        background: #333;
-        color: white;
-        border: 1px solid #555;
+        body.night-mode {
+            background: black;
+            color: white;
         }
 
-      body.night-mode button {
-        background: #333;
-        color: white;
-        border: 2px solid #555;
-    }   
+         body.night-mode input {
+            background: #333;
+            color: white;
+            border: 1px solid #555;
+        }
+
+        body.night-mode button {
+            background: #333;
+            color: white;
+            border: 2px solid #555;
+        }   
 
         body.night-mode .night-mode-button {
             color: white;
         }
       
-      body.night-mode .reset-button {
-        color: white;
-      }
+        body.night-mode .reset-button {
+            color: white;
+        }
 
-    .reset-button {
+        /* Adjust the size of checkboxes for night mode */
+        body.night-mode input[type="checkbox"] {
+            width: 20px; /* Set the width of the checkbox for night mode */
+            height: 20px; /* Set the height of the checkbox for night mode */
+        }
+
+        .reset-button {
             cursor: pointer;
             font-size: 14px;
             color: black;
             margin-left: 10px;
         }
-    .delete-button {
-        cursor: pointer;
-        color: gray;
+        .delete-button {
+            cursor: pointer;
+            color: gray;
         }
 
     .task-list {
@@ -95,6 +101,16 @@
             flex: 1;
             margin-right: 10px;
         }
+
+                /* Add the following CSS to increase the size of checkboxes */
+        
+        input[type="checkbox"] {
+            width: 20px; /* Set the width of the checkbox */
+            height: 20px; /* Set the height of the checkbox */
+        }
+        
+        
+
         
     </style>
 </head>
