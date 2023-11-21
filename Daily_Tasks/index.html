@@ -76,31 +76,31 @@
             color: gray;
         }
 
-    .task-list {
-            list-style-type: none;
-            padding: 0;
-        }
-    
-    .night-mode-button {
-            cursor: pointer;
-            font-size: 14px;
-            color: black;
-            position: fixed;
-            top: 10px;
-            right: 10px;
-        }
-    .task-group {
-            width: 100%;
-            box-sizing: border-box;
-        }
-    .task-subgroup {
-            display: flex;
-            margin-bottom: 10px;
-        }
-    .task-subgroup > div {
-            flex: 1;
-            margin-right: 10px;
-        }
+        .task-list {
+                list-style-type: none;
+                padding: 0;
+            }
+        
+        .night-mode-button {
+                cursor: pointer;
+                font-size: 14px;
+                color: black;
+                position: fixed;
+                top: 10px;
+                right: 10px;
+            }
+        .task-group {
+                width: 100%;
+                box-sizing: border-box;
+            }
+        .task-subgroup {
+                display: flex;
+                margin-bottom: 10px;
+            }
+        .task-subgroup > div {
+                flex: 1;
+                margin-right: 10px;
+            }
 
                 /* Add the following CSS to increase the size of checkboxes */
         
@@ -109,7 +109,21 @@
             height: 20px; /* Set the height of the checkbox */
         }
         
+        /* Existing styles... */
+
+        .task-list li {
+            margin-bottom: 5px;
+            display: flex; /* Add this line to make li items flex containers */
+        }
         
+        li label {
+            display: flex; /* Add this line to make label a flex container */
+            align-items: center; /* Add this line to vertically center items in the label */
+        }
+        
+        /* Existing styles... */
+
+
 
         
     </style>
