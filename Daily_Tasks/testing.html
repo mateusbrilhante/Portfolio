@@ -481,8 +481,9 @@ function resetWeeklyTasks() {
 }
 
         function editTaskName(category, subgroup, index) {
-        const taskList = document.getElementById(`${category}-${subgroup}-${index}`);
-        const taskLabel = taskList.querySelector('label');
+        const taskList = document.getElementById(`${category}-${subgroup}`);
+        const taskLabel = taskList.querySelectorAll('label')[index];
+
 
         // Create an input field and set its value to the current task name
         const inputField = document.createElement('input');
