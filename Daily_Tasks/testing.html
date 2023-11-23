@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="TT-icon.png"/>
     <title>Task Tracker</title>
     <style>
         @media (prefers-reduced-motion: no-preference) {
@@ -23,7 +24,6 @@
             font-family: Arial, sans-serif;
             transition: background 0.5s;
             padding: 2vw 4vw 2vw 4vw;
-            font-size: 16px
         }
 
         h1 {
@@ -64,23 +64,7 @@
         body.night-mode input[type="checkbox"] {
             width: 20px; /* Set the width of the checkbox for night mode */
             height: 20px; /* Set the height of the checkbox for night mode */
-            background: #333; /* Dark gray background for checkboxes in night mode */
-            color: white;
-            border: 1px solid #555;
         }
-
-        
-        
-        body.night-mode .task-list li input[type="checkbox"] {
-            background: #333;
-            border: 1px solid #555;
-        }
-        
-        body.night-mode #single-goals li input[type="checkbox"] {
-            background: #333;
-            border: 1px solid #555;
-        }
-
 
         .reset-button {
             cursor: pointer;
@@ -140,7 +124,10 @@
         
         /* Existing styles... */
 
-
+        input[type="text"].edit-task-name {
+            width: 80%;
+            margin-right: 5px;
+        }
 
         
     </style>
@@ -323,7 +310,7 @@
         // Initialize default tasks if not present
         savedTasks = savedTasks || {
             daily: {
-                events: ["Zombi Doragon", "Naked Man", "Chak Gerent", "Octovine", "Convergence", "Wyvern M.", "Unlock Wizard T.", "D. Amnytas", "Heitor Nayos"],
+                events: ["Zombi Doragon", "Naked Man", "Chak Gerent", "Octovine", "Convergence", "Wyvern M.", "Unlock Wizard T.", "D. Amnytas", "Heitor Nayos", "Dragonstorm"],
                 flax: ["Revenant", "Guardian", "Warrior", "Ranger", "Engineer", "Mesmer"],
                 fractals: ["Deeply D. Keys", "Tier 4", "Recs", "CMs"],
                 nodes: ["Guild", "Home", "Charged Quartz", "Wizard's Daily", "Prov. Tokens", "Ecto. Refinement", "Converters", "Hidden Garden"],
@@ -338,7 +325,7 @@
             },
             singleGoals: [],
             dailyChecked: {
-                events: [false, false, false, false, false, false, false, false, false],
+                events: [false, false, false, false, false, false, false, false, false, false],
                 flax: [false, false, false, false, false, false],
                 fractals: [false, false, false, false],
                 nodes: [false, false, false, false, false, false, false, false],
@@ -493,6 +480,40 @@ function resetWeeklyTasks() {
     saveTasksToStorage();
 }
 
+        function editTaskName(category, subgroup, index) {
+        const taskList = document.getElementById(`${category}-${subgroup}-${index}`);
+        const taskLabel = taskList.querySelector('label');
+
+        // Create an input field and set its value to the current task name
+        const inputField = document.createElement('input');
+        inputField.type = 'text';
+        inputField.value = taskLabel.innerText;
+        inputField.className = 'edit-task-name';
+
+        // Replace the label with the input field
+        taskLabel.replaceWith(inputField);
+
+        // Focus on the input field
+        inputField.focus();
+
+        // Add event listener to handle changes in the input field
+        inputField.addEventListener('blur', () => {
+            // Update the task name in the data
+            savedTasks[category][subgroup][index] = inputField.value;
+            // Update the task list to reflect the changes
+            updateTaskList();
+            // Save the updated tasks to storage
+            saveTasksToStorage();
+        });
+
+        // Add event listener to handle pressing Enter key
+        inputField.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                // Trigger the blur event to update the task name
+                inputField.blur();
+            }
+        });
+    }
 
         function toggleNightMode() {
             document.body.classList.toggle('night-mode');
