@@ -357,19 +357,19 @@
         }
 
         function updateTaskGroup(category, subgroup, inputElement, taskListId) {
-            const taskList = document.getElementById(taskListId);
-            const newTaskInput = inputElement;
+        const taskList = document.getElementById(taskListId);
+        const newTaskInput = inputElement;
 
-            taskList.innerHTML = savedTasks[category][subgroup].map((task, index) => {
-                              const checked = savedTasks[category + 'Checked'][subgroup][index] ? 'checked' : '';
-                return `
-                    <li>
-                        <input type="checkbox" id="${category}-${subgroup}-${index}" ${checked} onchange="toggleTask('${category}', '${subgroup}', ${index})">
-                        <label for="${category}-${subgroup}-${index}">${task}</label>
-                        <span class="delete-button" onclick="deleteTask('${category}', '${subgroup}', ${index})">✘</span>
-                    </li>`;
-            }).join('');
-        }
+        taskList.innerHTML = savedTasks[category][subgroup].map((task, index) => {
+            const checked = savedTasks[category + 'Checked'][subgroup][index] ? 'checked' : '';
+            return `
+                <li>
+                    <input type="checkbox" id="${category}-${subgroup}-${index}" ${checked} onchange="toggleTask('${category}', '${subgroup}', ${index})">
+                    <label for="${category}-${subgroup}-${index}" onclick="editTaskName('${category}', '${subgroup}', ${index})">${task}</label>
+                    <span class="delete-button" onclick="deleteTask('${category}', '${subgroup}', ${index})">✘</span>
+                </li>`;
+        }).join('');
+    }
 
         function updateSingleGoals() {
             const singleGoalsList = document.getElementById('single-goals');
@@ -480,40 +480,41 @@ function resetWeeklyTasks() {
     saveTasksToStorage();
 }
 
-       function editTaskName(category, subgroup, index) {
-    const taskList = document.getElementById(`${category}-${subgroup}`);
-    const taskLabel = taskList.querySelectorAll('label')[index];
+      // Add the following function to handle editing the task name
+    function editTaskName(category, subgroup, index) {
+        const taskList = document.getElementById(`${category}-${subgroup}`);
+        const taskLabel = taskList.querySelectorAll('label')[index];
 
-    // Create an input field and set its value to the current task name
-    const inputField = document.createElement('input');
-    inputField.type = 'text';
-    inputField.value = taskLabel.innerText;
-    inputField.className = 'edit-task-name';
+        // Create an input field and set its value to the current task name
+        const inputField = document.createElement('input');
+        inputField.type = 'text';
+        inputField.value = taskLabel.innerText;
+        inputField.className = 'edit-task-name';
 
-    // Replace the label with the input field
-    taskLabel.replaceWith(inputField);
+        // Replace the label with the input field
+        taskLabel.replaceWith(inputField);
 
-    // Focus on the input field
-    inputField.focus();
+        // Focus on the input field
+        inputField.focus();
 
-    // Add event listener to handle changes in the input field
-    inputField.addEventListener('blur', () => {
-        // Update the task name in the data
-        savedTasks[category][subgroup][index] = inputField.value;
-        // Update the task list to reflect the changes
-        updateTaskList();
-        // Save the updated tasks to storage
-        saveTasksToStorage();
-    });
+        // Add event listener to handle changes in the input field
+        inputField.addEventListener('blur', () => {
+            // Update the task name in the data
+            savedTasks[category][subgroup][index] = inputField.value;
+            // Update the task list to reflect the changes
+            updateTaskList();
+            // Save the updated tasks to storage
+            saveTasksToStorage();
+        });
 
-    // Add event listener to handle pressing Enter key
-    inputField.addEventListener('keypress', (event) => {
-        if (event.key === 'Enter') {
-            // Trigger the blur event to update the task name
-            inputField.blur();
-        }
-    });
-}
+        // Add event listener to handle pressing Enter key
+        inputField.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                // Trigger the blur event to update the task name
+                inputField.blur();
+            }
+        });
+    }
 
 
         function toggleNightMode() {
