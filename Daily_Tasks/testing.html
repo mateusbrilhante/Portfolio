@@ -499,34 +499,37 @@ function resetWeeklyTasks() {
 }
 
         function toggleEdit(category, subgroup) {
-        const editInput = document.getElementById(`edit-${category}-${subgroup}`);
-        const editButton = document.querySelector(`.edit-button[onclick="toggleEdit('${category}', '${subgroup}')"]`);
-        const currentTitle = document.querySelector(`.${subgroup} h3`).innerText;
+    const editInput = document.getElementById(`edit-${category}-${subgroup}`);
+    const editButton = document.querySelector(`.edit-button[onclick="toggleEdit('${category}', '${subgroup}')"]`);
+    const currentTitleElement = document.querySelector(`.${subgroup} h3`);
+    const currentTitle = currentTitleElement.innerText;
 
-        // Show the edit input and set its value to the current title
-        editInput.style.display = 'block';
-        editInput.querySelector('input').value = currentTitle;
+    // Show the edit input and set its value to the current title
+    editInput.style.display = 'block';
+    editInput.querySelector('input').value = currentTitle;
 
-        // Hide the original title and edit button
-        document.querySelector(`.${subgroup} h3`).style.display = 'none';
-        editButton.style.display = 'none';
-    }
+    // Hide the original title and edit button
+    currentTitleElement.style.display = 'none';
+    editButton.style.display = 'none';
+}
 
-    function saveEdit(category, subgroup) {
-        const editInput = document.getElementById(`edit-${category}-${subgroup}`);
-        const newTitle = editInput.querySelector('input').value;
+function saveEdit(category, subgroup) {
+    const editInput = document.getElementById(`edit-${category}-${subgroup}`);
+    const newTitle = editInput.querySelector('input').value;
 
-        // Update the title and show it again
-        document.querySelector(`.${subgroup} h3`).innerText = newTitle;
-        document.querySelector(`.${subgroup} h3`).style.display = 'block';
+    // Update the title and show it again
+    const currentTitleElement = document.querySelector(`.${subgroup} h3`);
+    currentTitleElement.innerText = newTitle;
+    currentTitleElement.style.display = 'block';
 
-        // Show the edit button again
-        const editButton = document.querySelector(`.edit-button[onclick="toggleEdit('${category}', '${subgroup}')"]`);
-        editButton.style.display = 'inline';
+    // Show the edit button again
+    const editButton = document.querySelector(`.edit-button[onclick="toggleEdit('${category}', '${subgroup}')"]`);
+    editButton.style.display = 'inline';
 
-        // Hide the edit input
-        editInput.style.display = 'none';
-    }
+    // Hide the edit input
+    editInput.style.display = 'none';
+}
+
         
 
         function toggleNightMode() {
