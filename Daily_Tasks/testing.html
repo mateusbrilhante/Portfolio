@@ -124,9 +124,21 @@
         
         /* Existing styles... */
 
-        input[type="text"].edit-task-name {
+        .edit-button {
+            cursor: pointer;
+            color: gray;
+            margin-left: 5px;
+            font-size: 12px;
+        }
+    
+        .edit-input {
+            display: none;
             width: 80%;
-            margin-right: 5px;
+            margin-right: 10px;
+        }
+    
+        .edit-input input {
+            width: 100%;
         }
 
         
@@ -143,14 +155,20 @@
         <div class="task-subgroup">
 
             <div>
-                <h3>Core Stuff</h3>
-                <form onsubmit="return addDailyTask('nodes')">
-                    <input type="text" id="new-daily-nodes" placeholder="Add stuff">
-                    <button type="submit">+</button>
-                </form>
-                <!-- Default tasks for Nodes subgroup -->
-                <ul id="daily-tasks-nodes" class="task-list"></ul>
-            </div>
+        <h3>Core Stuff
+            <span class="edit-button" onclick="toggleEdit('daily', 'nodes')">✎</span>
+        </h3>
+        <div class="edit-input" id="edit-daily-nodes">
+            <input type="text" id="edit-daily-nodes-input">
+            <button onclick="saveEdit('daily', 'nodes')">Save</button>
+        </div>
+        <form onsubmit="return addDailyTask('nodes')">
+            <input type="text" id="new-daily-nodes" placeholder="Add stuff">
+            <button type="submit">+</button>
+        </form>
+        <!-- Default tasks for Nodes subgroup -->
+        <ul id="daily-tasks-nodes" class="task-list"></ul>
+    </div>
             
             <div>
                 <h3>Events</h3>
@@ -357,19 +375,19 @@
         }
 
         function updateTaskGroup(category, subgroup, inputElement, taskListId) {
-        const taskList = document.getElementById(taskListId);
-        const newTaskInput = inputElement;
+            const taskList = document.getElementById(taskListId);
+            const newTaskInput = inputElement;
 
-        taskList.innerHTML = savedTasks[category][subgroup].map((task, index) => {
-            const checked = savedTasks[category + 'Checked'][subgroup][index] ? 'checked' : '';
-            return `
-                <li>
-                    <input type="checkbox" id="${category}-${subgroup}-${index}" ${checked} onchange="toggleTask('${category}', '${subgroup}', ${index})">
-                    <label for="${category}-${subgroup}-${index}" onclick="editTaskName('${category}', '${subgroup}', ${index})">${task}</label>
-                    <span class="delete-button" onclick="deleteTask('${category}', '${subgroup}', ${index})">✘</span>
-                </li>`;
-        }).join('');
-    }
+            taskList.innerHTML = savedTasks[category][subgroup].map((task, index) => {
+                              const checked = savedTasks[category + 'Checked'][subgroup][index] ? 'checked' : '';
+                return `
+                    <li>
+                        <input type="checkbox" id="${category}-${subgroup}-${index}" ${checked} onchange="toggleTask('${category}', '${subgroup}', ${index})">
+                        <label for="${category}-${subgroup}-${index}">${task}</label>
+                        <span class="delete-button" onclick="deleteTask('${category}', '${subgroup}', ${index})">✘</span>
+                    </li>`;
+            }).join('');
+        }
 
         function updateSingleGoals() {
             const singleGoalsList = document.getElementById('single-goals');
@@ -480,42 +498,36 @@ function resetWeeklyTasks() {
     saveTasksToStorage();
 }
 
-      // Add the following function to handle editing the task name
-    function editTaskName(category, subgroup, index) {
-        const taskList = document.getElementById(`${category}-${subgroup}`);
-        const taskLabel = taskList.querySelectorAll('label')[index];
+        function toggleEdit(category, subgroup) {
+        const editInput = document.getElementById(`edit-${category}-${subgroup}`);
+        const editButton = document.querySelector(`.edit-button[onclick="toggleEdit('${category}', '${subgroup}')"]`);
+        const currentTitle = document.querySelector(`.${subgroup} h3`).innerText;
 
-        // Create an input field and set its value to the current task name
-        const inputField = document.createElement('input');
-        inputField.type = 'text';
-        inputField.value = taskLabel.innerText;
-        inputField.className = 'edit-task-name';
+        // Show the edit input and set its value to the current title
+        editInput.style.display = 'block';
+        editInput.querySelector('input').value = currentTitle;
 
-        // Replace the label with the input field
-        taskLabel.replaceWith(inputField);
-
-        // Focus on the input field
-        inputField.focus();
-
-        // Add event listener to handle changes in the input field
-        inputField.addEventListener('blur', () => {
-            // Update the task name in the data
-            savedTasks[category][subgroup][index] = inputField.value;
-            // Update the task list to reflect the changes
-            updateTaskList();
-            // Save the updated tasks to storage
-            saveTasksToStorage();
-        });
-
-        // Add event listener to handle pressing Enter key
-        inputField.addEventListener('keypress', (event) => {
-            if (event.key === 'Enter') {
-                // Trigger the blur event to update the task name
-                inputField.blur();
-            }
-        });
+        // Hide the original title and edit button
+        document.querySelector(`.${subgroup} h3`).style.display = 'none';
+        editButton.style.display = 'none';
     }
 
+    function saveEdit(category, subgroup) {
+        const editInput = document.getElementById(`edit-${category}-${subgroup}`);
+        const newTitle = editInput.querySelector('input').value;
+
+        // Update the title and show it again
+        document.querySelector(`.${subgroup} h3`).innerText = newTitle;
+        document.querySelector(`.${subgroup} h3`).style.display = 'block';
+
+        // Show the edit button again
+        const editButton = document.querySelector(`.edit-button[onclick="toggleEdit('${category}', '${subgroup}')"]`);
+        editButton.style.display = 'inline';
+
+        // Hide the edit input
+        editInput.style.display = 'none';
+    }
+        
 
         function toggleNightMode() {
             document.body.classList.toggle('night-mode');
