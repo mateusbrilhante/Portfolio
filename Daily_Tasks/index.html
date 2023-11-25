@@ -280,26 +280,6 @@
     </div>
 
     <script>
-
-
-
-        const taskInputElements = {
-            daily: {
-                events: newDailyEventInput,
-                flax: newDailyFlaxInput,
-                fractals: newDailyFractalsInput,
-                nodes: newDailyNodesInput,
-                strikes: newDailyStrikesInput,
-            },
-            weekly: {
-                blackLionChest: newWeeklyBlackLionChestInput,
-                convergences: newWeeklyConvergencesInput,
-                raids: newWeeklyRaidsInput,
-                rifts: newWeeklyRiftsInput,
-                wizardsVault: newWeeklyWizardsVaultInput,
-                },
-        };
-        
         // JavaScript code to handle task tracking
         const dailyTasks = document.getElementById('daily-tasks');
         const weeklyTasks = document.getElementById('weekly-tasks');
@@ -374,19 +354,19 @@
         }
 
         function updateTaskGroup(category, subgroup, inputElement, taskListId) {
-    const taskList = document.getElementById(taskListId);
-    const newTaskInput = inputElement || taskInputElements[category][subgroup]; // Use the provided inputElement or retrieve it from the taskInputElements object
+            const taskList = document.getElementById(taskListId);
+            const newTaskInput = inputElement;
 
-    taskList.innerHTML = savedTasks[category][subgroup].map((task, index) => {
-        const checked = savedTasks[category + 'Checked'][subgroup][index] ? 'checked' : '';
-        return `
-            <li>
-                <input type="checkbox" id="${category}-${subgroup}-${index}" ${checked} onchange="toggleTask('${category}', '${subgroup}', ${index})">
-                <label for="${category}-${subgroup}-${index}">${task}</label>
-                <span class="delete-button" onclick="deleteTask('${category}', '${subgroup}', ${index})">✘</span>
-            </li>`;
-    }).join('');
-}
+            taskList.innerHTML = savedTasks[category][subgroup].map((task, index) => {
+                              const checked = savedTasks[category + 'Checked'][subgroup][index] ? 'checked' : '';
+                return `
+                    <li>
+                        <input type="checkbox" id="${category}-${subgroup}-${index}" ${checked} onchange="toggleTask('${category}', '${subgroup}', ${index})">
+                        <label for="${category}-${subgroup}-${index}">${task}</label>
+                        <span class="delete-button" onclick="deleteTask('${category}', '${subgroup}', ${index})">✘</span>
+                    </li>`;
+            }).join('');
+        }
 
         function updateSingleGoals() {
             const singleGoalsList = document.getElementById('single-goals');
@@ -467,7 +447,7 @@
         }
 
         function toggleSingleGoal(index) {
-            savedTasks.singleGoals[index] = !savedTasks.singleGoals[index];
+            savedTasks.singleGoalsChecked[index] = !savedTasks.singleGoalsChecked[index];
             saveTasksToStorage();
         }
 
@@ -528,8 +508,20 @@ function resetWeeklyTasks() {
         }
 
         function getInputElement(subgroup) {
-    return taskInputElements.daily[subgroup] || taskInputElements.weekly[subgroup] || null;
-}
+            switch (subgroup) {
+                case 'events': return newDailyEventInput;
+                case 'flax': return newDailyFlaxInput;
+                case 'fractals': return newDailyFractalsInput;
+                case 'nodes': return newDailyNodesInput;
+                case 'strikes': return newDailyStrikesInput;
+                case 'black-lion-chest': return newWeeklyBlackLionChestInput;
+                case 'convergences': return newWeeklyConvergencesInput;
+                case 'raids': return newWeeklyRaidsInput;
+                case 'rifts': return newWeeklyRiftsInput;
+                case 'wizards-vault': return newWeeklyWizardsVaultInput;
+                default: return null;
+            }
+        }
 
         // Initial update when the page loads
         updateTaskList();
