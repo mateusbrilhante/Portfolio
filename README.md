@@ -6,6 +6,6 @@ Welcome to my portfolio repository!
 
 "It ain't much, but it's honest work"
 
-The content includes Android Modifications, Electronic Projects, Java Apps and some Responsive Web Pages.
+Here you can find Android Modifications, Electronic Projects, Java Apps, Responsive Web Pages and Tasks Tracker.
 
 Curious? Check it out: https://mateusbrilhante.github.io/Portfolio/Introduction.
