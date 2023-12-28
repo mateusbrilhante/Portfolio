@@ -140,7 +140,7 @@
         <div class="task-subgroup">
 
             <div>
-                <h3>Core Stuff</h3>
+                <h3>Random Stuff</h3>
                 <form onsubmit="return addDailyTask('nodes')">
                     <input type="text" id="new-daily-nodes" placeholder="Add stuff">
                     <button type="submit">+</button>
@@ -204,7 +204,7 @@
         <!-- Weekly Subgroups -->
         <div class="task-subgroup">
             <div>
-                <h3>Also Core Stuff</h3>
+                <h3>Also Random Stuff</h3>
                 <form onsubmit="return addWeeklyTask('black-lion-chest')">
                     <input type="text" id="new-weekly-black-lion-chest" placeholder="Add hmm">
                     <button type="submit">+</button>
@@ -307,10 +307,10 @@
         // Initialize default tasks if not present
         savedTasks = savedTasks || {
             daily: {
-                events: ["Zombi Doragon", "Naked Man", "Chak Gerent", "Octovine", "Dragonstorm", "Convergence", "D. Amnytas", "Heitor Nayos", "Unlock Wizard T.", "Leviathan"],
+                events: ["Zombi Doragon", "Naked Man", "Chak Gerent", "Octovine", "Dragonstorm", "Convergence", "Leviathan"],
                 flax: ["Revenant", "Guardian", "Warrior", "Ranger", "Engineer", "Mesmer"],
                 fractals: ["Deeply D. Keys", "Tier 4", "Recs", "CMs"],
-                nodes: ["Guild", "Home", "Charged Quartz", "Wizard's Daily", "Prov. Tokens", "Ecto. Refinement", "Converters"],
+                nodes: ["Guild", "Home", "Charged Quartz", "Wizard's Daily", "Prov. Tokens", "Ecto. Refinement", "Converters", "Drizzlewood M. D."],
                 strikes: ["SotO", "IBS", "EoD"]
             },
             weekly: {
@@ -322,10 +322,10 @@
             },
             singleGoals: [],
             dailyChecked: {
-                events: [false, false, false, false, false, false, false, false, false, false],
+                events: [false, false, false, false, false, false, false],
                 flax: [false, false, false, false, false, false],
                 fractals: [false, false, false, false],
-                nodes: [false, false, false, false, false, false, false],
+                nodes: [false, false, false, false, false, false, false, false],
                 strikes: [false, false, false],
             },
             weeklyChecked: {
