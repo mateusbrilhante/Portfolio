@@ -205,12 +205,12 @@
         <div class="task-subgroup">
             <div>
                 <h3>Also Random Stuff</h3>
-                <form onsubmit="return addWeeklyTask('black-lion-chest')">
+                <form onsubmit="return addWeeklyTask('also-random-stuff')">
                     <input type="text" id="new-weekly-black-lion-chest" placeholder="Add hmm">
                     <button type="submit">+</button>
                 </form>
                 <!-- Default tasks for Black Lion Chest subgroup -->
-                <ul id="weekly-tasks-black-lion-chest" class="task-list"></ul>
+                <ul id="weekly-tasks-also-random-stuff" class="task-list"></ul>
             </div>
 
             <div>
@@ -245,12 +245,12 @@
 
             <div>
                 <h3>Strikes.jpg</h3>
-                <form onsubmit="return addWeeklyTask('wizards-vault')">
+                <form onsubmit="return addWeeklyTask('strikes-jpg')">
                     <input type="text" id="new-weekly-wizards-vault" placeholder="Add dda">
                     <button type="submit">+</button>
                 </form>
                 <!-- Default tasks for Wizard's Vault subgroup -->
-                <ul id="weekly-tasks-wizards-vault" class="task-list"></ul>
+                <ul id="weekly-tasks-strikes-jpg" class="task-list"></ul>
             </div>
         </div>
 
@@ -288,7 +288,7 @@
         const newDailyFractalsInput = document.getElementById('new-daily-fractals');
         const newDailyNodesInput = document.getElementById('new-daily-nodes');
         const newDailyStrikesInput = document.getElementById('new-daily-strikes');
-        const newWeeklyBlackLionChestInput = document.getElementById('new-weekly-black-lion-chest');
+        const newWeeklyAlsoRandomStuffInput = document.getElementById('new-weekly-black-lion-chest');
         const newWeeklyConvergencesInput = document.getElementById('new-weekly-convergences');
         const newWeeklyRaidsInput = document.getElementById('new-weekly-raids');
         const newWeeklyRiftsInput = document.getElementById('new-weekly-rifts');
@@ -314,11 +314,11 @@
                 strikes: ["SotO", "IBS", "EoD"]
             },
             weekly: {
-                blackLionChest: ["Key", "Wizard's Vault"],
+                'also-random-stuff': ["Key", "Wizard's Vault"],
                 convergences: ["Once", "Twice", "Completed"],
                 raids: ["Spirit Vale", "Salvation Pass", "Stronghold of the Faithful", "Bastion of the Penitent", "Hall of Chains", "Mythwright Gambit", "The Key of Ahdashim"],
                 rifts: ["1 Map", "2 Maps", "3 Maps", "4 Maps", "5 Maps", "Completed"],
-                wizardsVault: ["SotO", "EoD", "EoD CM"]
+                'strikes-jpg': ["SotO", "EoD", "EoD CM"]
             },
             singleGoals: [],
             dailyChecked: {
@@ -329,11 +329,11 @@
                 strikes: [false, false, false],
             },
             weeklyChecked: {
-                blackLionChest: [false, false],
+                'also-random-stuff': [false, false],
                 convergences: [false, false, false],
                 raids: [false, false, false, false, false, false, false],
                 rifts: [false, false, false, false, false, false],
-                wizardsVault: [false, false, false]
+                'strikes-jpg': [false, false, false]
             }
         };
 
@@ -344,11 +344,12 @@
             updateTaskGroup('daily', 'nodes', newDailyNodesInput, 'daily-tasks-nodes');
             updateTaskGroup('daily', 'strikes', newDailyStrikesInput, 'daily-tasks-strikes');
 
-            updateTaskGroup('weekly', 'blackLionChest', newWeeklyBlackLionChestInput, 'weekly-tasks-black-lion-chest');
+            updateTaskGroup('weekly', 'also-random-stuff', newWeeklyAlsoRandomStuffInput, 'weekly-tasks-also-random-stuff');
             updateTaskGroup('weekly', 'convergences', newWeeklyConvergencesInput, 'weekly-tasks-convergences');
             updateTaskGroup('weekly', 'raids', newWeeklyRaidsInput, 'weekly-tasks-raids');
             updateTaskGroup('weekly', 'rifts', newWeeklyRiftsInput, 'weekly-tasks-rifts');
-            updateTaskGroup('weekly', 'wizardsVault', newWeeklyWizardsVaultInput, 'weekly-tasks-wizards-vault');
+            updateTaskGroup('weekly', 'strikes-jpg', newWeeklyWizardsVaultInput, 'weekly-tasks-strikes-jpg');
+
 
             updateSingleGoals();
         }
@@ -467,7 +468,7 @@
 function resetWeeklyTasks() {
     // Reset only the checked states for weekly tasks
     savedTasks.weeklyChecked = {
-        blackLionChest: Array(savedTasks.weekly.blackLionChest.length).fill(false),
+        alsoRandomStuff: Array(savedTasks.weekly.alsoRandomStuff.length).fill(false),
         convergences: Array(savedTasks.weekly.convergences.length).fill(false),
         raids: Array(savedTasks.weekly.raids.length).fill(false),
         rifts: Array(savedTasks.weekly.rifts.length).fill(false),
@@ -514,11 +515,11 @@ function resetWeeklyTasks() {
                 case 'fractals': return newDailyFractalsInput;
                 case 'nodes': return newDailyNodesInput;
                 case 'strikes': return newDailyStrikesInput;
-                case 'black-lion-chest': return newWeeklyBlackLionChestInput;
+                case 'also-random-stuff': return newWeeklyAlsoRandomStuffInput;
                 case 'convergences': return newWeeklyConvergencesInput;
                 case 'raids': return newWeeklyRaidsInput;
                 case 'rifts': return newWeeklyRiftsInput;
-                case 'wizards-vault': return newWeeklyWizardsVaultInput;
+                case 'strikes-jpg': return newWeeklyWizardsVaultInput;
                 default: return null;
             }
         }
