@@ -288,7 +288,7 @@
         const newDailyFractalsInput = document.getElementById('new-daily-fractals');
         const newDailyNodesInput = document.getElementById('new-daily-nodes');
         const newDailyStrikesInput = document.getElementById('new-daily-strikes');
-        const newWeeklyBlackLionChestInput = document.getElementById('new-weekly-black-lion-chest');
+        const newWeeklyAlsoRandomStuffInput = document.getElementById('new-weekly-black-lion-chest');
         const newWeeklyConvergencesInput = document.getElementById('new-weekly-convergences');
         const newWeeklyRaidsInput = document.getElementById('new-weekly-raids');
         const newWeeklyRiftsInput = document.getElementById('new-weekly-rifts');
@@ -344,7 +344,7 @@
             updateTaskGroup('daily', 'nodes', newDailyNodesInput, 'daily-tasks-nodes');
             updateTaskGroup('daily', 'strikes', newDailyStrikesInput, 'daily-tasks-strikes');
 
-            updateTaskGroup('weekly', 'also-random-stuff', newWeeklyBlackLionChestInput, 'weekly-tasks-also-random-stuff');
+            updateTaskGroup('weekly', 'also-random-stuff', newWeeklyAlsoRandomStuffInput, 'weekly-tasks-also-random-stuff');
             updateTaskGroup('weekly', 'convergences', newWeeklyConvergencesInput, 'weekly-tasks-convergences');
             updateTaskGroup('weekly', 'raids', newWeeklyRaidsInput, 'weekly-tasks-raids');
             updateTaskGroup('weekly', 'rifts', newWeeklyRiftsInput, 'weekly-tasks-rifts');
@@ -468,7 +468,7 @@
 function resetWeeklyTasks() {
     // Reset only the checked states for weekly tasks
     savedTasks.weeklyChecked = {
-        blackLionChest: Array(savedTasks.weekly.blackLionChest.length).fill(false),
+        alsoRandomStuff: Array(savedTasks.weekly.alsoRandomStuff.length).fill(false),
         convergences: Array(savedTasks.weekly.convergences.length).fill(false),
         raids: Array(savedTasks.weekly.raids.length).fill(false),
         rifts: Array(savedTasks.weekly.rifts.length).fill(false),
@@ -515,7 +515,7 @@ function resetWeeklyTasks() {
                 case 'fractals': return newDailyFractalsInput;
                 case 'nodes': return newDailyNodesInput;
                 case 'strikes': return newDailyStrikesInput;
-                case 'also-random-stuff': return newWeeklyBlackLionChestInput;
+                case 'also-random-stuff': return newWeeklyAlsoRandomStuffInput;
                 case 'convergences': return newWeeklyConvergencesInput;
                 case 'raids': return newWeeklyRaidsInput;
                 case 'rifts': return newWeeklyRiftsInput;
