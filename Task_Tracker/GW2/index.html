@@ -468,11 +468,11 @@
 function resetWeeklyTasks() {
     // Reset only the checked states for weekly tasks
     savedTasks.weeklyChecked = {
-        alsoRandomStuff: Array(savedTasks.weekly.alsoRandomStuff.length).fill(false),
+        'also-random-stuff': Array(savedTasks.weekly['also-random-stuff'].length).fill(false),
         convergences: Array(savedTasks.weekly.convergences.length).fill(false),
         raids: Array(savedTasks.weekly.raids.length).fill(false),
         rifts: Array(savedTasks.weekly.rifts.length).fill(false),
-        wizardsVault: Array(savedTasks.weekly.wizardsVault.length).fill(false),
+       'strikes-jpg': Array(savedTasks.weekly['strikes-jpg'].length).fill(false),
     };
     updateTaskList();
     saveTasksToStorage();
