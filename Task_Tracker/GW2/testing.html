@@ -5,6 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <link rel="icon" href="TT-icon.png"/>
     <title>GW2 Tracker</title>
     <style>
@@ -124,6 +126,23 @@
         
         /* Existing styles... */
 
+                /* Example media query for smaller screens */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 5px;
+            }
+        
+            .task-subgroup > div {
+                flex: 1;
+                margin-right: 0;
+            }
+        
+            .night-mode-button {
+                display: none;
+            }
+        
+            /* Add more styles as needed for smaller screens */
+        }
 
 
         
@@ -307,7 +326,7 @@
         // Initialize default tasks if not present
         savedTasks = savedTasks || {
             daily: {
-                events: ["Zombi Doragon", "Naked Man", "Chak Gerent", "Octovine", "Dragonstorm", "Convergence", "Leviathan"],
+                events: ["Zombi Doragon", "Naked Man", "Piñata", "Chak Gerent", "Octovine", "Dragonstorm", "Leviathan"],
                 flax: ["Revenant", "Guardian", "Warrior", "Ranger", "Engineer", "Mesmer"],
                 fractals: ["Deeply D. Keys", "Tier 4", "Recs", "CMs"],
                 nodes: ["Guild", "Home", "Charged Quartz", "Wizard's Daily", "Prov. Tokens", "Ecto. Refinement", "Converters", "Drizzlewood M. D."],
@@ -468,11 +487,11 @@
 function resetWeeklyTasks() {
     // Reset only the checked states for weekly tasks
     savedTasks.weeklyChecked = {
-        alsoRandomStuff: Array(savedTasks.weekly.alsoRandomStuff.length).fill(false),
+        'also-random-stuff': Array(savedTasks.weekly['also-random-stuff'].length).fill(false),
         convergences: Array(savedTasks.weekly.convergences.length).fill(false),
         raids: Array(savedTasks.weekly.raids.length).fill(false),
         rifts: Array(savedTasks.weekly.rifts.length).fill(false),
-        wizardsVault: Array(savedTasks.weekly.wizardsVault.length).fill(false),
+       'strikes-jpg': Array(savedTasks.weekly['strikes-jpg'].length).fill(false),
     };
     updateTaskList();
     saveTasksToStorage();
@@ -527,5 +546,6 @@ function resetWeeklyTasks() {
         // Initial update when the page loads
         updateTaskList();
     </script>
+    <p>Disclaimer: The code was created through AI (ChatGPT) for personal use. The intention is to allow quick track and management of repetitive tasks.</p>
 </body>
 </html>
