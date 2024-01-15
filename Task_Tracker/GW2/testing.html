@@ -125,7 +125,8 @@
         /* Existing styles... */
 
 
-         @media (max-width: 768px) {
+     
+    @media (max-width: 768px) {
         body {
             padding: 2vw;
         }
@@ -150,10 +151,21 @@
         }
 
         .reset-button {
-            display: block;
-            margin-top: 10px;
+            display: inline-block; /* Change to inline-block to appear on the same line */
+            margin-left: 10px; /* Add some space between title and reset button */
+            font-size: 16px; /* Increase font size for better readability */
+        }
+
+        h2, h3 {
+            font-size: 24px; /* Increase font size for better readability */
+        }
+
+        .night-mode-button {
+            font-size: 18px; /* Increase font size for better readability */
         }
     }
+
+
         
     </style>
 </head>
