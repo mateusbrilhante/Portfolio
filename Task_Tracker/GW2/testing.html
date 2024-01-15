@@ -118,14 +118,26 @@
         
         /* Existing styles... */
 
+        body.night-mode input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+        }
+        
         .task-list li {
             margin-bottom: 5px;
+        }
+        
+        .task-list li input[type="checkbox"] {
+            margin-right: 5px; /* Add this line to create space between checkbox and label */
+        }
+
+        li {
             display: flex; /* Add this line to make li items flex containers */
+            align-items: center; /* Add this line to vertically center items in the li container */
         }
         
         li label {
-            display: flex; /* Add this line to make label a flex container */
-            align-items: center; /* Add this line to vertically center items in the label */
+            margin-left: 5px; /* Add this line to create space between checkbox and label */
         }
         form {
             display: flex; /* Add this line to make the form a flex container */
