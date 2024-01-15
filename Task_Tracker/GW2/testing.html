@@ -125,7 +125,35 @@
         /* Existing styles... */
 
 
+         @media (max-width: 768px) {
+        body {
+            padding: 2vw;
+        }
 
+        .task-group {
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+        .task-subgroup {
+            flex-direction: column;
+        }
+
+        .task-subgroup > div {
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        h3 {
+            margin-bottom: 5px;
+        }
+
+        .reset-button {
+            display: block;
+            margin-top: 10px;
+        }
+    }
         
     </style>
 </head>
