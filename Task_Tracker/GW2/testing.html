@@ -103,11 +103,10 @@
                 padding: 20px 10px;
             }
         .task-subgroup > div {
-            flex: 1;
-            margin-right: 10px;
-            align-items: baseline;
-            display: flex; /* Add this line to make the div a flex container */
-        }
+                flex: 1;
+                margin-right: 10px;
+                align-items: baseline;
+            }
 
                 /* Add the following CSS to increase the size of checkboxes */
         
@@ -118,41 +117,26 @@
         
         /* Existing styles... */
 
-        body.night-mode input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-        }
-        
         .task-list li {
             margin-bottom: 5px;
-        }
-        
-        .task-list li input[type="checkbox"] {
-            margin-right: 5px; /* Add this line to create space between checkbox and label */
-        }
-
-        li {
             display: flex; /* Add this line to make li items flex containers */
-            align-items: center; /* Add this line to vertically center items in the li container */
         }
         
         li label {
-            margin-left: 5px; /* Add this line to create space between checkbox and label */
+            display: flex; /* Add this line to make label a flex container */
+            align-items: center; /* Add this line to vertically center items in the label */
         }
-        form {
-            display: flex; /* Add this line to make the form a flex container */
-            align-items: baseline; /* Add this line to align items to the baseline */
+        .list-button-+ {
+            display: inline-block;
+            margin-left: 10px;
+            font-size: 16px;
         }
-        
-        form input[type="text"] {
-            flex: 1; /* Add this line to make the input take up remaining space */
-        }
-        
+
+        form input[type="text"],
         form button {
-            margin-left: 10px; /* Keep the margin for the button */
+            display: inline-block;
+            vertical-align: middle;
         }
-
-
 
         
         /* Existing styles... */
@@ -172,7 +156,6 @@
             <div>
                 <h3>Random Stuff</h3>
                 <form onsubmit="return addDailyTask('nodes')">
-                    
                     <input type="text" id="new-daily-nodes" placeholder="Add stuff">
                     <button class="list-button-+" type="submit">+</button>
                 </form>
