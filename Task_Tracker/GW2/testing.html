@@ -5,8 +5,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
     <link rel="icon" href="TT-icon.png"/>
     <title>GW2 Tracker</title>
     <style>
@@ -20,12 +18,6 @@
             --cinza: linear-gradient(90deg, rgb(120, 120, 120, 0.2), rgb(120, 120, 120, 0.4), rgb(120, 120, 120, 0.6), rgb(120, 120, 120, 0.8))
         }
 
-        html, body {
-            overflow-x: hidden;
-            overflow-y: auto; /* Enable vertical scrolling */
-            height: 100vh; /* Set the height to 100% of the viewport height */
-        }
-
         body {
             background: var(--cinza);
             margin: 0;
@@ -33,7 +25,6 @@
             transition: background 0.5s;
             padding: 2vw 4vw 2vw 4vw;
         }
-        
 
         h1 {
             text-align: center;
@@ -133,23 +124,6 @@
         
         /* Existing styles... */
 
-                /* Example media query for smaller screens */
-        @media screen and (max-width: 300px) {
-            body {
-                padding: 5px;
-            }
-        
-            .task-subgroup > div {
-                flex: 1;
-                margin-right: 0;
-            }
-        
-            .night-mode-button {
-                display: none;
-            }
-        
-            /* Add more styles as needed for smaller screens */
-        }
 
 
         
