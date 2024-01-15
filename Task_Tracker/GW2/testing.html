@@ -125,51 +125,13 @@
             display: flex; /* Add this line to make label a flex container */
             align-items: center; /* Add this line to vertically center items in the label */
         }
+        .list-button-+ {
+            display: inline-block;
+            margin-left: 10px;
+            font-size: 16px;
+        }
         
         /* Existing styles... */
-
-
-     
-    @media (max-width: 768px) {
-        body {
-            padding: 2vw;
-        }
-
-        .task-group {
-            width: 100%;
-            box-sizing: border-box;
-            margin-bottom: 20px;
-        }
-
-        .task-subgroup {
-            flex-direction: column;
-        }
-
-        .task-subgroup > div {
-            margin-bottom: 10px;
-            width: 100%;
-        }
-
-        h3 {
-            margin-bottom: 5px;
-        }
-
-        .reset-button {
-            display: inline-block; /* Change to inline-block to appear on the same line */
-            margin-left: 10px; /* Add some space between title and reset button */
-            font-size: 16px; /* Increase font size for better readability */
-        }
-
-        h2, h3 {
-            font-size: 24px; /* Increase font size for better readability */
-        }
-
-        .night-mode-button {
-            font-size: 18px; /* Increase font size for better readability */
-        }
-    }
-
-
         
     </style>
 </head>
@@ -187,7 +149,7 @@
                 <h3>Random Stuff</h3>
                 <form onsubmit="return addDailyTask('nodes')">
                     <input type="text" id="new-daily-nodes" placeholder="Add stuff">
-                    <button type="submit">+</button>
+                    <button class="list-button-+" type="submit">+</button>
                 </form>
                 <!-- Default tasks for Nodes subgroup -->
                 <ul id="daily-tasks-nodes" class="task-list"></ul>
@@ -197,7 +159,7 @@
                 <h3>Events</h3>
                 <form onsubmit="return addDailyTask('events')">
                     <input type="text" id="new-daily-events" placeholder="Add things">
-                    <button type="submit">+</button>
+                    <button class="list-button-+" type="submit">+</button>
                 </form>
                 <!-- Default tasks for Events subgroup -->
                 <ul id="daily-tasks-events" class="task-list"></ul>
@@ -207,7 +169,7 @@
                 <h3>Fractals</h3>
                 <form onsubmit="return addDailyTask('fractals')">
                     <input type="text" id="new-daily-fractals" placeholder="Add fraggles">
-                    <button type="submit">+</button>
+                    <button class="list-button-+" type="submit">+</button>
                 </form>
                 <!-- Default tasks for Fractals subgroup -->
                 <ul id="daily-tasks-fractals" class="task-list"></ul>
@@ -218,7 +180,7 @@
                 <h3>Alt Parking</h3>
                 <form onsubmit="return addDailyTask('flax')">
                     <input type="text" id="new-daily-flax" placeholder="Add overtime workers">
-                    <button type="submit">+</button>
+                    <button class="list-button-+" type="submit">+</button>
                 </form>
                 <!-- Default tasks for Flax subgroup -->
                 <ul id="daily-tasks-flax" class="task-list"></ul>
@@ -230,7 +192,7 @@
                 <h3>Strikes</h3>
                 <form onsubmit="return addDailyTask('strikes')">
                     <input type="text" id="new-daily-strikes" placeholder="Add add">
-                    <button type="submit">+</button>
+                    <button class="list-button-+" type="submit">+</button>
                 </form>
                 <!-- Default tasks for Strikes subgroup -->
                 <ul id="daily-tasks-strikes" class="task-list"></ul>
@@ -251,7 +213,7 @@
                 <h3>Also Random Stuff</h3>
                 <form onsubmit="return addWeeklyTask('also-random-stuff')">
                     <input type="text" id="new-weekly-black-lion-chest" placeholder="Add hmm">
-                    <button type="submit">+</button>
+                    <button class="list-button-+" type="submit">+</button>
                 </form>
                 <!-- Default tasks for Black Lion Chest subgroup -->
                 <ul id="weekly-tasks-also-random-stuff" class="task-list"></ul>
@@ -261,7 +223,7 @@
                 <h3>Convergences</h3>
                 <form onsubmit="return addWeeklyTask('convergences')">
                     <input type="text" id="new-weekly-convergences" placeholder="Add twoo">
-                    <button type="submit">+</button>
+                    <button class="list-button-+" type="submit">+</button>
                 </form>
                 <!-- Default tasks for Convergences subgroup -->
                 <ul id="weekly-tasks-convergences" class="task-list"></ul>
@@ -271,7 +233,7 @@
                 <h3>Raids</h3>
                 <form onsubmit="return addWeeklyTask('raids')">
                     <input type="text" id="new-weekly-raids" placeholder="Add pain">
-                    <button type="submit">+</button>
+                    <button class="list-button-+" type="submit">+</button>
                 </form>
                 <!-- Default tasks for Raids subgroup -->
                 <ul id="weekly-tasks-raids" class="task-list"></ul>
@@ -281,7 +243,7 @@
                 <h3>Rifts</h3>
                 <form onsubmit="return addWeeklyTask('rifts')">
                     <input type="text" id="new-weekly-rifts" placeholder="Add three">
-                    <button type="submit">+</button>
+                    <button class="list-button-+" type="submit">+</button>
                 </form>
                 <!-- Default tasks for Rifts subgroup -->
                 <ul id="weekly-tasks-rifts" class="task-list"></ul>
@@ -291,7 +253,7 @@
                 <h3>Strikes.jpg</h3>
                 <form onsubmit="return addWeeklyTask('strikes-jpg')">
                     <input type="text" id="new-weekly-wizards-vault" placeholder="Add dda">
-                    <button type="submit">+</button>
+                    <button class="list-button-+" type="submit">+</button>
                 </form>
                 <!-- Default tasks for Wizard's Vault subgroup -->
                 <ul id="weekly-tasks-strikes-jpg" class="task-list"></ul>
@@ -309,7 +271,7 @@
             <div>
                 <form onsubmit="return addSingleGoal()">
                     <input type="text" id="new-single-goal" placeholder="Add that Kudzu III you never did">
-                    <button type="submit">+</button>
+                    <button class="list-button-+" type="submit">+</button>
                 </form>
                 <!-- Custom tasks for Single Goals -->
                 <ul id="single-goals" class="task-list"></ul>
