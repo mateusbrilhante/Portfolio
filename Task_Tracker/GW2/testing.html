@@ -103,10 +103,11 @@
                 padding: 20px 10px;
             }
         .task-subgroup > div {
-                flex: 1;
-                margin-right: 10px;
-                align-items: baseline;
-            }
+            flex: 1;
+            margin-right: 10px;
+            align-items: baseline;
+            display: flex; /* Add this line to make the div a flex container */
+        }
 
                 /* Add the following CSS to increase the size of checkboxes */
         
@@ -126,15 +127,17 @@
             display: flex; /* Add this line to make label a flex container */
             align-items: center; /* Add this line to vertically center items in the label */
         }
-        .list-button-+ {
-            display: inline-block;
-            margin-left: 10px;
-            font-size: 16px;
+        form {
+            display: flex; /* Add this line to make the form a flex container */
+            align-items: baseline; /* Add this line to align items to the baseline */
         }
-
+        
+        form input[type="text"] {
+            flex: 1; /* Add this line to make the input take up remaining space */
+        }
+        
         form button {
-            display: inline-block;
-            vertical-align: top; /* Change the vertical alignment to top */
+            margin-left: 10px; /* Keep the margin for the button */
         }
 
 
