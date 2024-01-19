@@ -72,6 +72,7 @@
             color: black;
             margin-left: 10px;
         }
+        
         .delete-button {
             cursor: pointer;
             color: gray;
@@ -90,6 +91,7 @@
                 top: 10px;
                 right: 10px;
             }
+        
         .task-group {
                 width: 100%;
                 box-sizing: border-box;
@@ -110,26 +112,23 @@
                 margin: 0 auto;
                 padding: 20px 10px;
 
-                /*display: inline-block; last modified*/
-                text-align: left;/* last modified*/
+                
+                text-align: center;    /* last modified*/
+                justify-content: center;    /* last modified*/
             }
+        
         .task-subgroup > div {
                 flex: 1;
                 margin-right: 10px;
                 align-items: baseline;
-                /*max-width: 300px; last modified*/
                 margin: 0 auto;/* last modified*/
             }
-
-                /* Add the following CSS to increase the size of checkboxes */
         
         input[type="checkbox"] {
             width: 20px; /* Set the width of the checkbox */
             height: 20px; /* Set the height of the checkbox */
         }
         
-        /* Existing styles... */
-
         .task-list li {
             margin-bottom: 5px;
             display: flex; /* Add this line to make li items flex containers */
@@ -150,9 +149,6 @@
             display: inline-block;
             vertical-align: middle;
         }
-
-        
-        /* Existing styles... */
         
     </style>
 </head>
