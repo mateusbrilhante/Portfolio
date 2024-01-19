@@ -93,7 +93,13 @@
         .task-group {
                 width: 100%;
                 box-sizing: border-box;
+                text-align: center; /* last modified*/
             }
+        
+        .task-group, h2 {
+            margin: auto; /* last modified*/
+        }
+        
         .task-subgroup {
                 display: flex;
                 flex-direction: row;
@@ -103,11 +109,16 @@
                 max-width: 1400px;
                 margin: 0 auto;
                 padding: 20px 10px;
+
+                display: inline-block;/* last modified*/
+                text-align: left;/* last modified*/
             }
         .task-subgroup > div {
                 flex: 1;
                 margin-right: 10px;
                 align-items: baseline;
+                max-width: 300px;/* last modified*/
+                margin: 0 auto;/* last modified*/
             }
 
                 /* Add the following CSS to increase the size of checkboxes */
