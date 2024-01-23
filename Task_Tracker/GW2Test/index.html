@@ -1,1 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="TT-icon.png"/>
+    <link rel="stylesheet" href="style.css"/>
+    <title>GW2 Tracker</title>
+</head>
+<body>
+      <h1>GW2 Task Tracker</h1>
 
+    <!-- Daily Tasks -->
+    <div class="task-group">
+        <h2>Daily Tasks <span class="reset-button" onclick="resetDailyTasks()">⟳</span></h2>
+        
+        <!-- Daily Subgroups -->
+        <div class="task-subgroup">
+
+            <div>
+                <h3>Random Stuff</h3>
+                <form onsubmit="return addDailyTask('nodes')">
+                    <input type="text" id="new-daily-nodes" placeholder="Add stuff">
+                    <button class="list-button-+" type="submit">+</button>
+                </form>
+                <!-- Default tasks for Nodes subgroup -->
+                <ul id="daily-tasks-nodes" class="task-list"></ul>
+            </div>
+            
+            <div>
+                <h3>Events</h3>
+                <form onsubmit="return addDailyTask('events')">
+                    <input type="text" id="new-daily-events" placeholder="Add things">
+                    <button class="list-button-+" type="submit">+</button>
+                </form>
+                <!-- Default tasks for Events subgroup -->
+                <ul id="daily-tasks-events" class="task-list"></ul>
+            </div>
+
+            <div>
+                <h3>Fractals</h3>
+                <form onsubmit="return addDailyTask('fractals')">
+                    <input type="text" id="new-daily-fractals" placeholder="Add fraggles">
+                    <button class="list-button-+" type="submit">+</button>
+                </form>
+                <!-- Default tasks for Fractals subgroup -->
+                <ul id="daily-tasks-fractals" class="task-list"></ul>
+            </div>
+            
+            
+            <div>
+                <h3>Alt Parking</h3>
+                <form onsubmit="return addDailyTask('flax')">
+                    <input type="text" id="new-daily-flax" placeholder="Add overtime workers">
+                    <button class="list-button-+" type="submit">+</button>
+                </form>
+                <!-- Default tasks for Flax subgroup -->
+                <ul id="daily-tasks-flax" class="task-list"></ul>
+            </div>
+
+            
+
+            <div>
+                <h3>Strikes</h3>
+                <form onsubmit="return addDailyTask('strikes')">
+                    <input type="text" id="new-daily-strikes" placeholder="Add add">
+                    <button class="list-button-+" type="submit">+</button>
+                </form>
+                <!-- Default tasks for Strikes subgroup -->
+                <ul id="daily-tasks-strikes" class="task-list"></ul>
+            </div>
+        </div>
+
+        <!-- Daily Task List -->
+        <ul id="daily-tasks" class="task-list"></ul>
+    </div>
+
+    <!-- Weekly Tasks -->
+    <div class="task-group">
+        <h2>Weekly Tasks <span class="reset-button" onclick="resetWeeklyTasks()">⟳</span></h2>
+        
+        <!-- Weekly Subgroups -->
+        <div class="task-subgroup">
+            <div>
+                <h3>Also Random Stuff</h3>
+                <form onsubmit="return addWeeklyTask('also-random-stuff')">
+                    <input type="text" id="new-weekly-black-lion-chest" placeholder="Add hmm">
+                    <button class="list-button-+" type="submit">+</button>
+                </form>
+                <!-- Default tasks for Black Lion Chest subgroup -->
+                <ul id="weekly-tasks-also-random-stuff" class="task-list"></ul>
+            </div>
+
+            <div>
+                <h3>Convergences</h3>
+                <form onsubmit="return addWeeklyTask('convergences')">
+                    <input type="text" id="new-weekly-convergences" placeholder="Add twoo">
+                    <button class="list-button-+" type="submit">+</button>
+                </form>
+                <!-- Default tasks for Convergences subgroup -->
+                <ul id="weekly-tasks-convergences" class="task-list"></ul>
+            </div>
+
+            <div>
+                <h3>Raids</h3>
+                <form onsubmit="return addWeeklyTask('raids')">
+                    <input type="text" id="new-weekly-raids" placeholder="Add pain">
+                    <button class="list-button-+" type="submit">+</button>
+                </form>
+                <!-- Default tasks for Raids subgroup -->
+                <ul id="weekly-tasks-raids" class="task-list"></ul>
+            </div>
+
+            <div>
+                <h3>Rifts</h3>
+                <form onsubmit="return addWeeklyTask('rifts')">
+                    <input type="text" id="new-weekly-rifts" placeholder="Add three">
+                    <button class="list-button-+" type="submit">+</button>
+                </form>
+                <!-- Default tasks for Rifts subgroup -->
+                <ul id="weekly-tasks-rifts" class="task-list"></ul>
+            </div>
+
+            <div>
+                <h3>Strikes.jpg</h3>
+                <form onsubmit="return addWeeklyTask('strikes-jpg')">
+                    <input type="text" id="new-weekly-wizards-vault" placeholder="Add dda">
+                    <button class="list-button-+" type="submit">+</button>
+                </form>
+                <!-- Default tasks for Wizard's Vault subgroup -->
+                <ul id="weekly-tasks-strikes-jpg" class="task-list"></ul>
+            </div>
+        </div>
+
+        <!-- Weekly Task List -->
+        <ul id="weekly-tasks" class="task-list"></ul>
+    </div>
+
+        <!-- Single Goals -->
+    <div class="task-group">
+        <h2>Single Goals</h2>
+        <div class="task-subgroup">
+            <div>
+                <form onsubmit="return addSingleGoal()">
+                    <input type="text" id="new-single-goal" placeholder="Add that Kudzu III you never did">
+                    <button class="list-button-+" type="submit">+</button>
+                </form>
+                <!-- Custom tasks for Single Goals -->
+                <ul id="single-goals" class="task-list"></ul>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- Night Mode Button -->
+    <div class="night-mode-button" onclick="toggleNightMode()">
+        <span id="night-mode-icon">☀️</span>
+    </div>
+  
+    <script src="script.js"></script>
+</body>
+</html>
