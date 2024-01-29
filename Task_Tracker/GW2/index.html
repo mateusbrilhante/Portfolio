@@ -515,12 +515,16 @@ function resetWeeklyTasks() {
 
         function deleteTaskSubgroup(category, subgroup) {
             if (confirm(`Are you sure you want to delete the ${subgroup} subgroup? This will also remove all tasks associated with it.`)) {
+                // Remove the subgroup and its associated tasks from savedTasks
                 delete savedTasks[category][subgroup];
                 delete savedTasks[category + 'Checked'][subgroup];
+                // Update the task list on the page
                 updateTaskList();
+                // Save the updated tasks to localStorage
                 saveTasksToStorage();
             }
         }
+
 
 
         // Initial update when the page loads
