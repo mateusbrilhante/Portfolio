@@ -213,6 +213,8 @@
                 <!-- Default tasks for Strikes subgroup -->
                 <ul id="daily-tasks-strikes" class="task-list"></ul>
             </div>
+
+            <button class="list-button-+" onclick="addNewSubgroup('daily')">+</button>
         </div>
 
         <!-- Daily Task List -->
@@ -360,6 +362,8 @@
                         <span class="delete-button" onclick="deleteTask('${category}', '${subgroup}', ${index})">✘</span>
                     </li>`;
             }).join('');
+            
+            taskList.innerHTML += `<button class="list-button-+" onclick="addNewSubgroup('${category}')">+</button>`;
         }
 
         function updateSingleGoals() {
@@ -491,6 +495,30 @@ function resetWeeklyTasks() {
                 document.body.classList.add('night-mode');
             }
     }
+
+        function addNewSubgroup(category) {
+        const newSubgroupName = prompt('Enter the name for the new subgroup:');
+        if (newSubgroupName) {
+            // Check if the subgroup already exists
+            if (!savedTasks[category].hasOwnProperty(newSubgroupName)) {
+                savedTasks[category][newSubgroupName] = [];
+                savedTasks[category + 'Checked'][newSubgroupName] = [];
+                updateTaskList();
+                saveTasksToStorage();
+            } else {
+                alert('Subgroup with that name already exists!');
+            }
+        }
+    }
+
+        function deleteTaskGroup(category, subgroup) {
+            if (confirm(`Are you sure you want to delete the "${subgroup}" subgroup?`)) {
+                delete savedTasks[category][subgroup];
+                delete savedTasks[category + 'Checked'][subgroup];
+                updateTaskList();
+                saveTasksToStorage();
+            }
+        }
 
         // Call the function to update the night mode icon when the page loads
         window.addEventListener('load', updateNightModeIcon);
