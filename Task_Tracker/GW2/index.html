@@ -499,28 +499,29 @@ function resetWeeklyTasks() {
     }
 
         function addNewSubgroup(category) {
-        const newSubgroupName = prompt('Enter the name for the new subgroup:');
-        if (newSubgroupName) {
-            // Check if the subgroup already exists
-            if (!savedTasks[category].hasOwnProperty(newSubgroupName)) {
-                savedTasks[category][newSubgroupName] = [];
-                savedTasks[category + 'Checked'][newSubgroupName] = [];
-                updateTaskList();
-                saveTasksToStorage();
-            } else {
-                alert('Subgroup with that name already exists!');
+            const newSubgroupName = prompt('Enter the name for the new subgroup:');
+            if (newSubgroupName) {
+                // Check if the subgroup already exists
+                if (!savedTasks[category].hasOwnProperty(newSubgroupName)) {
+                    savedTasks[category][newSubgroupName] = [];
+                    savedTasks[category + 'Checked'][newSubgroupName] = [];
+                    updateTaskList(); // Update the task list after adding a new subgroup
+                    saveTasksToStorage();
+                } else {
+                    alert('Subgroup with that name already exists!');
+                }
             }
         }
-    }
 
         function deleteTaskGroup(category, subgroup) {
             if (confirm(`Are you sure you want to delete the "${subgroup}" subgroup?`)) {
                 delete savedTasks[category][subgroup];
                 delete savedTasks[category + 'Checked'][subgroup];
-                updateTaskList();
+                updateTaskList(); // Update the task list after deleting a subgroup
                 saveTasksToStorage();
             }
         }
+
 
         // Call the function to update the night mode icon when the page loads
         window.addEventListener('load', updateNightModeIcon);
