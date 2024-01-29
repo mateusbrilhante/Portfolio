@@ -523,7 +523,7 @@ function resetWeeklyTasks() {
         savedTasks[category][subgroup] = [];
 
         // Remove the HTML elements for the subgroup title and tasks
-        const subgroupElement = document.querySelector(`.task-subgroup h3:contains('${subgroup}')`).closest('.task-subgroup');
+        const subgroupElement = document.querySelector(`.task-subgroup > div > h3:contains('${subgroup}')`).closest('.task-subgroup');
         const taskGroup = subgroupElement.parentElement;
         taskGroup.removeChild(subgroupElement);
 
