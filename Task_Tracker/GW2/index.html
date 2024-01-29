@@ -523,14 +523,13 @@ function resetWeeklyTasks() {
         savedTasks[category][subgroup] = [];
 
         // Remove the HTML elements for the subgroup title and tasks
-        const subgroupElement = document.querySelector(`.task-subgroup h3:contains('${subgroup}')`).closest('.task-subgroup');
-        const taskGroup = subgroupElement.closest('.task-group');
-        subgroupElement.remove();
-
-        // If there are no more subgroups in the task group, remove the entire task group
-        if (taskGroup.querySelectorAll('.task-subgroup').length === 0) {
-            taskGroup.remove();
-        }
+        const taskSubgroups = document.querySelectorAll('.task-subgroup');
+        taskSubgroups.forEach((subgroupElement) => {
+            const titleElement = subgroupElement.querySelector('h3');
+            if (titleElement && titleElement.textContent.includes(subgroup)) {
+                subgroupElement.remove();
+            }
+        });
 
         // Update the task list on the page
         updateTaskList();
@@ -539,6 +538,7 @@ function resetWeeklyTasks() {
         saveTasksToStorage();
     }
 }
+
 
 
 
