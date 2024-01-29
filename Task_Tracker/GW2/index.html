@@ -523,10 +523,9 @@ function resetWeeklyTasks() {
         savedTasks[category][subgroup] = [];
 
         // Remove the HTML elements for the subgroup title and tasks
-        const subgroupElement = document.querySelector(`.task-subgroup h3:contains('${subgroup}')`);
-        if (subgroupElement) {
-            subgroupElement.parentElement.remove();
-        }
+        const subgroupElement = document.querySelector(`.task-subgroup h3:contains('${subgroup}')`).closest('.task-subgroup');
+        const taskGroup = subgroupElement.parentElement;
+        taskGroup.removeChild(subgroupElement);
 
         // Update the task list on the page
         updateTaskList();
@@ -535,6 +534,7 @@ function resetWeeklyTasks() {
         saveTasksToStorage();
     }
 }
+
 
         // Initial update when the page loads
         updateTaskList();
