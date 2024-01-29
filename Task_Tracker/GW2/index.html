@@ -519,20 +519,8 @@ function resetWeeklyTasks() {
         delete savedTasks[category][subgroup];
         delete savedTasks[category + 'Checked'][subgroup];
 
-        // Filter out the deleted subgroup tasks from the daily or weekly tasks array
-        savedTasks[category] = Object.keys(savedTasks[category]).reduce((result, key) => {
-            if (key !== subgroup) {
-                result[key] = savedTasks[category][key];
-            }
-            return result;
-        }, {});
-
-        savedTasks[category + 'Checked'] = Object.keys(savedTasks[category + 'Checked']).reduce((result, key) => {
-            if (key !== subgroup) {
-                result[key] = savedTasks[category + 'Checked'][key];
-            }
-            return result;
-        }, {});
+        // Clear the tasks associated with the deleted subgroup
+        savedTasks[category][subgroup] = [];
 
         // Update the task list on the page
         updateTaskList();
