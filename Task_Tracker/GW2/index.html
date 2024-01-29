@@ -522,17 +522,20 @@ function resetWeeklyTasks() {
         // Clear the tasks associated with the deleted subgroup
         savedTasks[category][subgroup] = [];
 
-        // Remove the HTML elements for the subgroup title and tasks
-        const subgroupElement = document.querySelector(`.task-subgroup h3:contains('${subgroup}')`).closest('.task-subgroup');
-        subgroupElement.remove();
-
         // Update the task list on the page
         updateTaskList();
+
+        // Remove the title element for the deleted subgroup
+        const titleElement = document.querySelector(`.task-subgroup h3:contains('${subgroup}')`);
+        if (titleElement) {
+            titleElement.parentElement.remove(); // Remove the parent div containing the title
+        }
 
         // Save the updated tasks to localStorage
         saveTasksToStorage();
     }
 }
+
 
 
 
