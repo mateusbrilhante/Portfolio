@@ -164,8 +164,8 @@
             <div>
                 <h3 data-subgroup="nodes">Random Stuff <span class="delete-button" onclick="deleteTaskSubgroup('daily', 'nodes')">✘</span></h3>
                 <form data-subgroup="nodes" onsubmit="return addDailyTask('nodes')">
-                    <input type="text" id="new-daily-nodes" placeholder="Add stuff">
-                    <button class="list-button-+" type="submit">+</button>
+                    <input data-subgroup="nodes" type="text" id="new-daily-nodes" placeholder="Add stuff">
+                    <button data-subgroup="nodes" class="list-button-+" type="submit">+</button>
                 </form>
                 <!-- Default tasks for Nodes subgroup -->
                 <ul id="daily-tasks-nodes" class="task-list"></ul>
