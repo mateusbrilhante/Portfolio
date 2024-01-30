@@ -524,7 +524,9 @@ function resetWeeklyTasks() {
 
         // Remove the HTML elements for the subgroup title and tasks
         const taskSubgroupElement = document.querySelector(`.task-subgroup [data-subgroup="${subgroup}"]`);
-        taskSubgroupElement.parentElement.removeChild(taskSubgroupElement);
+        if (taskSubgroupElement) {
+            taskSubgroupElement.parentElement.removeChild(taskSubgroupElement);
+        }
 
         // Remove references to input and button elements associated with the deleted subgroup
         const inputElement = getInputElement(subgroup);
@@ -539,6 +541,7 @@ function resetWeeklyTasks() {
         saveTasksToStorage();
     }
 }
+
 
         // Initial update when the page loads
         updateTaskList();
