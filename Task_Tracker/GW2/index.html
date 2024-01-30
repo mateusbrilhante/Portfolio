@@ -532,12 +532,6 @@ function resetWeeklyTasks() {
             inputElement.parentElement.removeChild(inputElement);
         }
 
-        // Remove the subgroup's form from the initial HTML structure
-        const formElement = document.querySelector(`form[data-subgroup="${subgroup}"]`);
-        if (formElement) {
-            formElement.parentElement.removeChild(formElement);
-        }
-
         // Update the task list on the page
         updateTaskList();
 
@@ -545,6 +539,7 @@ function resetWeeklyTasks() {
         saveTasksToStorage();
     }
 }
+
 
 
         // Initial update when the page loads
