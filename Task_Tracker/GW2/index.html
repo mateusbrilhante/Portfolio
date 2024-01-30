@@ -162,7 +162,7 @@
         <div class="task-subgroup">
 
             <div>
-                <h3>Random Stuff <span class="delete-button" onclick="deleteTaskSubgroup('daily', 'nodes')">✘</span></h3>
+                <h3 data-subgroup="nodes">Random Stuff <span class="delete-button" onclick="deleteTaskSubgroup('daily', 'nodes')">✘</span></h3>
                 <form onsubmit="return addDailyTask('nodes')">
                     <input type="text" id="new-daily-nodes" placeholder="Add stuff">
                     <button class="list-button-+" type="submit">+</button>
@@ -522,10 +522,9 @@ function resetWeeklyTasks() {
         // Clear the tasks associated with the deleted subgroup
         savedTasks[category][subgroup] = [];
 
-        // Remove the HTML elements for the subgroup title, input field, and tasks
-        const subgroupElement = document.querySelector(`.task-subgroup > div > h3:contains('${subgroup}')`).closest('div');
-        const taskGroup = subgroupElement.parentElement;
-        taskGroup.removeChild(subgroupElement);
+        // Remove the HTML elements for the subgroup title and tasks
+        const taskSubgroupElement = document.querySelector(`.task-subgroup [data-subgroup="${subgroup}"]`);
+        taskSubgroupElement.parentElement.removeChild(taskSubgroupElement);
 
         // Update the task list on the page
         updateTaskList();
@@ -534,6 +533,7 @@ function resetWeeklyTasks() {
         saveTasksToStorage();
     }
 }
+
 
 
 
