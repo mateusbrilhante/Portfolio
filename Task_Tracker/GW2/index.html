@@ -163,7 +163,7 @@
 
             <div>
                 <h3 data-subgroup="nodes">Random Stuff <span class="delete-button" onclick="deleteTaskSubgroup('daily', 'nodes')">✘</span></h3>
-                <form onsubmit="return addDailyTask('nodes')">
+                <form data-subgroup="nodes" onsubmit="return addDailyTask('nodes')">
                     <input type="text" id="new-daily-nodes" placeholder="Add stuff">
                     <button class="list-button-+" type="submit">+</button>
                 </form>
