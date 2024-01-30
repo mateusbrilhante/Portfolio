@@ -522,13 +522,9 @@ function resetWeeklyTasks() {
         // Clear the tasks associated with the deleted subgroup
         savedTasks[category][subgroup] = [];
 
-        // Remove the HTML elements for the subgroup title, input field, and button
+        // Remove the HTML elements for the subgroup title, input field, and add button
         const taskSubgroupElement = document.querySelector(`.task-subgroup [data-subgroup="${subgroup}"]`);
-        const inputField = taskSubgroupElement.querySelector('input[type="text"]');
-        const addButton = taskSubgroupElement.querySelector('button');
         taskSubgroupElement.parentElement.removeChild(taskSubgroupElement);
-        inputField.parentElement.removeChild(inputField);
-        addButton.parentElement.removeChild(addButton);
 
         // Update the task list on the page
         updateTaskList();
@@ -537,7 +533,6 @@ function resetWeeklyTasks() {
         saveTasksToStorage();
     }
 }
-
 
 
         // Initial update when the page loads
