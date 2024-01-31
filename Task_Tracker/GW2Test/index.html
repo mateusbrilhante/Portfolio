@@ -162,10 +162,10 @@
         <div class="task-subgroup">
 
             <div>
-                <h3>Random Stuff</h3>
-                <form onsubmit="return addDailyTask('nodes')">
-                    <input type="text" id="new-daily-nodes" placeholder="Add stuff">
-                    <button class="list-button-+" type="submit">+</button>
+                <h3 data-subgroup="nodes">Random Stuff <span class="delete-button" onclick="deleteTaskSubgroup('daily', 'nodes')">✘</span></h3>
+                <form data-subgroup="nodes" onsubmit="return addDailyTask('nodes')">
+                    <input data-subgroup="nodes" type="text" id="new-daily-nodes" placeholder="Add stuff">
+                    <button data-subgroup="nodes" class="list-button-+" type="submit">+</button>
                 </form>
                 <!-- Default tasks for Nodes subgroup -->
                 <ul id="daily-tasks-nodes" class="task-list"></ul>
@@ -512,6 +512,39 @@ function resetWeeklyTasks() {
                 default: return null;
             }
         }
+
+       function deleteTaskSubgroup(category, subgroup) {
+    if (confirm(`Are you sure you want to delete the ${subgroup} subgroup? This will also remove all tasks associated with it.`)) {
+        // Remove the subgroup and its associated tasks from savedTasks
+        delete savedTasks[category][subgroup];
+        delete savedTasks[category + 'Checked'][subgroup];
+
+        // Clear the tasks associated with the deleted subgroup
+        savedTasks[category][subgroup] = [];
+
+        // Remove the HTML elements for the subgroup title and tasks
+        const taskSubgroupElement = document.querySelector(`.task-subgroup [data-subgroup="${subgroup}"]`);
+        taskSubgroupElement.parentElement.removeChild(taskSubgroupElement);
+
+        // Remove references to input and button elements associated with the deleted subgroup
+        const inputElement = document.querySelector(`input[data-subgroup="${subgroup}"]`);
+        if (inputElement) {
+            inputElement.parentElement.removeChild(inputElement);
+        }
+        const buttonElement = document.querySelector(`button[data-subgroup="${subgroup}"]`);
+        if (buttonElement) {
+            buttonElement.parentElement.removeChild(buttonElement);
+        }
+
+        // Update the task list on the page
+        updateTaskList();
+
+        // Save the updated tasks to localStorage
+        saveTasksToStorage();
+    }
+}
+
+
 
         // Initial update when the page loads
         updateTaskList();
