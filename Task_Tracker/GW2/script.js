@@ -23,7 +23,7 @@ let savedTasks = JSON.parse(localStorage.getItem('tasks'));
 savedTasks = savedTasks || {
     daily: {
         events: ["Zombi Doragon", "Naked Man", "Piñata", "Chak Gerent", "Octovine", "Dragonstorm", "Leviathan"],
-        flax: ["Revenant", "Guardian", "Warrior", "Ranger", "Engineer", "Mesmer"],
+        flax: ["Revenant", "Guardian", "Warrior", "Ranger", "Engineer", "Mesmer", "Necromancer", "Elementalist"],
         fractals: ["Deeply D. Keys", "Tier 4", "Recs", "CMs"],
         nodes: ["Guild", "Home", "Charged Quartz", "Wizard's Daily", "Prov. Tokens", "Ecto. Refinement", "Converters", "Drizzlewood M. D."],
         strikes: ["SotO", "IBS", "EoD"]
@@ -36,7 +36,7 @@ savedTasks = savedTasks || {
     singleGoals: [],
     dailyChecked: {
         events: [false, false, false, false, false, false, false],
-        flax: [false, false, false, false, false, false],
+        flax: [false, false, false, false, false, false, false, false],
         fractals: [false, false, false, false],
         nodes: [false, false, false, false, false, false, false, false],
         strikes: [false, false, false],
