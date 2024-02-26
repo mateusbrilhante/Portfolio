@@ -18,7 +18,7 @@ body {
   width: 85%;
   height: 100vh;
   margin: 20px auto;
-  background-color: white;
+  background-color: linear-gradient(90deg, rgb(120,120,120,0.2), rgb(120,120,120,0.4), rgb(120,120,120,0.6), rgb(120,120,120,0.8));
   color: black;
   font-family: Arial;
 }
