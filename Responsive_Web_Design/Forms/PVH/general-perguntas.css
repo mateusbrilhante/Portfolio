@@ -1,5 +1,5 @@
 .lightmode {
-  background-color: hsl(0,0%,20%);
+  background-color: linear-gradient(90deg, rgb(120,120,120,0.2), rgb(120,120,120,0.4), rgb(120,120,120,0.6), rgb(120,120,120,0.8));
   color: hsl(120,100%,100%);
 }
 
