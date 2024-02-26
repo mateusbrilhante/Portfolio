@@ -1,0 +1,147 @@
+.lightmode {
+  background-color: hsl(0,0%,20%);
+  color: hsl(120,100%,100%);
+}
+
+.dmode {
+  position: absolute;
+  top: 0;
+  right: 0;
+  vertical-align: middle;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 85%;
+  height: 100vh;
+  margin: 20px auto;
+  background-color: white;
+  color: black;
+  font-family: Arial;
+}
+
+
+
+h1, .subtitle, title, .id {
+  margin: 1em auto;
+  text-align: center;
+}
+
+
+.ident{
+  border: none;
+  border-right: 1px solid white;
+  border-left: 1px solid white;
+  margin: 0 -14px
+}
+
+.pinfo {
+  display: block;
+  width: 100%;
+  min-width: 200px;
+  margin: 5px 0 20px 0;
+}
+
+form {
+  width: 60vw;
+  max-width: 500px;
+  min-width: 300px;
+  margin: 0 auto;
+  padding-bottom: 2em;
+}
+
+label, textarea, p {
+  display: block;
+  margin: 5px 0 5px 0;
+}
+
+
+
+textarea {
+  width: 98%;
+  margin: 20px auto;
+  max-width: 500px;
+  min-height: 70px
+}
+
+input {
+  margin: 7px 5px 7px 0;
+}
+
+.quest{
+  display: block;
+  margin: 25px 0 0 0;
+}
+.id {
+  background: white;
+  color: black;
+  font-size: 19px;
+  height: 31px;
+  width: 200px;
+
+  
+}
+
+.tit{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex;
+  
+}
+
+.idimg {
+  width: 14%;
+  position: relative;
+  right: 74px;
+  bottom: 34px;
+}
+
+.pd1{
+  position: relative;
+  bottom: 90%;
+  left:  1px;
+}
+
+.questimg {
+  width: 10%;
+  position: relative;
+  right: 70px;
+  bottom: 36px;
+}
+
+.textimg {
+  width: 19%;
+  position: relative;
+  right: 70px;
+  bottom: 42px;
+}
+
+input[type="file"] {
+  background-color: white;
+  border: 1px solid white;
+  color: black;
+  display: block;
+  width: 100%;
+  min-width: 200px;
+
+}
+
+input[type="submit"]{
+  display: block;
+  width: 35%;
+  margin: 20px auto;
+}
+
+.boton {
+  background: linear-gradient(hsl(0,0%,30%)0%, hsl(0,0%,100%)90%,hsl(0,0%,30%));
+  box-shadow: 0 0 11px 0 white;
+}
+
+footer {
+  padding-bottom: 10px;
+}
