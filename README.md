@@ -8,4 +8,4 @@ Welcome to my portfolio repository!
 
 Here you can find Android Modifications, Electronic Projects, Java Apps, Responsive Web Pages and Task Trackers.
 
-Curious? Check it out: https://mateusbrilhante.github.io/Portfolio/Introduction.
+Curious? Check it out: https://mateusbrilhante.github.io/Portfolio/Home.
