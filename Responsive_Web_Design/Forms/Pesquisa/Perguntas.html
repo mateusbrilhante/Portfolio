@@ -1,0 +1,245 @@
+<!-- 
+None of this would be possible without the teachings of https://www.freecodecamp.org/learn about HTML/CSS and 
+https://github.com/levinunnink/html-form-to-google-sheet about javascript. Your help was really appreciated. Thank you.
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+	  
+	  
+    <title>PVH Pesquisa</title>
+	  <meta charset="utf-8"></meta>
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	  <link rel="stylesheet" href="https://mateusbrilhante.github.io/PVH-CHICS/Pesquisa/general-perguntas.css" />
+	  <link rel="icon" href="https://raw.githubusercontent.com/mateusbrilhante/PVH-Forms/main/Sistemas/CD_PVH_MBM.png"/>
+  </head>
+<button class="dmode boton" onclick="myFunction()">☾</button>
+
+<script>
+	function myFunction() {
+   var element = document.body;
+   element.classList.toggle("lightmode");
+}
+	
+
+</script>
+
+  <h1 id="title">Cidade Humana</h1>
+  <body>
+    <p class="subtitle" id="description">Você gostaria de participar de uma pesquisa sobre a vida em Porto Velho?</p>
+	  
+	  
+	  
+    <form id="survey-form" method="POST" action="https://script.google.com/macros/s/AKfycbxm_uZl-3Ez2ym6YUyr-AUVAfiGbUr5CbO_7Q8GUAD59J-Qp_Ma_vZQ6yJy41AEHgqN/exec" >
+	    
+<script>
+	window.addEventListener("load", function() {
+  const form = document.getElementById('survey-form');
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+    const data = new FormData(form);
+    const action = e.target.action;
+    fetch(action, {
+      method: 'POST',
+      body: data,
+    })
+    .then(() => {
+      window.open('https://mateusbrilhante.github.io/PVH-CHICS/Pesquisa/Enviado.html', '_self');
+
+    })
+  });
+});
+</script>
+     
+    <fieldset class="id"><p class="pd1" >Identificação</p><img class="idimg" src="idicon.png" alt="identification icon"/>
+    </fieldset>
+
+    <fieldset class="ident">
+	       
+    <p class="pinfo">Não se preocupe, suas informações pessoais não serão divulgadas.</p>
+    <label id="name-label" for="name" >Nome completo<input name="Nome" class="pinfo" id="name" type="text" placeholder="Digite A se quiser anônimo" required /></label>
+    <label id="email-label" for="email">Email<input name="Email" class="pinfo" id="email" type="email" placeholder="Opcional" /></label>
+    <label id="number-label" for="number">Idade<input name="Idade" class="pinfo" id="number" type="number" placeholder="Sua idade realmente ajudaria na pesquisa" required min="4" max="120" /></label>
+    </fieldset>
+
+<fieldset class="id"><p class="pd1" >Perguntas</p><img class="questimg" src="questionsicon.png" alt="questions icon"/>
+    </fieldset>
+
+    <fieldset class="ident">
+    <label for="select" id="select"  >Há quanto tempo mora na cidade?
+    <select required name="Morada" class="pinfo" id="dropdown">
+     <option selected hidden value="">(selecione uma opção)</option>
+     <option value="Recente">Mudei recentemente</option>
+     <option value="Meses">Há alguns meses</option>
+    <option value="Anos">Há alguns anos</options>
+    <option value="Vida">Boa parte da minha vida</option>
+    </select>
+    </label>
+	    
+	    <label for="select" id="select"  >Em qual bairro mora?
+    <select required name="Bairro" class="pinfo" id="dropdown">
+     <option selected hidden value="">(selecione uma opção)</option>
+<option value="Aeroclube">Aeroclube</option>
+<option value="Agenor de Carvalho">Agenor de Carvalho</option>
+<option value="Aponiã">Aponiã</option>
+<option value="Área Militar e Aeroporto">Área Militar e Aeroporto</option>
+<option value="Areal">Areal</option>
+<option value="Areia Branca">Areia Branca</option>
+<option value="Arigolândia">Arigolândia</option>
+<option value="Baixa da União">Baixa da União</option>
+<option value="Caiari">Caiari</option>
+<option value="Caladinho">Caladinho</option>
+<option value="Cascalheira">Cascalheira</option>
+<option value="Castanheira">Castanheira</option>
+<option value="Centro">Centro</option>
+<option value="Cidade do Lobo">Cidade do Lobo</option>
+<option value="Cidade Jardim">Cidade Jardim</option>
+<option value="Cidade Nova">Cidade Nova</option>
+<option value="Cohab">Cohab</option>
+<option value="Conceição">Conceição</option>
+<option value="Costa e Silva">Costa e Silva</option>
+<option value="Cuniã">Cuniã</option>
+<option value="Eldorado">Eldorado</option>
+<option value="Eletronorte">Eletronorte</option>
+<option value="Embratel">Embratel</option>
+<option value="Escola de Polícia">Escola de Polícia</option>
+<option value="Esperança da Comunidade">Esperança da Comunidade</option>
+<option value="Flodoaldo Pontes Pinto">Flodoaldo Pontes Pinto</option>
+<option value="Floresta">Floresta</option>
+<option value="Igarapé">Igarapé</option>
+<option value="Industrial">Industrial</option>
+<option value="Jardim Santana">Jardim Santana</option>
+<option value="Juscelino Kubitschek">Juscelino Kubitschek</option>
+<option value="KM 1">KM 1</option>
+<option value="Lagoa">Lagoa</option>
+<option value="Lagoinha">Lagoinha</option>
+<option value="Liberdade">Liberdade</option>
+<option value="Marcos Freire">Marcos Freire</option>
+<option value="Mariana">Mariana</option>
+<option value="Maringá">Maringá</option>
+<option value="Mato Grosso">Mato Grosso</option>
+<option value="Militar">Militar</option>
+<option value="Mocambo">Mocambo</option>
+<option value="Nacional">Nacional</option>
+<option value="Nossa Senhora das Graças">Nossa Senhora das Graças</option>
+<option value="Nova Esperança">Nova Esperança</option>
+<option value="Nova Floresta">Nova Floresta</option>
+<option value="Nova Porto Velho">Nova Porto Velho</option>
+<option value="Novo Horizonte">Novo Horizonte</option>
+<option value="Olaria">Olaria</option>
+<option value="Panair">Panair</option>
+<option value="Pantanal">Pantanal</option>
+<option value="Pedrinhas">Pedrinhas</option>
+<option value="Planalto">Planalto</option>
+<option value="Rio Madeira">Rio Madeira</option>
+<option value="Ronaldo Aragão">Ronaldo Aragão</option>
+<option value="Roque">Roque</option>
+<option value="Santa Bárbara">Santa Bárbara</option>
+<option value="São Cristóvão">São Cristóvão</option>
+<option value="São Francisco">São Francisco</option>
+<option value="São João Bosco">São João Bosco</option>
+<option value="São Sebastião">São Sebastião</option>
+<option value="Socialista">Socialista</option>
+<option value="Tancredo Neves">Tancredo Neves</option>
+<option value="Teixeirão">Teixeirão</option>
+<option value="Tiradentes">Tiradentes</option>
+<option value="Três Marias">Três Marias</option>
+<option value="Triângulo">Triângulo</option>
+<option value="Tucumunzal">Tucumunzal</option>
+<option value="Tupy">Tupy</option>
+<option value="Ulysses Guimarães">Ulysses Guimarães</option>
+    </select>
+    </label>
+
+     <p class="quest">Dos locais abaixo, quais você precisa de condução para acessá-los?</p>
+      <label for="delegacia"><input id="delegacia" type="checkbox" name="Colégio/Faculdade" value="Longe" />Colégio ou faculdade</label>
+	    <label for="hospital"><input id="hospital" type="checkbox" name="Hospital/Postinho" value="Longe" />Hospital ou postinho</label>
+      <label for="mercado"><input id="mercado" type="checkbox" name="Mercado/Mercearia" value="Longe" />Mercado ou mercearia</label>
+     <label for="trabalho"><input id="trabalho" type="checkbox" name="Trabalho" value="Longe" />Trabalho</label>
+
+     <label class="quest" for="movimento">Como é o trânsito na região onde mora?
+    <select required name="Movimento" class="pinfo" id="movimento">
+     <option selected hidden value="">(selecione uma opção)</option>
+     <option value="DiaTodo">Movimentado o dia todo</option>
+     <option value="HorPico">Movimentado nos horários de pico</option>
+    <option value="Pouco">Pouco movimentado</options>
+    <option value="Raro">Raramente passa carro</option>
+    </select>
+    
+    <p class="quest">Quais dos espaços públicos abaixo existem em sua região?</p>
+    <label for="bosque"><input id="bosque" type="checkbox" name="Bosque" value="Tem" />Bosque</label>
+    <label for="calçadões"><input id="calçadões" type="checkbox" name="Calçadões" value="Tem" />Calçadões</label>
+    <label for="parquinho"><input id="parquinho" type="checkbox" name="Parquinho" value="Tem" />Parquinho</label>
+    <label for="praça"><input id="praça" type="checkbox" name="Praça" value="Tem" />Praça</label>
+
+     
+    <label class="quest" for="monumento">Você conhece algum monumento histórico e/ou cultural da cidade?
+    <select required name="Monumento" class="pinfo" id="monumento">
+     <option selected hidden value="">(selecione uma opção)</option>
+     <option value="Visitei">Sim e já visitei</option>
+     <option value="Conheço">Sim mas nunca visitei</option>
+    <option value="NConheço">Não mas gostaria</options>
+    <option value="NInteressa">Não e não me chama a atenção</option>
+    </select>
+
+    <p class="quest">Na sua comunidade, quais tipos de pessoas estão presentes?</p>
+    <label for="adolecrianç"><input id="adolecrianç" type="checkbox" name="Adoles&Crianças" value="Tem" />Adolescentes e crianças</label>
+    <label for="depentendesq"><input id="dependentesq" type="checkbox" name="DependentesQ" value="Tem" />Dependentes químicos</label>
+    <label for="idosos"><input id="idosos" type="checkbox" name="Idosos" value="Tem" />Idosos</label>
+    <label for="ricosepobres"><input id="ricosepobres" type="checkbox" name="Ricos&Pobres" value="Tem" />Ricos e pobres</label>
+
+  <label class="quest" for="obrap">Sobre obras públicas de construção e reformas na região onde mora. Existe alguma inacabada? Quais tipos?
+    <select required name="ObrasPInacabadas" class="pinfo" id="obrap">
+     <option selected hidden value="">(selecione uma opção)</option>
+     <option value="PrédiosPub">Prédios públicos (escolas, hospitais..)</option>
+     <option value="InfraestTransporte">Infraestrutura de transporte (estradas, portos..)</option>
+    <option value="ServiçoPub">Serviços públicos (rede de água, esgoto, elétrica..)</options>
+    <option value="Todas">Todos ou quase todos os tipos citados</option>
+    <option value="Nenhuma">Nenhuma</option>
+    </select>
+
+    <p class="quest">Do seu ponto de vista, qual seria o tipo de obra mais urgente na sua região?</p>
+    <label for="PrédioPub" ><input required value="PrédiosPub" type="radio" id="PrédioPub" name="ObraUrgente"  />Prédios públicos</label>
+    <label for="ServiçPub"><input required value="ServiçoPub" type="radio" id="ServiçPub" name="ObraUrgente" />Serviços públicos</label>
+    <label for="InfraestTransport"><input required value="InfraestTransporte" type="radio" id="InfraestTransport" name="ObraUrgente"  />Infraestrutura de transporte</label>
+    <label for="Outro"><input required value="Outros" type="radio" id="Outro" name="ObraUrgente" />Outros</label>
+
+    </fieldset>
+
+<fieldset class="id"><p class="pd1" >Opinião</p><img class="textimg" src="texticon.png" alt="book icon"/>
+    </fieldset>
+    <fieldset class="ident">
+      <p class="quest">Você gosta da cidade?</p>
+    <label for="yes" ><input value="Sim" type="radio" id="yes" name="Gosta" required  />Sim</label>
+    <label for="no"><input value="Nao" type="radio" id="no" name="Gosta" required />Não</label>
+
+     <p class="quest">E quais aspectos da cidade (e da sua vida) fazem você pensar desse jeito?</p>
+    <label for="Environment"><input id="environment" name="Ambiente&Beleza" value="Motivo" type="checkbox"/>Ambiente e beleza</label>
+    <label for="size"><input id="size" type="checkbox" name="Tamanho&Tráfego" value="Motivo" />Tamanho e tráfego</label>
+    <label for="features"><input type="checkbox" id="features" name="Recursos&RelaçõesP" value="Motivo"  />Recursos e relações pessoais</label>
+    <label for="saúdep"><input type="checkbox" id="saúdep" name="SaúdePub" value="Motivo" />Saúde pública</label>
+    <label for="safety"><input type="checkbox" id="safety" name="Segurança" value="Motivo" />Segurança</label>
+
+    <p class="quest">Qual seria o pior aspecto?</p>
+    <select required name="PiorAspecto" class="pinfo" id="pioraspecto">
+   	 <option selected hidden value="">(selecione uma opção)</option>
+    	<option value="PrédiosPub">Ambiente e beleza</option>
+    	<option value="InfraestTransporte">Tamanho e tráfego</option>
+    	<option value="ServiçoPub">Recursos e relações pessoais</options>
+    	<option value="SaúdePub">Saúde pública</option>
+    	<option value="Segurança">Segurança</option>
+    </select>
+	    
+    <label class="quest" for="favs">Gostaria de dizer mais alguma coisa? Coisas favoritas ou que te incomodam?<textarea id="thoughts" name="Texto" placeholder="Eu gosto da comida, sinto falta de lugares com internet, bosques.."></textarea></label>
+    </fieldset>
+    <p class="subtitle">Muito obrigado</p>
+   
+    <input class="boton" type="submit" id="submit" value="Enviar" />
+
+
+    </form>
+    </body>
+    <footer class="subtitle"> 
+      <p>Por um futuro melhor</p>
+      </footer>
+</html>
