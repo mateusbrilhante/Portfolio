@@ -1,0 +1,20 @@
+body {
+   background-color: hsl(0,0%,20%);
+   color: hsl(120,100%,100%);
+   text-align: center;
+}
+
+h1 {
+   padding-top: 40vh;
+   font-size: 8vh;
+   margin: auto auto;
+   font-family: Trebuchet MS;
+}
+
+p {
+   padding-top: 40vh;
+   font-size: 4vh;
+   margin: auto auto;
+   font-family: Trebuchet MS;
+   
+}
