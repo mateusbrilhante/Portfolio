@@ -167,7 +167,7 @@ img {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
+    background-color: black;
     width: auto;
     z-index: 1000;
 }
@@ -181,16 +181,24 @@ img {
     padding: 10px;
 }
 
+.dropdown-content ul li a {
+    text-decoration: none;
+    font-family: 'Trebuchet MS', sans-serif;
+    color: white;
+}
+
+.dropdown-content ul li a:hover {
+    color: gray;
+}
+
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
-/* Style the subtopics */
 .subtopic {
     cursor: pointer;
 }
 
-/* Style the projects */
 .projects-group {
     display: none;
     margin-top: 20px;
@@ -222,6 +230,4 @@ img {
   width: 80% !important;
   height: 80% !important;
 }
-
-  
 }
