@@ -162,7 +162,6 @@ img {
 .dropdown {
     position: relative;
     display: inline-block;
-    margin-top: 5px;
 }
 
 .dropdown-content {
@@ -173,6 +172,7 @@ img {
     z-index: 1000;
     border-radius: 2px;
     box-shadow: 0 0 2px white;
+    margin-top: 10px;
 }
 
 .dropdown-content ul {
