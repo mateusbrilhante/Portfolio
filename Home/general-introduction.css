@@ -212,15 +212,6 @@ img {
     display: block;
 }
 
-.dropbtn {
-  position: relative;
-}
-
-.dropbtn:hover {
-  text-decoration: underline;
-}
-
-
 @media (max-width: 1024px){
   h1 {
     font-size: 8vw;
