@@ -170,7 +170,7 @@ img {
     background-color: black;
     width: auto;
     z-index: 1000;
-    border-radius: 10px;
+    border-radius: 1px;
     box-shadow: 0 0 2px white;
 }
 
