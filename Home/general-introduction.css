@@ -20,7 +20,7 @@ header {
  height: 9vh;
  align-items: center;
  justify-items: space-between;
-overflow: hidden;
+/*overflow: hidden; trying to make dropdown list to appear*/
 border-bottom: white solid;
 }
 
