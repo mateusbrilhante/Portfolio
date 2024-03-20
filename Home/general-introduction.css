@@ -173,6 +173,7 @@ img {
     z-index: 1000;
     border-radius: 2px;
     box-shadow: 0 0 2px white;
+    top: 100%;
 }
 
 .dropdown-content ul {
@@ -209,6 +210,14 @@ img {
 
 .dropdown:hover .projects-group {
     display: block;
+}
+
+.dropbtn {
+  position: relative;
+}
+
+.dropbtn:hover {
+  text-decoration: underline;
 }
 
 
