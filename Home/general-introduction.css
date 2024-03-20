@@ -159,6 +159,48 @@ img {
     
   }
 
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.dropdown-content ul li {
+    padding: 10px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Style the subtopics */
+.subtopic {
+    cursor: pointer;
+}
+
+/* Style the projects */
+.projects-group {
+    display: none;
+    margin-top: 20px;
+}
+
+.dropdown:hover .projects-group {
+    display: block;
+}
+
+
 @media (max-width: 1024px){
   h1 {
     font-size: 8vw;
