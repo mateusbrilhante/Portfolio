@@ -172,7 +172,7 @@ img {
     z-index: 1000;
     border-radius: 2px;
     box-shadow: 0 0 2px white;
-    padding-top: 5px;
+    margin-top: 5px;
 }
 
 .dropdown-content ul {
